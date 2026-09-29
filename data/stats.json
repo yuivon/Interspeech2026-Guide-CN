@@ -1,0 +1,2517 @@
+{
+  "source_listed_count": 1375,
+  "data_scope": "sample",
+  "analysis_complete_count": 15,
+  "analysis_total_count": 15,
+  "analysis_status": "complete",
+  "all": {
+    "paper_count": 15,
+    "percentage": 1.09,
+    "top_topics": [
+      {
+        "name": "临床语音分析",
+        "count": 3
+      },
+      {
+        "name": "关键词检测",
+        "count": 2
+      },
+      {
+        "name": "开放词表关键词检测",
+        "count": 2
+      },
+      {
+        "name": "轻度认知障碍",
+        "count": 2
+      },
+      {
+        "name": "ALS 语音数字生物标志物",
+        "count": 1
+      },
+      {
+        "name": "ALS言语障碍预测",
+        "count": 1
+      },
+      {
+        "name": "LLM临床解释",
+        "count": 1
+      },
+      {
+        "name": "上下文偏置",
+        "count": 1
+      },
+      {
+        "name": "临床试验设计",
+        "count": 1
+      },
+      {
+        "name": "主动模态检测",
+        "count": 1
+      }
+    ],
+    "top_tasks": [
+      {
+        "name": "文本注册关键词检测",
+        "count": 2
+      },
+      {
+        "name": "CERAD+ 总分预测",
+        "count": 1
+      },
+      {
+        "name": "CIU 时间定位",
+        "count": 1
+      },
+      {
+        "name": "CIU 自动识别",
+        "count": 1
+      },
+      {
+        "name": "Cookie Theft 图像描述分析",
+        "count": 1
+      },
+      {
+        "name": "MCI 分类",
+        "count": 1
+      },
+      {
+        "name": "临床试验时长估算",
+        "count": 1
+      },
+      {
+        "name": "临床试验样本量估算",
+        "count": 1
+      },
+      {
+        "name": "保持旧关键词性能",
+        "count": 1
+      },
+      {
+        "name": "关键词引导语音识别",
+        "count": 1
+      }
+    ],
+    "top_methods": [
+      {
+        "name": "XGBoost",
+        "count": 2
+      },
+      {
+        "name": "跨模态注意力",
+        "count": 2
+      },
+      {
+        "name": "100 次 Monte Carlo 重采样",
+        "count": 1
+      },
+      {
+        "name": "5×3 嵌套交叉验证",
+        "count": 1
+      },
+      {
+        "name": "8 个可训练融合 token",
+        "count": 1
+      },
+      {
+        "name": "BERT-base-uncased 23 类多标签 CIU 识别",
+        "count": 1
+      },
+      {
+        "name": "BERT/ClinicalBERT 文本嵌入",
+        "count": 1
+      },
+      {
+        "name": "BM25",
+        "count": 1
+      },
+      {
+        "name": "BioMedBERT 护理记录嵌入",
+        "count": 1
+      },
+      {
+        "name": "CIU 转移时间图",
+        "count": 1
+      }
+    ],
+    "top_datasets": [
+      {
+        "name": "LibriPhrase",
+        "count": 3
+      },
+      {
+        "name": "LibriSpeech",
+        "count": 3
+      },
+      {
+        "name": "ACL6060",
+        "count": 1
+      },
+      {
+        "name": "ADReSS",
+        "count": 1
+      },
+      {
+        "name": "ADReSSo",
+        "count": 1
+      },
+      {
+        "name": "AIMnd 2.0",
+        "count": 1
+      },
+      {
+        "name": "AISHELL",
+        "count": 1
+      },
+      {
+        "name": "BBC Rewind",
+        "count": 1
+      },
+      {
+        "name": "EverythingALS 纵向 ALS 评估队列",
+        "count": 1
+      },
+      {
+        "name": "Google Speech Commands v2",
+        "count": 1
+      }
+    ],
+    "top_metrics": [
+      {
+        "name": "F1",
+        "count": 5
+      },
+      {
+        "name": "AUC",
+        "count": 4
+      },
+      {
+        "name": "EER",
+        "count": 3
+      },
+      {
+        "name": "参数量",
+        "count": 3
+      },
+      {
+        "name": "AUC-ROC",
+        "count": 1
+      },
+      {
+        "name": "Accuracy",
+        "count": 1
+      },
+      {
+        "name": "Balanced Accuracy",
+        "count": 1
+      },
+      {
+        "name": "Bias",
+        "count": 1
+      },
+      {
+        "name": "CCC",
+        "count": 1
+      },
+      {
+        "name": "Cohen's κ",
+        "count": 1
+      }
+    ],
+    "top_languages": [
+      {
+        "name": "英语",
+        "count": 5
+      },
+      {
+        "name": "德语",
+        "count": 3
+      },
+      {
+        "name": "中文",
+        "count": 2
+      },
+      {
+        "name": "西班牙语",
+        "count": 2
+      },
+      {
+        "name": "法语",
+        "count": 1
+      },
+      {
+        "name": "波兰语",
+        "count": 1
+      },
+      {
+        "name": "美国英语",
+        "count": 1
+      },
+      {
+        "name": "葡萄牙语",
+        "count": 1
+      },
+      {
+        "name": "韩语",
+        "count": 1
+      }
+    ],
+    "top_modalities": [
+      {
+        "name": "语音",
+        "count": 10
+      },
+      {
+        "name": "文本",
+        "count": 5
+      },
+      {
+        "name": "语音音频",
+        "count": 5
+      },
+      {
+        "name": "临床神经心理测验分数",
+        "count": 1
+      },
+      {
+        "name": "临床量表",
+        "count": 1
+      },
+      {
+        "name": "临床量表评分",
+        "count": 1
+      },
+      {
+        "name": "人口统计信息",
+        "count": 1
+      },
+      {
+        "name": "人脸",
+        "count": 1
+      },
+      {
+        "name": "护理记录文本",
+        "count": 1
+      },
+      {
+        "name": "结构化临床数据",
+        "count": 1
+      }
+    ],
+    "top_domains": [
+      {
+        "name": "ALS临床评估",
+        "count": 1
+      },
+      {
+        "name": "专业术语识别",
+        "count": 1
+      },
+      {
+        "name": "临床试验规划",
+        "count": 1
+      },
+      {
+        "name": "临床语音分析",
+        "count": 1
+      },
+      {
+        "name": "临床语音监测",
+        "count": 1
+      },
+      {
+        "name": "临床语音评测",
+        "count": 1
+      },
+      {
+        "name": "临床语音识别",
+        "count": 1
+      },
+      {
+        "name": "人机交互",
+        "count": 1
+      },
+      {
+        "name": "人物检索",
+        "count": 1
+      },
+      {
+        "name": "基层医疗决策支持",
+        "count": 1
+      }
+    ],
+    "contribution_types": [
+      {
+        "name": "个体内与跨说话人分析",
+        "count": 1
+      },
+      {
+        "name": "临床可解释分析",
+        "count": 1
+      },
+      {
+        "name": "临床终点比较",
+        "count": 1
+      },
+      {
+        "name": "临床解释生成",
+        "count": 1
+      },
+      {
+        "name": "临床试验设计分析",
+        "count": 1
+      },
+      {
+        "name": "临床语音实证研究",
+        "count": 1
+      },
+      {
+        "name": "临床预测实证研究",
+        "count": 1
+      },
+      {
+        "name": "主动模态检测方法",
+        "count": 1
+      },
+      {
+        "name": "低能耗模型设计",
+        "count": 1
+      },
+      {
+        "name": "关键词检测方法",
+        "count": 1
+      }
+    ]
+  },
+  "categories": {
+    "Clinically Useful Speech Representations": {
+      "paper_count": 8,
+      "percentage": 0.58,
+      "top_topics": [
+        {
+          "name": "临床语音分析",
+          "count": 3
+        },
+        {
+          "name": "轻度认知障碍",
+          "count": 2
+        },
+        {
+          "name": "ALS 语音数字生物标志物",
+          "count": 1
+        },
+        {
+          "name": "ALS言语障碍预测",
+          "count": 1
+        },
+        {
+          "name": "LLM临床解释",
+          "count": 1
+        },
+        {
+          "name": "临床试验设计",
+          "count": 1
+        },
+        {
+          "name": "内容信息单元（CIU）",
+          "count": 1
+        },
+        {
+          "name": "叙事时间结构",
+          "count": 1
+        },
+        {
+          "name": "可解释人工智能",
+          "count": 1
+        },
+        {
+          "name": "基准数据集有效性",
+          "count": 1
+        }
+      ],
+      "top_tasks": [
+        {
+          "name": "CERAD+ 总分预测",
+          "count": 1
+        },
+        {
+          "name": "CIU 时间定位",
+          "count": 1
+        },
+        {
+          "name": "CIU 自动识别",
+          "count": 1
+        },
+        {
+          "name": "Cookie Theft 图像描述分析",
+          "count": 1
+        },
+        {
+          "name": "MCI 分类",
+          "count": 1
+        },
+        {
+          "name": "临床试验时长估算",
+          "count": 1
+        },
+        {
+          "name": "临床试验样本量估算",
+          "count": 1
+        },
+        {
+          "name": "功能下降事件检测",
+          "count": 1
+        },
+        {
+          "name": "医生评估解释有效性",
+          "count": 1
+        },
+        {
+          "name": "基于图特征的认知状态分析",
+          "count": 1
+        }
+      ],
+      "top_methods": [
+        {
+          "name": "XGBoost",
+          "count": 2
+        },
+        {
+          "name": "100 次 Monte Carlo 重采样",
+          "count": 1
+        },
+        {
+          "name": "5×3 嵌套交叉验证",
+          "count": 1
+        },
+        {
+          "name": "8 个可训练融合 token",
+          "count": 1
+        },
+        {
+          "name": "BERT-base-uncased 23 类多标签 CIU 识别",
+          "count": 1
+        },
+        {
+          "name": "BERT/ClinicalBERT 文本嵌入",
+          "count": 1
+        },
+        {
+          "name": "BioMedBERT 护理记录嵌入",
+          "count": 1
+        },
+        {
+          "name": "CIU 转移时间图",
+          "count": 1
+        },
+        {
+          "name": "ComParE 特征组合",
+          "count": 1
+        },
+        {
+          "name": "F1+F2 共振峰子集",
+          "count": 1
+        }
+      ],
+      "top_datasets": [
+        {
+          "name": "ADReSS",
+          "count": 1
+        },
+        {
+          "name": "ADReSSo",
+          "count": 1
+        },
+        {
+          "name": "AIMnd 2.0",
+          "count": 1
+        },
+        {
+          "name": "EverythingALS 纵向 ALS 评估队列",
+          "count": 1
+        },
+        {
+          "name": "NIA PREPARE benchmark",
+          "count": 1
+        },
+        {
+          "name": "Pitt Corpus",
+          "count": 1
+        },
+        {
+          "name": "TREND 研究队列",
+          "count": 1
+        },
+        {
+          "name": "Wisconsin Alzheimer’s Disease Research Center（W-ADRC）",
+          "count": 1
+        },
+        {
+          "name": "Wisconsin Registry for Alzheimer’s Prevention（WRAP）",
+          "count": 1
+        },
+        {
+          "name": "本研究韩语老年 MCI 纵向语音语料",
+          "count": 1
+        }
+      ],
+      "top_metrics": [
+        {
+          "name": "F1",
+          "count": 4
+        },
+        {
+          "name": "AUC",
+          "count": 1
+        },
+        {
+          "name": "AUC-ROC",
+          "count": 1
+        },
+        {
+          "name": "Accuracy",
+          "count": 1
+        },
+        {
+          "name": "Balanced Accuracy",
+          "count": 1
+        },
+        {
+          "name": "Bias",
+          "count": 1
+        },
+        {
+          "name": "CCC",
+          "count": 1
+        },
+        {
+          "name": "Cohen's κ",
+          "count": 1
+        },
+        {
+          "name": "Coverage",
+          "count": 1
+        },
+        {
+          "name": "DER",
+          "count": 1
+        }
+      ],
+      "top_languages": [
+        {
+          "name": "德语",
+          "count": 2
+        },
+        {
+          "name": "中文",
+          "count": 1
+        },
+        {
+          "name": "美国英语",
+          "count": 1
+        },
+        {
+          "name": "英语",
+          "count": 1
+        },
+        {
+          "name": "西班牙语",
+          "count": 1
+        },
+        {
+          "name": "韩语",
+          "count": 1
+        }
+      ],
+      "top_modalities": [
+        {
+          "name": "语音",
+          "count": 4
+        },
+        {
+          "name": "语音音频",
+          "count": 4
+        },
+        {
+          "name": "临床神经心理测验分数",
+          "count": 1
+        },
+        {
+          "name": "临床量表",
+          "count": 1
+        },
+        {
+          "name": "临床量表评分",
+          "count": 1
+        },
+        {
+          "name": "人口统计信息",
+          "count": 1
+        },
+        {
+          "name": "护理记录文本",
+          "count": 1
+        },
+        {
+          "name": "文本",
+          "count": 1
+        },
+        {
+          "name": "结构化临床数据",
+          "count": 1
+        },
+        {
+          "name": "语音转录文本",
+          "count": 1
+        }
+      ],
+      "top_domains": [
+        {
+          "name": "ALS临床评估",
+          "count": 1
+        },
+        {
+          "name": "临床试验规划",
+          "count": 1
+        },
+        {
+          "name": "临床语音分析",
+          "count": 1
+        },
+        {
+          "name": "临床语音监测",
+          "count": 1
+        },
+        {
+          "name": "临床语音评测",
+          "count": 1
+        },
+        {
+          "name": "基层医疗决策支持",
+          "count": 1
+        },
+        {
+          "name": "失智症检测",
+          "count": 1
+        },
+        {
+          "name": "抑郁筛查",
+          "count": 1
+        },
+        {
+          "name": "数字临床终点",
+          "count": 1
+        },
+        {
+          "name": "神经心理评估",
+          "count": 1
+        }
+      ],
+      "contribution_types": [
+        {
+          "name": "个体内与跨说话人分析",
+          "count": 1
+        },
+        {
+          "name": "临床可解释分析",
+          "count": 1
+        },
+        {
+          "name": "临床终点比较",
+          "count": 1
+        },
+        {
+          "name": "临床解释生成",
+          "count": 1
+        },
+        {
+          "name": "临床试验设计分析",
+          "count": 1
+        },
+        {
+          "name": "临床语音实证研究",
+          "count": 1
+        },
+        {
+          "name": "临床预测实证研究",
+          "count": 1
+        },
+        {
+          "name": "医生验证与可用性评估",
+          "count": 1
+        },
+        {
+          "name": "可解释声学特征发现",
+          "count": 1
+        },
+        {
+          "name": "可解释性框架",
+          "count": 1
+        }
+      ]
+    },
+    "Information Extraction and Retrieval": {
+      "paper_count": 7,
+      "percentage": 0.51,
+      "top_topics": [
+        {
+          "name": "关键词检测",
+          "count": 2
+        },
+        {
+          "name": "开放词表关键词检测",
+          "count": 2
+        },
+        {
+          "name": "上下文偏置",
+          "count": 1
+        },
+        {
+          "name": "主动模态检测",
+          "count": 1
+        },
+        {
+          "name": "低能耗语音处理",
+          "count": 1
+        },
+        {
+          "name": "多模态融合",
+          "count": 1
+        },
+        {
+          "name": "大规模词表",
+          "count": 1
+        },
+        {
+          "name": "嵌入式语音模型",
+          "count": 1
+        },
+        {
+          "name": "开放词汇关键词检测",
+          "count": 1
+        },
+        {
+          "name": "持续学习",
+          "count": 1
+        }
+      ],
+      "top_tasks": [
+        {
+          "name": "文本注册关键词检测",
+          "count": 2
+        },
+        {
+          "name": "保持旧关键词性能",
+          "count": 1
+        },
+        {
+          "name": "关键词引导语音识别",
+          "count": 1
+        },
+        {
+          "name": "哼唱检索（query-by-humming）",
+          "count": 1
+        },
+        {
+          "name": "增量关键词检测",
+          "count": 1
+        },
+        {
+          "name": "开放词表关键词检测",
+          "count": 1
+        },
+        {
+          "name": "有效模态分类",
+          "count": 1
+        },
+        {
+          "name": "查询式人物检索",
+          "count": 1
+        },
+        {
+          "name": "流式开放词汇关键词检测",
+          "count": 1
+        },
+        {
+          "name": "流式开放词表关键词检测",
+          "count": 1
+        }
+      ],
+      "top_methods": [
+        {
+          "name": "跨模态注意力",
+          "count": 2
+        },
+        {
+          "name": "BM25",
+          "count": 1
+        },
+        {
+          "name": "CTC beam-search 困难负例挖掘",
+          "count": 1
+        },
+        {
+          "name": "Dynamic Time Warping（DTW）",
+          "count": 1
+        },
+        {
+          "name": "K-Means",
+          "count": 1
+        },
+        {
+          "name": "L-comp层选择压缩",
+          "count": 1
+        },
+        {
+          "name": "LH-comp隐藏维度压缩",
+          "count": 1
+        },
+        {
+          "name": "LHF-comp帧率压缩",
+          "count": 1
+        },
+        {
+          "name": "SPARK",
+          "count": 1
+        },
+        {
+          "name": "Soft-DTW",
+          "count": 1
+        }
+      ],
+      "top_datasets": [
+        {
+          "name": "LibriPhrase",
+          "count": 3
+        },
+        {
+          "name": "LibriSpeech",
+          "count": 3
+        },
+        {
+          "name": "ACL6060",
+          "count": 1
+        },
+        {
+          "name": "AISHELL",
+          "count": 1
+        },
+        {
+          "name": "BBC Rewind",
+          "count": 1
+        },
+        {
+          "name": "Google Speech Commands v2",
+          "count": 1
+        },
+        {
+          "name": "MIR-QBSH2",
+          "count": 1
+        },
+        {
+          "name": "MS-SNSD",
+          "count": 1
+        },
+        {
+          "name": "Mozilla Common Voice v17",
+          "count": 1
+        },
+        {
+          "name": "Multilingual LibriSpeech",
+          "count": 1
+        }
+      ],
+      "top_metrics": [
+        {
+          "name": "AUC",
+          "count": 3
+        },
+        {
+          "name": "EER",
+          "count": 3
+        },
+        {
+          "name": "参数量",
+          "count": 3
+        },
+        {
+          "name": "F1",
+          "count": 1
+        },
+        {
+          "name": "F1@5",
+          "count": 1
+        },
+        {
+          "name": "FAR",
+          "count": 1
+        },
+        {
+          "name": "FLOPs",
+          "count": 1
+        },
+        {
+          "name": "MACs",
+          "count": 1
+        },
+        {
+          "name": "MRR",
+          "count": 1
+        },
+        {
+          "name": "Macro FRR",
+          "count": 1
+        }
+      ],
+      "top_languages": [
+        {
+          "name": "英语",
+          "count": 4
+        },
+        {
+          "name": "中文",
+          "count": 1
+        },
+        {
+          "name": "德语",
+          "count": 1
+        },
+        {
+          "name": "法语",
+          "count": 1
+        },
+        {
+          "name": "波兰语",
+          "count": 1
+        },
+        {
+          "name": "葡萄牙语",
+          "count": 1
+        },
+        {
+          "name": "西班牙语",
+          "count": 1
+        }
+      ],
+      "top_modalities": [
+        {
+          "name": "语音",
+          "count": 6
+        },
+        {
+          "name": "文本",
+          "count": 4
+        },
+        {
+          "name": "人脸",
+          "count": 1
+        },
+        {
+          "name": "视频",
+          "count": 1
+        },
+        {
+          "name": "语音音频",
+          "count": 1
+        },
+        {
+          "name": "音乐",
+          "count": 1
+        },
+        {
+          "name": "音频",
+          "count": 1
+        }
+      ],
+      "top_domains": [
+        {
+          "name": "专业术语识别",
+          "count": 1
+        },
+        {
+          "name": "临床语音识别",
+          "count": 1
+        },
+        {
+          "name": "人机交互",
+          "count": 1
+        },
+        {
+          "name": "人物检索",
+          "count": 1
+        },
+        {
+          "name": "大词表语音检索",
+          "count": 1
+        },
+        {
+          "name": "实时关键词检测",
+          "count": 1
+        },
+        {
+          "name": "嵌入式语音助手",
+          "count": 1
+        },
+        {
+          "name": "广播视频档案",
+          "count": 1
+        },
+        {
+          "name": "端侧语音交互",
+          "count": 1
+        },
+        {
+          "name": "设备端关键词检测",
+          "count": 1
+        }
+      ],
+      "contribution_types": [
+        {
+          "name": "主动模态检测方法",
+          "count": 1
+        },
+        {
+          "name": "低能耗模型设计",
+          "count": 1
+        },
+        {
+          "name": "关键词检测方法",
+          "count": 1
+        },
+        {
+          "name": "困难负例生成策略",
+          "count": 1
+        },
+        {
+          "name": "困难负例鲁棒性分析",
+          "count": 1
+        },
+        {
+          "name": "增量学习方法",
+          "count": 1
+        },
+        {
+          "name": "开放词表关键词检测系统",
+          "count": 1
+        },
+        {
+          "name": "无监督检索方法比较",
+          "count": 1
+        },
+        {
+          "name": "旧类无回归保证",
+          "count": 1
+        },
+        {
+          "name": "时间敏感性分析",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "macro_categories": {
+    "M01": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M02": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M03": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M04": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M05": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M06": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M07": {
+      "paper_count": 8,
+      "percentage": 0.58,
+      "top_topics": [
+        {
+          "name": "临床语音分析",
+          "count": 3
+        },
+        {
+          "name": "轻度认知障碍",
+          "count": 2
+        },
+        {
+          "name": "ALS 语音数字生物标志物",
+          "count": 1
+        },
+        {
+          "name": "ALS言语障碍预测",
+          "count": 1
+        },
+        {
+          "name": "LLM临床解释",
+          "count": 1
+        },
+        {
+          "name": "临床试验设计",
+          "count": 1
+        },
+        {
+          "name": "内容信息单元（CIU）",
+          "count": 1
+        },
+        {
+          "name": "叙事时间结构",
+          "count": 1
+        },
+        {
+          "name": "可解释人工智能",
+          "count": 1
+        },
+        {
+          "name": "基准数据集有效性",
+          "count": 1
+        }
+      ],
+      "top_tasks": [
+        {
+          "name": "CERAD+ 总分预测",
+          "count": 1
+        },
+        {
+          "name": "CIU 时间定位",
+          "count": 1
+        },
+        {
+          "name": "CIU 自动识别",
+          "count": 1
+        },
+        {
+          "name": "Cookie Theft 图像描述分析",
+          "count": 1
+        },
+        {
+          "name": "MCI 分类",
+          "count": 1
+        },
+        {
+          "name": "临床试验时长估算",
+          "count": 1
+        },
+        {
+          "name": "临床试验样本量估算",
+          "count": 1
+        },
+        {
+          "name": "功能下降事件检测",
+          "count": 1
+        },
+        {
+          "name": "医生评估解释有效性",
+          "count": 1
+        },
+        {
+          "name": "基于图特征的认知状态分析",
+          "count": 1
+        }
+      ],
+      "top_methods": [
+        {
+          "name": "XGBoost",
+          "count": 2
+        },
+        {
+          "name": "100 次 Monte Carlo 重采样",
+          "count": 1
+        },
+        {
+          "name": "5×3 嵌套交叉验证",
+          "count": 1
+        },
+        {
+          "name": "8 个可训练融合 token",
+          "count": 1
+        },
+        {
+          "name": "BERT-base-uncased 23 类多标签 CIU 识别",
+          "count": 1
+        },
+        {
+          "name": "BERT/ClinicalBERT 文本嵌入",
+          "count": 1
+        },
+        {
+          "name": "BioMedBERT 护理记录嵌入",
+          "count": 1
+        },
+        {
+          "name": "CIU 转移时间图",
+          "count": 1
+        },
+        {
+          "name": "ComParE 特征组合",
+          "count": 1
+        },
+        {
+          "name": "F1+F2 共振峰子集",
+          "count": 1
+        }
+      ],
+      "top_datasets": [
+        {
+          "name": "ADReSS",
+          "count": 1
+        },
+        {
+          "name": "ADReSSo",
+          "count": 1
+        },
+        {
+          "name": "AIMnd 2.0",
+          "count": 1
+        },
+        {
+          "name": "EverythingALS 纵向 ALS 评估队列",
+          "count": 1
+        },
+        {
+          "name": "NIA PREPARE benchmark",
+          "count": 1
+        },
+        {
+          "name": "Pitt Corpus",
+          "count": 1
+        },
+        {
+          "name": "TREND 研究队列",
+          "count": 1
+        },
+        {
+          "name": "Wisconsin Alzheimer’s Disease Research Center（W-ADRC）",
+          "count": 1
+        },
+        {
+          "name": "Wisconsin Registry for Alzheimer’s Prevention（WRAP）",
+          "count": 1
+        },
+        {
+          "name": "本研究韩语老年 MCI 纵向语音语料",
+          "count": 1
+        }
+      ],
+      "top_metrics": [
+        {
+          "name": "F1",
+          "count": 4
+        },
+        {
+          "name": "AUC",
+          "count": 1
+        },
+        {
+          "name": "AUC-ROC",
+          "count": 1
+        },
+        {
+          "name": "Accuracy",
+          "count": 1
+        },
+        {
+          "name": "Balanced Accuracy",
+          "count": 1
+        },
+        {
+          "name": "Bias",
+          "count": 1
+        },
+        {
+          "name": "CCC",
+          "count": 1
+        },
+        {
+          "name": "Cohen's κ",
+          "count": 1
+        },
+        {
+          "name": "Coverage",
+          "count": 1
+        },
+        {
+          "name": "DER",
+          "count": 1
+        }
+      ],
+      "top_languages": [
+        {
+          "name": "德语",
+          "count": 2
+        },
+        {
+          "name": "中文",
+          "count": 1
+        },
+        {
+          "name": "美国英语",
+          "count": 1
+        },
+        {
+          "name": "英语",
+          "count": 1
+        },
+        {
+          "name": "西班牙语",
+          "count": 1
+        },
+        {
+          "name": "韩语",
+          "count": 1
+        }
+      ],
+      "top_modalities": [
+        {
+          "name": "语音",
+          "count": 4
+        },
+        {
+          "name": "语音音频",
+          "count": 4
+        },
+        {
+          "name": "临床神经心理测验分数",
+          "count": 1
+        },
+        {
+          "name": "临床量表",
+          "count": 1
+        },
+        {
+          "name": "临床量表评分",
+          "count": 1
+        },
+        {
+          "name": "人口统计信息",
+          "count": 1
+        },
+        {
+          "name": "护理记录文本",
+          "count": 1
+        },
+        {
+          "name": "文本",
+          "count": 1
+        },
+        {
+          "name": "结构化临床数据",
+          "count": 1
+        },
+        {
+          "name": "语音转录文本",
+          "count": 1
+        }
+      ],
+      "top_domains": [
+        {
+          "name": "ALS临床评估",
+          "count": 1
+        },
+        {
+          "name": "临床试验规划",
+          "count": 1
+        },
+        {
+          "name": "临床语音分析",
+          "count": 1
+        },
+        {
+          "name": "临床语音监测",
+          "count": 1
+        },
+        {
+          "name": "临床语音评测",
+          "count": 1
+        },
+        {
+          "name": "基层医疗决策支持",
+          "count": 1
+        },
+        {
+          "name": "失智症检测",
+          "count": 1
+        },
+        {
+          "name": "抑郁筛查",
+          "count": 1
+        },
+        {
+          "name": "数字临床终点",
+          "count": 1
+        },
+        {
+          "name": "神经心理评估",
+          "count": 1
+        }
+      ],
+      "contribution_types": [
+        {
+          "name": "个体内与跨说话人分析",
+          "count": 1
+        },
+        {
+          "name": "临床可解释分析",
+          "count": 1
+        },
+        {
+          "name": "临床终点比较",
+          "count": 1
+        },
+        {
+          "name": "临床解释生成",
+          "count": 1
+        },
+        {
+          "name": "临床试验设计分析",
+          "count": 1
+        },
+        {
+          "name": "临床语音实证研究",
+          "count": 1
+        },
+        {
+          "name": "临床预测实证研究",
+          "count": 1
+        },
+        {
+          "name": "医生验证与可用性评估",
+          "count": 1
+        },
+        {
+          "name": "可解释声学特征发现",
+          "count": 1
+        },
+        {
+          "name": "可解释性框架",
+          "count": 1
+        }
+      ]
+    },
+    "M08": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M09": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M10": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M11": {
+      "paper_count": 7,
+      "percentage": 0.51,
+      "top_topics": [
+        {
+          "name": "关键词检测",
+          "count": 2
+        },
+        {
+          "name": "开放词表关键词检测",
+          "count": 2
+        },
+        {
+          "name": "上下文偏置",
+          "count": 1
+        },
+        {
+          "name": "主动模态检测",
+          "count": 1
+        },
+        {
+          "name": "低能耗语音处理",
+          "count": 1
+        },
+        {
+          "name": "多模态融合",
+          "count": 1
+        },
+        {
+          "name": "大规模词表",
+          "count": 1
+        },
+        {
+          "name": "嵌入式语音模型",
+          "count": 1
+        },
+        {
+          "name": "开放词汇关键词检测",
+          "count": 1
+        },
+        {
+          "name": "持续学习",
+          "count": 1
+        }
+      ],
+      "top_tasks": [
+        {
+          "name": "文本注册关键词检测",
+          "count": 2
+        },
+        {
+          "name": "保持旧关键词性能",
+          "count": 1
+        },
+        {
+          "name": "关键词引导语音识别",
+          "count": 1
+        },
+        {
+          "name": "哼唱检索（query-by-humming）",
+          "count": 1
+        },
+        {
+          "name": "增量关键词检测",
+          "count": 1
+        },
+        {
+          "name": "开放词表关键词检测",
+          "count": 1
+        },
+        {
+          "name": "有效模态分类",
+          "count": 1
+        },
+        {
+          "name": "查询式人物检索",
+          "count": 1
+        },
+        {
+          "name": "流式开放词汇关键词检测",
+          "count": 1
+        },
+        {
+          "name": "流式开放词表关键词检测",
+          "count": 1
+        }
+      ],
+      "top_methods": [
+        {
+          "name": "跨模态注意力",
+          "count": 2
+        },
+        {
+          "name": "BM25",
+          "count": 1
+        },
+        {
+          "name": "CTC beam-search 困难负例挖掘",
+          "count": 1
+        },
+        {
+          "name": "Dynamic Time Warping（DTW）",
+          "count": 1
+        },
+        {
+          "name": "K-Means",
+          "count": 1
+        },
+        {
+          "name": "L-comp层选择压缩",
+          "count": 1
+        },
+        {
+          "name": "LH-comp隐藏维度压缩",
+          "count": 1
+        },
+        {
+          "name": "LHF-comp帧率压缩",
+          "count": 1
+        },
+        {
+          "name": "SPARK",
+          "count": 1
+        },
+        {
+          "name": "Soft-DTW",
+          "count": 1
+        }
+      ],
+      "top_datasets": [
+        {
+          "name": "LibriPhrase",
+          "count": 3
+        },
+        {
+          "name": "LibriSpeech",
+          "count": 3
+        },
+        {
+          "name": "ACL6060",
+          "count": 1
+        },
+        {
+          "name": "AISHELL",
+          "count": 1
+        },
+        {
+          "name": "BBC Rewind",
+          "count": 1
+        },
+        {
+          "name": "Google Speech Commands v2",
+          "count": 1
+        },
+        {
+          "name": "MIR-QBSH2",
+          "count": 1
+        },
+        {
+          "name": "MS-SNSD",
+          "count": 1
+        },
+        {
+          "name": "Mozilla Common Voice v17",
+          "count": 1
+        },
+        {
+          "name": "Multilingual LibriSpeech",
+          "count": 1
+        }
+      ],
+      "top_metrics": [
+        {
+          "name": "AUC",
+          "count": 3
+        },
+        {
+          "name": "EER",
+          "count": 3
+        },
+        {
+          "name": "参数量",
+          "count": 3
+        },
+        {
+          "name": "F1",
+          "count": 1
+        },
+        {
+          "name": "F1@5",
+          "count": 1
+        },
+        {
+          "name": "FAR",
+          "count": 1
+        },
+        {
+          "name": "FLOPs",
+          "count": 1
+        },
+        {
+          "name": "MACs",
+          "count": 1
+        },
+        {
+          "name": "MRR",
+          "count": 1
+        },
+        {
+          "name": "Macro FRR",
+          "count": 1
+        }
+      ],
+      "top_languages": [
+        {
+          "name": "英语",
+          "count": 4
+        },
+        {
+          "name": "中文",
+          "count": 1
+        },
+        {
+          "name": "德语",
+          "count": 1
+        },
+        {
+          "name": "法语",
+          "count": 1
+        },
+        {
+          "name": "波兰语",
+          "count": 1
+        },
+        {
+          "name": "葡萄牙语",
+          "count": 1
+        },
+        {
+          "name": "西班牙语",
+          "count": 1
+        }
+      ],
+      "top_modalities": [
+        {
+          "name": "语音",
+          "count": 6
+        },
+        {
+          "name": "文本",
+          "count": 4
+        },
+        {
+          "name": "人脸",
+          "count": 1
+        },
+        {
+          "name": "视频",
+          "count": 1
+        },
+        {
+          "name": "语音音频",
+          "count": 1
+        },
+        {
+          "name": "音乐",
+          "count": 1
+        },
+        {
+          "name": "音频",
+          "count": 1
+        }
+      ],
+      "top_domains": [
+        {
+          "name": "专业术语识别",
+          "count": 1
+        },
+        {
+          "name": "临床语音识别",
+          "count": 1
+        },
+        {
+          "name": "人机交互",
+          "count": 1
+        },
+        {
+          "name": "人物检索",
+          "count": 1
+        },
+        {
+          "name": "大词表语音检索",
+          "count": 1
+        },
+        {
+          "name": "实时关键词检测",
+          "count": 1
+        },
+        {
+          "name": "嵌入式语音助手",
+          "count": 1
+        },
+        {
+          "name": "广播视频档案",
+          "count": 1
+        },
+        {
+          "name": "端侧语音交互",
+          "count": 1
+        },
+        {
+          "name": "设备端关键词检测",
+          "count": 1
+        }
+      ],
+      "contribution_types": [
+        {
+          "name": "主动模态检测方法",
+          "count": 1
+        },
+        {
+          "name": "低能耗模型设计",
+          "count": 1
+        },
+        {
+          "name": "关键词检测方法",
+          "count": 1
+        },
+        {
+          "name": "困难负例生成策略",
+          "count": 1
+        },
+        {
+          "name": "困难负例鲁棒性分析",
+          "count": 1
+        },
+        {
+          "name": "增量学习方法",
+          "count": 1
+        },
+        {
+          "name": "开放词表关键词检测系统",
+          "count": 1
+        },
+        {
+          "name": "无监督检索方法比较",
+          "count": 1
+        },
+        {
+          "name": "旧类无回归保证",
+          "count": 1
+        },
+        {
+          "name": "时间敏感性分析",
+          "count": 1
+        }
+      ]
+    },
+    "M12": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    },
+    "M13": {
+      "paper_count": 0,
+      "percentage": 0.0,
+      "top_topics": [],
+      "top_tasks": [],
+      "top_methods": [],
+      "top_datasets": [],
+      "top_metrics": [],
+      "top_languages": [],
+      "top_modalities": [],
+      "top_domains": [],
+      "contribution_types": []
+    }
+  },
+  "special": {
+    "dataset": {
+      "paper_count": 2,
+      "percentage": 0.15,
+      "top_topics": [
+        {
+          "name": "基准数据集有效性",
+          "count": 1
+        },
+        {
+          "name": "声学伪相关",
+          "count": 1
+        },
+        {
+          "name": "小样本评测可靠性",
+          "count": 1
+        },
+        {
+          "name": "抑郁检测",
+          "count": 1
+        },
+        {
+          "name": "老年语音",
+          "count": 1
+        },
+        {
+          "name": "认知混杂控制",
+          "count": 1
+        },
+        {
+          "name": "语音失智症检测",
+          "count": 1
+        },
+        {
+          "name": "轻度认知障碍",
+          "count": 1
+        }
+      ],
+      "top_tasks": [
+        {
+          "name": "基于语音的失智症分类",
+          "count": 1
+        },
+        {
+          "name": "声学特征稳定性分析",
+          "count": 1
+        },
+        {
+          "name": "抑郁相关声学特征识别",
+          "count": 1
+        },
+        {
+          "name": "抑郁语音分类",
+          "count": 1
+        },
+        {
+          "name": "测试集有效性分析",
+          "count": 1
+        },
+        {
+          "name": "认知与情绪症状区分",
+          "count": 1
+        }
+      ],
+      "top_methods": [
+        {
+          "name": "100 次 Monte Carlo 重采样",
+          "count": 1
+        },
+        {
+          "name": "ComParE 特征组合",
+          "count": 1
+        },
+        {
+          "name": "F1+F2 共振峰子集",
+          "count": 1
+        },
+        {
+          "name": "RBF-SVM",
+          "count": 1
+        },
+        {
+          "name": "VAD 语音/静音切分",
+          "count": 1
+        },
+        {
+          "name": "eGeMAPS 七组特征",
+          "count": 1
+        },
+        {
+          "name": "eGeMAPS 特征组合",
+          "count": 1
+        },
+        {
+          "name": "leave-one-subject-out 交叉验证",
+          "count": 1
+        },
+        {
+          "name": "openSMILE 特征提取",
+          "count": 1
+        },
+        {
+          "name": "低层声学特征分类",
+          "count": 1
+        }
+      ],
+      "top_datasets": [
+        {
+          "name": "ADReSS",
+          "count": 1
+        },
+        {
+          "name": "ADReSSo",
+          "count": 1
+        },
+        {
+          "name": "本研究韩语老年 MCI 纵向语音语料",
+          "count": 1
+        }
+      ],
+      "top_metrics": [
+        {
+          "name": "Accuracy",
+          "count": 1
+        },
+        {
+          "name": "F1",
+          "count": 1
+        },
+        {
+          "name": "Sensitivity",
+          "count": 1
+        },
+        {
+          "name": "Specificity",
+          "count": 1
+        },
+        {
+          "name": "UAR",
+          "count": 1
+        },
+        {
+          "name": "macro-F1",
+          "count": 1
+        }
+      ],
+      "top_languages": [
+        {
+          "name": "美国英语",
+          "count": 1
+        },
+        {
+          "name": "韩语",
+          "count": 1
+        }
+      ],
+      "top_modalities": [
+        {
+          "name": "临床量表评分",
+          "count": 1
+        },
+        {
+          "name": "语音",
+          "count": 1
+        },
+        {
+          "name": "语音音频",
+          "count": 1
+        }
+      ],
+      "top_domains": [
+        {
+          "name": "临床语音评测",
+          "count": 1
+        },
+        {
+          "name": "失智症检测",
+          "count": 1
+        },
+        {
+          "name": "抑郁筛查",
+          "count": 1
+        },
+        {
+          "name": "老年心理健康",
+          "count": 1
+        },
+        {
+          "name": "轻度认知障碍临床评估",
+          "count": 1
+        }
+      ],
+      "contribution_types": [
+        {
+          "name": "可解释声学特征发现",
+          "count": 1
+        },
+        {
+          "name": "基准有效性诊断",
+          "count": 1
+        },
+        {
+          "name": "声学特征稳定性分析",
+          "count": 1
+        },
+        {
+          "name": "小样本评测建议",
+          "count": 1
+        },
+        {
+          "name": "新语料库",
+          "count": 1
+        },
+        {
+          "name": "混杂因素分析",
+          "count": 1
+        }
+      ],
+      "new_dataset_count": 1,
+      "expanded_or_curated_count": 0,
+      "benchmark_dataset_count": 0,
+      "public_dataset_count": 0,
+      "top_entities": [
+        {
+          "name": "ADReSS",
+          "count": 1
+        },
+        {
+          "name": "ADReSSo",
+          "count": 1
+        },
+        {
+          "name": "韩语老年 MCI 纵向语音语料",
+          "count": 1
+        }
+      ],
+      "collection_methods": [
+        {
+          "name": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
+          "count": 2
+        },
+        {
+          "name": "在大学医院对社区老年 MCI 患者进行年度录音；每次包含阅读、持续元音、句子重复和症状访谈等任务。",
+          "count": 1
+        }
+      ],
+      "annotation_methods": [
+        {
+          "name": "每次录音同期收集 SGDS 与 MMSE；SGDS≥8 定义为抑郁。",
+          "count": 1
+        }
+      ],
+      "reported_scales": [
+        {
+          "paper_id": "jeon26_interspeech",
+          "title": "Disentangling Depression from Cognitive Decline in Elderly Speech Using Concurrent Clinical Assessments",
+          "dataset": "韩语老年 MCI 纵向语音语料",
+          "scale_text": "89 名 MCI 参与者，三年内共 209 次年度观测；41 次观测达到 SGDS 抑郁阈值。"
+        },
+        {
+          "paper_id": "zafar26_interspeech",
+          "title": "Rethinking Acoustic Variability Of ADReSS and ADReSSo Datasets For Dementia Detection",
+          "dataset": "ADReSS",
+          "scale_text": "训练集：54 名健康对照、54 名失智症参与者；测试集：24 名健康对照、24 名失智症参与者。"
+        },
+        {
+          "paper_id": "zafar26_interspeech",
+          "title": "Rethinking Acoustic Variability Of ADReSS and ADReSSo Datasets For Dementia Detection",
+          "dataset": "ADReSSo",
+          "scale_text": "训练集：87 名健康对照、79 名失智症参与者；测试集：36 名健康对照、35 名失智症参与者。"
+        }
+      ]
+    },
+    "evaluation": {
+      "paper_count": 2,
+      "percentage": 0.15,
+      "top_topics": [
+        {
+          "name": "ALS 语音数字生物标志物",
+          "count": 1
+        },
+        {
+          "name": "临床试验设计",
+          "count": 1
+        },
+        {
+          "name": "基准数据集有效性",
+          "count": 1
+        },
+        {
+          "name": "声学伪相关",
+          "count": 1
+        },
+        {
+          "name": "小样本评测可靠性",
+          "count": 1
+        },
+        {
+          "name": "时间到事件分析",
+          "count": 1
+        },
+        {
+          "name": "纵向疾病进展",
+          "count": 1
+        },
+        {
+          "name": "语音失智症检测",
+          "count": 1
+        }
+      ],
+      "top_tasks": [
+        {
+          "name": "临床试验时长估算",
+          "count": 1
+        },
+        {
+          "name": "临床试验样本量估算",
+          "count": 1
+        },
+        {
+          "name": "功能下降事件检测",
+          "count": 1
+        },
+        {
+          "name": "基于语音的失智症分类",
+          "count": 1
+        },
+        {
+          "name": "声学特征稳定性分析",
+          "count": 1
+        },
+        {
+          "name": "数字生物标志物敏感度比较",
+          "count": 1
+        },
+        {
+          "name": "测试集有效性分析",
+          "count": 1
+        }
+      ],
+      "top_methods": [
+        {
+          "name": "100 次 Monte Carlo 重采样",
+          "count": 1
+        },
+        {
+          "name": "ComParE 特征组合",
+          "count": 1
+        },
+        {
+          "name": "Kaplan–Meier 分析",
+          "count": 1
+        },
+        {
+          "name": "VAD 语音/静音切分",
+          "count": 1
+        },
+        {
+          "name": "eGeMAPS 特征组合",
+          "count": 1
+        },
+        {
+          "name": "hazard rate 建模",
+          "count": 1
+        },
+        {
+          "name": "openSMILE 特征提取",
+          "count": 1
+        },
+        {
+          "name": "pairwise log-rank 检验",
+          "count": 1
+        },
+        {
+          "name": "临床终点比较",
+          "count": 1
+        },
+        {
+          "name": "以最保守 MCID 定义事件",
+          "count": 1
+        }
+      ],
+      "top_datasets": [
+        {
+          "name": "ADReSS",
+          "count": 1
+        },
+        {
+          "name": "ADReSSo",
+          "count": 1
+        },
+        {
+          "name": "EverythingALS 纵向 ALS 评估队列",
+          "count": 1
+        }
+      ],
+      "top_metrics": [
+        {
+          "name": "hazard rate",
+          "count": 1
+        },
+        {
+          "name": "hazard ratio",
+          "count": 1
+        },
+        {
+          "name": "log-rank p-value",
+          "count": 1
+        },
+        {
+          "name": "macro-F1",
+          "count": 1
+        },
+        {
+          "name": "time-to-event",
+          "count": 1
+        },
+        {
+          "name": "样本量/试验时长估计",
+          "count": 1
+        }
+      ],
+      "top_languages": [
+        {
+          "name": "美国英语",
+          "count": 1
+        }
+      ],
+      "top_modalities": [
+        {
+          "name": "临床量表",
+          "count": 1
+        },
+        {
+          "name": "语音",
+          "count": 1
+        },
+        {
+          "name": "语音音频",
+          "count": 1
+        },
+        {
+          "name": "转录文本",
+          "count": 1
+        },
+        {
+          "name": "面部视频/关键点",
+          "count": 1
+        }
+      ],
+      "top_domains": [
+        {
+          "name": "临床试验规划",
+          "count": 1
+        },
+        {
+          "name": "临床语音评测",
+          "count": 1
+        },
+        {
+          "name": "失智症检测",
+          "count": 1
+        },
+        {
+          "name": "数字临床终点",
+          "count": 1
+        },
+        {
+          "name": "肌萎缩侧索硬化症监测",
+          "count": 1
+        }
+      ],
+      "contribution_types": [
+        {
+          "name": "临床终点比较",
+          "count": 1
+        },
+        {
+          "name": "临床试验设计分析",
+          "count": 1
+        },
+        {
+          "name": "基准有效性诊断",
+          "count": 1
+        },
+        {
+          "name": "声学特征稳定性分析",
+          "count": 1
+        },
+        {
+          "name": "小样本评测建议",
+          "count": 1
+        },
+        {
+          "name": "纵向评估方法应用",
+          "count": 1
+        }
+      ],
+      "benchmark_paper_count": 0,
+      "metric_paper_count": 1,
+      "protocol_paper_count": 1,
+      "human_evaluation_paper_count": 0,
+      "robustness_reliability_paper_count": 1,
+      "top_evaluation_entities": [
+        {
+          "name": "100 次 Monte Carlo 重采样",
+          "count": 1
+        },
+        {
+          "name": "Kaplan–Meier time-to-event 与 log-rank 检验",
+          "count": 1
+        },
+        {
+          "name": "VAD 语音/静音派生版本比较",
+          "count": 1
+        },
+        {
+          "name": "macro-F1",
+          "count": 1
+        },
+        {
+          "name": "指数近似 hazard rate 与试验样本量/时长估计",
+          "count": 1
+        },
+        {
+          "name": "随机标签置换负对照",
+          "count": 1
+        }
+      ],
+      "evaluation_modes": [
+        {
+          "name": "automatic",
+          "count": 6
+        }
+      ]
+    }
+  }
+}

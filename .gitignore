@@ -1,0 +1,14 @@
+.env
+__pycache__/
+.venv/
+*.py[cod]
+/cache/
+/logs/
+/work/
+/outputs/
+/data/raw/
+/task_plan.md
+/progress.md
+/findings.md
+/lessons.md
+.DS_Store
