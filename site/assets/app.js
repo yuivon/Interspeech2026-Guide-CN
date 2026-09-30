@@ -9,7 +9,7 @@ const STRUCTURED_LABELS = {
   contribution_types:'贡献类型',
 };
 const FAVORITES_KEY = 'interspeech2026_favorites_v1';
-let papers = [], stats = {}, narratives = {}, taxonomy = {macros: [], session_to_macro: {}}, query = '';
+let papers = [], stats = {}, narratives = {}, taxonomy = {macros: [], session_to_macro: {}}, sessionLabels = {}, query = '';
 let searchReturnHash = '#all', lastListHash = '#all', showEmpty = false, detailCache = new Map(), renderId = 0;
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
@@ -21,7 +21,9 @@ const isFavorite = id => favorites().has(id);
 const sessions = () => taxonomy.session_to_macro || {};
 const sampleTotal = () => stats.analysis_complete_count ?? papers.length;
 const macroId = p => p.macro_id || sessions()[p.normalized_session] || '';
-const sampleLabel = () => '15篇开发样本';
+const scopeName = () => stats.data_scope === 'full' ? '全会议' : stats.data_scope === 'partial' ? '已分析论文' : '15篇开发样本';
+const scopeStats = () => stats.data_scope === 'full' ? '会议统计' : '样本统计';
+const sessionName = value => sessionLabels[value] || value;
 const parseHash = () => {
   const raw = location.hash.slice(1) || 'all', slash = raw.indexOf('/');
   let type = slash < 0 ? raw : raw.slice(0, slash), value = slash < 0 ? '' : raw.slice(slash + 1);
@@ -32,7 +34,7 @@ const setView = hash => { if (location.hash === hash) render(); else location.ha
 const navCount = rows => query.trim() ? rows.filter(p => searchText(p).includes(query.trim().toLocaleLowerCase())).length : rows.length;
 function searchText(p) {
   return [p.search_text, p.paper_id, p.title, ...(Array.isArray(p.authors) ? p.authors : [p.authors]),
-    p.macro, p.macro_name, p.normalized_session, p.original_session, p.tldr_cn,
+    p.macro, p.macro_name, p.normalized_session, p.session_zh, p.original_session, p.tldr_cn,
     ...FIELDS.map(([key]) => p.analysis?.[key] || ''), ...(p.topics || [])].filter(Boolean).join(' ').toLocaleLowerCase();
 }
 function navButton(label, hash, count, active, extra = '') {
@@ -58,19 +60,19 @@ function renderNav() {
           <button class="nav-primary-link ${view.type === 'macro' && view.value === macro.id ? 'active' : ''}" data-hash="#macro/${encodeURIComponent(macro.id)}">${esc(macro.name)}<span>${count}</span></button></div>
         <div class="nav-sub-list">${children.map(name => {
           const childRows = papers.filter(p => p.normalized_session === name), childCount = matches(childRows);
-          return navButton(esc(name), `#session/${encodeURIComponent(name)}`, childCount, view.type === 'session' && view.value === name);
+           return navButton(esc(sessionName(name)), `#session/${encodeURIComponent(name)}`, childCount, view.type === 'session' && view.value === name);
         }).join('')}</div></div>`;
     }).join('');
   const datasetCount = papers.filter(p => p.special_tags?.dataset?.relevant).length;
   const evaluationCount = papers.filter(p => p.special_tags?.evaluation?.relevant).length;
   document.querySelector('#nav').innerHTML = `${navButton('🏠 全部论文', '#all', matches(papers), view.type === 'all')}
     ${navButton('🔎 搜索结果', `#search/${encodeURIComponent(query)}`, q ? matches(papers) : 0, view.type === 'search', q ? '' : 'hidden')}
-    <div class="nav-section-label">📚 分类目录 · 样本统计</div>${tree || '<p class="nav-empty">当前搜索没有命中分类</p>'}
+     <div class="nav-section-label">📚 分类目录 · ${scopeStats()}</div>${tree || '<p class="nav-empty">当前搜索没有命中分类</p>'}
     <button class="nav-empty-toggle" data-empty-toggle>${showEmpty ? '隐藏无样本分类' : '显示全部会议分类'}</button>
     <div class="nav-section-label">📊 专项分析</div>
     ${navButton('📚 Dataset / Corpus', '#special/dataset', datasetCount, view.type === 'special' && view.value === 'dataset')}
     ${navButton('📐 Evaluation / Benchmark', '#special/evaluation', evaluationCount, view.type === 'special' && view.value === 'evaluation')}
-    <div class="nav-section-label">个人</div>${navButton('☆ 收藏', '#favorites', favoriteRows.length, view.type === 'favorites')}`;
+    <div class="nav-section-label">个人</div>${navButton('⭐ 收藏', '#favorites', favoriteRows.length, view.type === 'favorites')}`;
 }
 function baseRows(view) {
   if (view.type === 'macro') return papers.filter(p => rowMacro(p) === view.value);
@@ -86,7 +88,7 @@ function filterRows(rows) {
 function uniqueCount(rows, field) { return new Set(rows.flatMap(p => p.structured?.[field] || p[field] || []).filter(Boolean)).size; }
 function shareLine(stat, rows) {
   const share = stat.sample_share_percentage ?? (sampleTotal() ? rows.length * 100 / sampleTotal() : 0);
-  return `<p class="share-line">本样本内占比 <b>${Number(share).toFixed(share % 1 ? 2 : 0)}%</b></p>`;
+  return `<p class="share-line">${stats.data_scope === 'full' ? '全会议占比' : '已分析论文中占比'} <b>${Number(share).toFixed(share % 1 ? 2 : 0)}%</b></p>`;
 }
 function kpis(stat, rows) {
   const tagCount = name => stat[`unique_${name}_count`] ?? uniqueCount(rows, name === 'task' ? 'tasks' : `${name}s`);
@@ -108,48 +110,58 @@ function expandableRanked(title, items) {
 function distribution(title, items) { return ranked(title, items); }
 function specialDetails(s, kind) {
   if (kind === 'dataset') return `<div class="badges"><span class="badge">新建数据集 ${s.new_dataset_count ?? 0}</span><span class="badge">扩充/整理 ${s.expanded_or_curated_count ?? 0}</span><span class="badge">Benchmark 数据集 ${s.benchmark_dataset_count ?? 0}</span><span class="badge">确认公开 ${s.public_dataset_count ?? 0}</span><span class="badge">多语言 ${s.multilingual_paper_count ?? 0}</span><span class="badge">低资源语言 ${s.low_resource_paper_count ?? 0}</span><span class="badge">濒危语言 ${s.endangered_language_paper_count ?? 0}</span></div>
-    <div class="rank-grid">${ranked('数据集建设方式', s.collection_methods)}${ranked('标注方式', s.annotation_methods)}${distribution('数据集角色', s.dataset_role_distribution)}${distribution('任务分布', s.task_distribution)}${distribution('语言分布', s.language_distribution)}${distribution('可用性', s.availability_distribution)}</div>
+     <div class="rank-grid">${ranked('数据集建设方式', s.collection_methods)}${ranked('标注方式', s.annotation_methods)}${distribution('数据集角色', s.dataset_role_distribution)}${distribution('任务分布', s.task_distribution)}${distribution('语言分布', s.language_distribution)}${distribution('模态分布', s.modality_distribution)}${distribution('可用性', s.availability_distribution)}</div>
     ${s.reported_scales?.length ? `<h3>论文明确报告的数据规模</h3><ul class="scale-list">${s.reported_scales.map(item => `<li>${esc(item.title)} · ${esc(item.dataset)}：${esc(item.scale_text)}</li>`).join('')}</ul>` : ''}`;
   return `<div class="badges"><span class="badge">Benchmark 论文 ${s.benchmark_paper_count ?? 0}</span><span class="badge">指标研究 ${s.metric_paper_count ?? 0}</span><span class="badge">评测协议 ${s.protocol_paper_count ?? 0}</span><span class="badge">自动评价 ${s.automatic_evaluation_count ?? 0}</span><span class="badge">人工评价 ${s.human_evaluation_count ?? 0}</span><span class="badge">混合评价 ${s.both_evaluation_count ?? 0}</span><span class="badge">客观 ${s.objective_evaluation_count ?? 0}</span><span class="badge">主观 ${s.subjective_evaluation_count ?? 0}</span><span class="badge">Foundation Model ${s.foundation_model_evaluation_count ?? 0}</span><span class="badge">Speech LLM ${s.speech_llm_evaluation_count ?? 0}</span><span class="badge">公平性 ${s.fairness_evaluation_count ?? 0}</span><span class="badge">安全性 ${s.safety_evaluation_count ?? 0}</span><span class="badge">泛化 ${s.generalization_evaluation_count ?? 0}</span><span class="badge">鲁棒性 ${s.robustness_evaluation_count ?? 0}</span><span class="badge">可靠性 ${s.reliability_evaluation_count ?? 0}</span></div>
-    <div class="rank-grid">${ranked('评测方式', s.evaluation_modes)}${ranked('评测属性', s.attribute_distribution)}${ranked('相关评测对象', s.top_evaluation_entities)}${ranked('常用指标', s.top_metrics)}</div>`;
+     <div class="rank-grid">${ranked('评测方式', s.evaluation_mode_distribution)}${ranked('客观 / 主观', s.objective_subjective_distribution)}${ranked('评测属性', Object.entries(s.attribute_evaluation_counts || {}).map(([name, count]) => ({name, count})))}${ranked('相关评测对象', s.top_evaluation_entities)}${ranked('常用指标', s.top_metrics)}</div>`;
 }
 function overview(stat, title, rows, narrative, kind) {
   const view = parseHash(), isCategory = ['macro', 'session'].includes(view.type);
-  return `<section class="stats-panel"><div class="section-kicker">📊 样本统计</div><h2>${esc(isCategory ? `当前分类统计分析 · ${title}` : title)}</h2>
+  return `<section class="stats-panel"><div class="section-kicker">📊 ${scopeStats()}</div><h2>${esc(isCategory ? `当前分类统计分析 · ${title}` : title)}</h2>
     ${shareLine(stat, rows)}${query.trim() ? '<p class="filtered-note">分类统计为该目录全样本汇总；论文列表按搜索词筛选。</p>' : ''}${kpis(stat, rows)}
     <div class="rank-grid">${ranked('🔥 研究主题', stat.top_topics)}${ranked('🎯 研究任务', stat.top_tasks)}${ranked('🧩 方法类别', stat.top_method_families)}${expandableRanked('🛠 具体方法', stat.top_specific_methods)}${ranked('📚 Dataset', stat.top_datasets)}${ranked('📐 Metrics', stat.top_metrics)}${ranked('🌍 Languages', stat.top_languages)}${ranked('🔊 Modalities', stat.top_modalities)}${ranked('🏥 应用领域', stat.top_domains)}${ranked('⭐ 贡献类型', stat.contribution_types)}</div>
     ${kind ? specialDetails(stat, kind) : ''}
     ${narrative ? `<div class="narrative"><h3>样本分析</h3><p>${esc(narrative.overview || '')}</p>${narrative.research_hotspots?.length ? `<div class="badges">${narrative.research_hotspots.map(x => `<span class="badge">${esc(x)}</span>`).join('')}</div>` : ''}${narrative.major_results?.length ? `<h3>主要发现</h3><ul>${narrative.major_results.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}<p>${esc(narrative.trend_summary || '')}</p></div>` : ''}
-    <p class="sample-note">仅统计当前15篇开发样本，不代表 Interspeech 2026 全部论文。</p></section>`;
+     <p class="sample-note">${stats.data_scope === 'full' ? '统计基于全部成功分析的正式论文。' : `仅统计当前${scopeName()}，不代表 Interspeech 2026 全部论文。`}</p></section>`;
+}
+function paperMore(p) {
+  const fields = [
+    ['官方原始 Session', p.original_session], ['归一化 Official Session', p.normalized_session],
+    ['中文 Session', p.session_zh || sessionName(p.normalized_session)], ['一级研究方向', p.macro_name || p.macro],
+    ['页码', p.pages], ['DOI', p.doi],
+  ].filter(([, value]) => value);
+  const metadata = fields.length ? `<dl class="detail-fields">${fields.map(([label, value]) => `<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl>` : '';
+  return `${metadata}${detailStructured(p.structured) || '<p>没有可显示的结构化信息。</p>'}`;
 }
 function paperCard(p) {
   const a = p.analysis || {}, on = isFavorite(p.paper_id), authors = Array.isArray(p.authors) ? p.authors.join(', ') : p.authors;
   return `<article class="paper-card"><div class="paper-actions"><button class="favorite ${on ? 'on' : ''}" aria-label="${on ? '取消收藏' : '收藏'} ${esc(p.title)}" data-fav="${esc(p.paper_id)}">${on ? '★ 已收藏' : '☆ 收藏'}</button>
       <div class="paper-links">${p.pdf_url ? `<a href="${esc(p.pdf_url)}" target="_blank" rel="noopener noreferrer">PDF</a>` : ''}${p.isca_page_url ? `<a href="${esc(p.isca_page_url)}" target="_blank" rel="noopener noreferrer">ISCA</a>` : ''}${p.doi ? `<a href="${esc(p.doi.startsWith('http') ? p.doi : `https://doi.org/${p.doi}`)}" target="_blank" rel="noopener noreferrer">DOI</a>` : ''}</div></div>
     <h3 class="paper-title"><a href="#paper/${encodeURIComponent(p.paper_id)}" data-paper="${esc(p.paper_id)}">${esc(p.title)}</a></h3><div class="paper-meta">${esc(authors || '')}</div>
-    <div class="badges">${p.macro || p.macro_name ? `<span class="badge">${esc(p.macro || p.macro_name)}</span>` : ''}${p.normalized_session ? `<span class="badge session-badge">${esc(p.normalized_session)}</span>` : ''}${(p.topics || []).slice(0, 4).map(item => `<span class="badge">${esc(item)}</span>`).join('')}</div>
+     <div class="badges">${p.macro || p.macro_name ? `<span class="badge">${esc(p.macro || p.macro_name)}</span>` : ''}${p.normalized_session ? `<span class="badge session-badge">${esc(p.session_zh || sessionName(p.normalized_session))}</span>` : ''}${(p.topics || []).slice(0, 4).map(item => `<span class="badge">${esc(item)}</span>`).join('')}</div>
     ${p.tldr_cn ? `<div class="tldr"><b>💡 一句话看懂</b><span>${esc(p.tldr_cn)}</span></div>` : ''}
-    <div class="dimensions">${FIELDS.map(([key, icon]) => `<div class="dimension"><b>${icon} ${key}</b><p>${esc(a[key] || '')}</p></div>`).join('')}</div>
-    <details class="abstract" data-abstract="${esc(p.paper_id)}"><summary>查看完整摘要 Abstract</summary><p class="abstract-body">展开后按需读取摘要…</p></details></article>`;
+     <div class="dimensions">${FIELDS.map(([key, icon]) => `<div class="dimension"><b>${icon} ${key}</b><p>${esc(a[key] || '')}</p></div>`).join('')}</div>
+     <details class="paper-more" data-paper-more="${esc(p.paper_id)}"><summary>查看详细信息</summary><div class="paper-more-body">展开后按需读取结构化信息…</div></details>
+     <details class="abstract" data-abstract="${esc(p.paper_id)}"><summary>查看完整摘要 Abstract</summary><p class="abstract-body">展开后按需读取摘要…</p></details></article>`;
 }
 function titleAndStats(view) {
   if (view.type === 'macro') {
     const m = taxonomy.macros.find(item => item.id === view.value);
     return {title:m?.name || view.value, stat:stats.macro_categories?.[view.value] || {}, narrative:narratives[`macro:${view.value}`]};
   }
-  if (view.type === 'session') return {title:view.value, stat:stats.categories?.[view.value] || {}, narrative:narratives[`category:${view.value}`]};
+  if (view.type === 'session') return {title:sessionName(view.value), stat:stats.categories?.[view.value] || {}, narrative:narratives[`category:${view.value}`]};
   if (view.type === 'special') return {title:view.value === 'dataset' ? 'Dataset / Corpus 专项' : 'Evaluation / Benchmark 专项', stat:stats.special?.[view.value] || {}, narrative:narratives[`special:${view.value}`], kind:view.value};
   return {title:'Interspeech 2026 样本总览', stat:stats.all || {}, narrative:narratives.all};
 }
 function homeOverview() {
   const s = stats.all || {}, topics = s.top_topics || [];
   const listed = stats.source_listed_count || 0, covered = sampleTotal();
-  return `<section class="home-overview"><div class="section-kicker">📊 样本统计</div><h2>15篇开发样本概览</h2>
+  return `<section class="home-overview"><div class="section-kicker">📊 ${scopeStats()}</div><h2>${scopeName()}概览</h2>
     <div class="home-kpis"><div><b>${papers.length}</b><span>篇论文</span></div><div><b>${new Set(papers.map(p => p.normalized_session).filter(Boolean)).size}</b><span>个 Official Session</span></div><div><b>${new Set(papers.map(rowMacro).filter(Boolean)).size}</b><span>个一级方向</span></div><div><b>${stats.special?.dataset?.paper_count ?? 0}</b><span>篇 Dataset 专项</span></div><div><b>${stats.special?.evaluation?.paper_count ?? 0}</b><span>篇 Evaluation 专项</span></div></div>
-    ${topics.length ? `<p><b>热门主题：</b>${topics.slice(0, 5).map(x => `${esc(x.name)}（${esc(x.count)}）`).join('、')}</p>` : ''}${Number.isFinite(s.coverage_percentage) ? `<p>样本覆盖官方目录：<b>${covered} / ${listed}（${Number(s.coverage_percentage).toFixed(2)}%）</b></p>` : ''}<p class="sample-note">所有数字均为样本统计，不代表整届会议。</p></section>`;
+     ${topics.length ? `<p><b>热门主题：</b>${topics.slice(0, 5).map(x => `${esc(x.name)}（${esc(x.count)}）`).join('、')}</p>` : ''}${Number.isFinite(s.coverage_percentage) ? `<p>${stats.data_scope === 'full' ? '正式论文覆盖' : '样本覆盖'}官方目录：<b>${covered} / ${listed}（${Number(s.coverage_percentage).toFixed(2)}%）</b></p>` : ''}<p class="sample-note">${stats.data_scope === 'full' ? '所有数字均由已分析的正式论文计算。' : '所有数字均为样本统计，不代表整届会议。'}</p></section>`;
 }
 function renderList(view, rows) {
-  if (view.type === 'all') return `${homeOverview()}${paperList('样本论文', rows)}`;
+  if (view.type === 'all') return `${homeOverview()}${paperList('论文', rows)}`;
   if (view.type === 'search') return `<section class="paper-section"><div class="section-kicker">全站搜索 · 样本统计</div><h2>搜索结果 <small>(${rows.length})</small></h2>${paperRows(rows)}</section>`;
   if (view.type === 'favorites') return paperList('已收藏论文', rows, false);
   const page = titleAndStats(view), first = overview(page.stat, page.title, baseRows(view), page.narrative, page.kind);
@@ -161,7 +173,7 @@ function paperRows(rows, emptyText = '当前样本中没有匹配论文。') {
 }
 function paperList(title, rows, showKicker = true) {
   const empty = parseHash().type === 'favorites' ? '点击论文卡片上的 ☆ 收藏，即可加入本机收藏。' : '当前样本中没有匹配论文。';
-  return `<section class="paper-section">${showKicker ? '<div class="section-kicker">15篇开发样本</div>' : ''}<h2>${esc(title)} <small>(${rows.length})</small></h2>${paperRows(rows, empty)}</section>`;
+  return `<section class="paper-section">${showKicker ? `<div class="section-kicker">${scopeName()}</div>` : ''}<h2>${esc(title)} <small>(${rows.length})</small></h2>${paperRows(rows, empty)}</section>`;
 }
 function valueText(v) {
   if (v == null || v === '') return '';
@@ -184,7 +196,7 @@ function detailPage(p) {
   const links = `${p.pdf_url ? `<a href="${esc(p.pdf_url)}" target="_blank" rel="noopener noreferrer">PDF</a>` : ''}${p.isca_page_url ? `<a href="${esc(p.isca_page_url)}" target="_blank" rel="noopener noreferrer">ISCA</a>` : ''}${p.doi ? `<a href="${esc(p.doi.startsWith('http') ? p.doi : `https://doi.org/${p.doi}`)}" target="_blank" rel="noopener noreferrer">DOI</a>` : ''}`;
   return `<button class="back-link" data-back>← 返回论文列表</button><article class="paper-detail">
     <div class="paper-actions"><button class="favorite ${on ? 'on' : ''}" data-fav="${esc(p.paper_id)}">${on ? '★ 已收藏' : '☆ 收藏'}</button><div class="paper-links">${links}</div></div>
-    <h1>${esc(p.title)}</h1><p class="detail-authors">${esc(authors || '')}</p><div class="badges">${p.macro || p.macro_name ? `<span class="badge">${esc(p.macro || p.macro_name)}</span>` : ''}${p.normalized_session ? `<span class="badge session-badge">归一化 Session：${esc(p.normalized_session)}</span>` : ''}${p.original_session ? `<span class="badge original-badge">原始 Session：${esc(p.original_session)}</span>` : ''}${p.pages ? `<span class="badge">页码 ${esc(p.pages)}</span>` : ''}</div>
+     <h1>${esc(p.title)}</h1><p class="detail-authors">${esc(authors || '')}</p><div class="badges">${p.macro || p.macro_name ? `<span class="badge">${esc(p.macro || p.macro_name)}</span>` : ''}${p.session_zh ? `<span class="badge session-badge">${esc(p.session_zh)}</span>` : ''}${p.normalized_session ? `<span class="badge original-badge">归一化 Official Session：${esc(p.normalized_session)}</span>` : ''}${p.original_session ? `<span class="badge original-badge">原始 Official Session：${esc(p.original_session)}</span>` : ''}${p.pages ? `<span class="badge">页码 ${esc(p.pages)}</span>` : ''}</div>
      ${p.tldr_cn ? `<div class="tldr detail-tldr"><b>💡 一句话看懂</b><span>${esc(p.tldr_cn)}</span></div>` : ''}
     <section class="detail-block"><h2>六维中文导读</h2><div class="dimensions">${FIELDS.map(([key, icon]) => `<div class="dimension"><b>${icon} ${key}</b><p>${esc(a[key] || '')}</p></div>`).join('')}</div></section>
     ${detailStructured(p.structured)}${entitySection('Dataset 实体', p.dataset_entities)}${entitySection('Evaluation 实体', p.evaluation_entities)}
@@ -266,11 +278,15 @@ function bindEvents() {
     }
   });
   document.querySelector('#content').addEventListener('toggle', async event => {
-    const item = event.target.closest('details[data-abstract]');
+    const item = event.target.closest('details[data-abstract], details[data-paper-more]');
     if (!item || !item.open || item.dataset.loaded) return;
     item.dataset.loaded = 'true';
-    const body = item.querySelector('.abstract-body');
-    try { const detail = await loadDetail(item.dataset.abstract); body.textContent = detail.abstract || '官方摘要未提供。'; }
+    const abstract = item.matches('[data-abstract]'), body = item.querySelector(abstract ? '.abstract-body' : '.paper-more-body');
+    try {
+      const detail = await loadDetail(abstract ? item.dataset.abstract : item.dataset.paperMore);
+      if (abstract) body.textContent = detail.abstract || '官方摘要未提供。';
+      else body.innerHTML = paperMore(detail);
+    }
     catch (error) { body.textContent = error.message; item.dataset.loaded = ''; }
   }, true);
   document.querySelector('[data-menu]').addEventListener('click', () => setDrawer(true));
@@ -287,12 +303,19 @@ function bindEvents() {
 }
 async function start() {
   try {
-    [papers, stats, narratives, taxonomy] = await Promise.all([
+    [papers, stats, narratives, taxonomy, sessionLabels] = await Promise.all([
       fetch('data/papers-index.json').then(r => { if (!r.ok) throw new Error(`论文索引加载失败：${r.status}`); return r.json(); }),
       fetch('data/stats.json').then(r => { if (!r.ok) throw new Error(`统计数据加载失败：${r.status}`); return r.json(); }),
       fetch('data/category_analysis.json').then(r => r.ok ? r.json() : {}),
       fetch('data/taxonomy.json').then(r => { if (!r.ok) throw new Error(`分类目录加载失败：${r.status}`); return r.json(); }),
+      fetch('data/session_labels_zh.json').then(r => { if (!r.ok) throw new Error(`session 中文目录加载失败：${r.status}`); return r.json(); }),
     ]);
+    const full = stats.data_scope === 'full';
+    document.querySelector('.main-header h1').textContent = full ? 'Interspeech 2026 全部论文 · 中文导读' : 'Interspeech 2026 · 中文论文导读';
+    document.querySelector('.sample-pill').hidden = full;
+    document.querySelector('.side-sample').hidden = full;
+    document.querySelector('footer').textContent = full ? '论文来源：ISCA Archive。论文分析覆盖范围以页面统计为准。' : '15篇开发样本的分析与计数用于网站验收，不代表整届会议统计。论文来源：ISCA Archive。';
+    document.title = full ? 'Interspeech 2026 全部论文 · 中文导读' : 'Interspeech 2026 · 15篇开发样本中文导读';
     const view = parseHash();
     if (view.type === 'search') { query = view.value; searchReturnHash = '#all'; }
     if (view.type === 'paper') lastListHash = '#all';

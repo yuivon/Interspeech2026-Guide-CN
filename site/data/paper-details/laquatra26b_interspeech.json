@@ -16,6 +16,7 @@
   "doi": "10.21437/Interspeech.2026-2369",
   "pages": "26-31",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/laquatra26b_interspeech.html",
+  "session_zh": "信息抽取与检索",
   "tldr_cn": "该文系统比较自监督音频序列匹配，发现音乐更适合DTW，语音检索更适合离散单元与文本检索。",
   "analysis": {
     "研究动机": "自监督学习能从无标签音频中提取表示，但不同序列匹配方法在音乐和语音检索中的适用性还缺少系统比较。论文希望弄清楚表示形式、匹配策略与音频领域之间的关系。",
@@ -102,7 +103,11 @@
       "availability": "public",
       "collection_method": "",
       "annotation_method": "",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "benchmark",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     },
     {
       "name": "QbE-LibriSpeech",
@@ -118,7 +123,11 @@
       "availability": "not_stated",
       "collection_method": "从 LibriSpeech 转写中抽取双词短语，去除停用词并按出现频次筛选。",
       "annotation_method": "使用 WhisperX 获取词级时间戳以截取短语音频。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "proposed",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -127,21 +136,54 @@
       "type": "metric",
       "task": "音频检索",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "MRR",
       "type": "metric",
       "task": "音频检索",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "Recall@3 与 Recall@5",
       "type": "metric",
       "task": "音频检索",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

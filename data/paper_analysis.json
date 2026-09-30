@@ -87,7 +87,11 @@
         "availability": "not_stated",
         "collection_method": "训练数据取自LibriSpeech train-clean-100与train-clean-360；测试集取自train-other-500",
         "annotation_method": "",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -96,7 +100,18 @@
         "type": "benchmark",
         "task": "比较关键词检测性能、模型规模和估算能耗",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": true,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -228,7 +243,11 @@
         "availability": "not_stated",
         "collection_method": "从MLS语料提取；关键词由转写文本中的名词和专有名词抽取",
         "annotation_method": "使用MLS转写文本抽取关键词；关键词音频混合自然语音与TTS语音",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": true,
+        "is_low_resource": false,
+        "is_endangered_language": false
       },
       {
         "name": "AISHELL",
@@ -245,7 +264,11 @@
         "availability": "public",
         "collection_method": "在隔离环境中使用高保真麦克风录制",
         "annotation_method": "人工标注热词",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       },
       {
         "name": "ACL6060",
@@ -262,7 +285,11 @@
         "availability": "public",
         "collection_method": "录制现场研究演讲",
         "annotation_method": "人工标注热词",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       },
       {
         "name": "内部家庭医学问诊语料",
@@ -279,7 +306,11 @@
         "availability": "not_stated",
         "collection_method": "家庭医学问诊录音",
         "annotation_method": "关键词表从葡萄牙临床术语目录抽取，去除停用词和数字；语音标注方式未报告",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -288,7 +319,18 @@
         "type": "benchmark",
         "task": "测量检测准确率、转写质量、实体召回与特征存储效率",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": true,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -396,7 +438,11 @@
         "availability": "not_stated",
         "collection_method": "训练集取自LibriSpeech train-clean-100与train-clean-360；测试集取自train-other-500",
         "annotation_method": "使用50 Hz帧级标签；关键词最后5帧标为正，其余帧标为负",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       },
       {
         "name": "MS-SNSD babble noise subset",
@@ -411,7 +457,11 @@
         "availability": "not_stated",
         "collection_method": "从MS-SNSD取babble noise子集",
         "annotation_method": "",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -420,7 +470,18 @@
         "type": "benchmark",
         "task": "比较容易与困难负例条件下的关键词检测性能",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": true,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -531,7 +592,11 @@
         "availability": "not_stated",
         "collection_method": "在德国慕尼黑工业大学医院神经内科门诊采集",
         "annotation_method": "目标为ALSFRS-R-speech与QOL-Dys临床评分；语音标注方法未报告",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -540,7 +605,18 @@
         "type": "benchmark",
         "task": "从五类言语任务预测ALSFRS-R-speech与QOL-Dys",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": true,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -664,7 +740,11 @@
         "availability": "not_stated",
         "collection_method": "录音来自多个语料库，单段截断至最多30秒，平均27秒",
         "annotation_method": "按认知健康对照、MCI与AD诊断类别分组",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "benchmark",
+        "is_multilingual": true,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -673,21 +753,54 @@
         "type": "benchmark",
         "task": "评估SpeechCARE筛查模型识别认知障碍的效果",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": true,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "70份英语样本的临床解释盲评",
         "type": "human",
         "task": "评估解释报告与患者认知语言特征的对应情况",
         "automatic_or_human": "human",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "临床工作流可用性研究",
         "type": "human",
         "task": "评估解释界面的易用性与临床工作流整合潜力",
         "automatic_or_human": "human",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -800,7 +913,11 @@
         "availability": "not_stated",
         "collection_method": "标准化电话随访与真实临床患者—护士交谈录音，并关联 EHR。",
         "annotation_method": "认知状态标签的具体判定流程未报告；语音由 AWS Transcribe 转录并 diarize，研究者用 GPT-4o 映射患者与临床人员角色。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -809,21 +926,54 @@
         "type": "metric",
         "task": "认知障碍检测",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "F1 与 Macro F1",
         "type": "metric",
         "task": "认知障碍检测",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "55/20/25 训练、验证、测试划分及五随机种子重复",
         "type": "protocol",
         "task": "比较不同语音来源和 EHR 模态组合",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": true,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -941,7 +1091,11 @@
         "availability": "not_stated",
         "collection_method": "在大学医院对社区老年 MCI 患者进行年度录音；每次包含阅读、持续元音、句子重复和症状访谈等任务。",
         "annotation_method": "每次录音同期收集 SGDS 与 MMSE；SGDS≥8 定义为抑郁。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "proposed",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -950,21 +1104,54 @@
         "type": "protocol",
         "task": "抑郁分类",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": true,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "UAR",
         "type": "metric",
         "task": "抑郁分类",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "Sensitivity、Specificity、Accuracy、F1",
         "type": "metric",
         "task": "抑郁分类",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -1071,7 +1258,11 @@
         "availability": "not_stated",
         "collection_method": "使用官方训练、验证和测试划分；论文未报告原始采集细节。",
         "annotation_method": "按十个目标命令词分类，其余词语和静音映射为背景类。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       },
       {
         "name": "Mozilla Common Voice v17",
@@ -1088,7 +1279,11 @@
         "availability": "not_stated",
         "collection_method": "使用 Common Voice v17 测试划分作为负样本来源。",
         "annotation_method": "在 FAR 校准中作为 negative-only corpus；未报告其他标签处理细节。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -1097,21 +1292,54 @@
         "type": "metric",
         "task": "固定 FAR 工作点下的关键词扩展识别",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "FAR@1%",
         "type": "metric",
         "task": "关键词检测阈值校准",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "五组关键词对、八随机种子",
         "type": "protocol",
         "task": "增量关键词扩展比较",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": true,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -1235,7 +1463,11 @@
         "availability": "not_stated",
         "collection_method": "使用 TREND 研究中的 MMSE 与 CERAD+ 神经心理评估语音录音。",
         "annotation_method": "目标分数来自 MMSE、CERAD+ 任务/域/总体分数及既有 MCI 状态定义。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -1244,21 +1476,54 @@
         "type": "metric",
         "task": "层级认知分数预测与 MCI 分类",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "5×3 嵌套交叉验证与受试者隔离留出集",
         "type": "protocol",
         "task": "评估对未见参与者的泛化",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": true,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "DER、JER、Purity、Coverage",
         "type": "metric",
         "task": "录音预处理与说话人 diarization 参数选择",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -1367,7 +1632,11 @@
         "availability": "not_stated",
         "collection_method": "EverythingALS 招募参与者，通过 Modality 云端多模态对话平台远程重复评估，频率约每两周一次。",
         "annotation_method": "临床量表提供 ALSFRS-R 分数；语音、面部和转录指标由自动分析模块提取。事件阈值按各指标的 MCID 定义。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -1378,7 +1647,18 @@
         "automatic_or_human": "automatic",
         "attributes": [
           "objective"
-        ]
+        ],
+        "objective_or_subjective": "objective",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": true,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "指数近似 hazard rate 与试验样本量/时长估计",
@@ -1387,7 +1667,18 @@
         "automatic_or_human": "automatic",
         "attributes": [
           "objective"
-        ]
+        ],
+        "objective_or_subjective": "objective",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": true,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -1495,7 +1786,11 @@
         "availability": "public",
         "collection_method": "",
         "annotation_method": "",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "benchmark",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       },
       {
         "name": "QbE-LibriSpeech",
@@ -1511,7 +1806,11 @@
         "availability": "not_stated",
         "collection_method": "从 LibriSpeech 转写中抽取双词短语，去除停用词并按出现频次筛选。",
         "annotation_method": "使用 WhisperX 获取词级时间戳以截取短语音频。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "proposed",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -1520,21 +1819,54 @@
         "type": "metric",
         "task": "音频检索",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "MRR",
         "type": "metric",
         "task": "音频检索",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "Recall@3 与 Recall@5",
         "type": "metric",
         "task": "音频检索",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -1631,7 +1963,11 @@
         "availability": "public",
         "collection_method": "",
         "annotation_method": "",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "benchmark",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -1640,14 +1976,36 @@
         "type": "metric",
         "task": "判断语音、画面或音视频模态是否有效",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "P@1",
         "type": "metric",
         "task": "音视频人物检索",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -1755,7 +2113,11 @@
         "availability": "not_stated",
         "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
         "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       },
       {
         "name": "Wisconsin Registry for Alzheimer’s Prevention（WRAP）",
@@ -1771,7 +2133,11 @@
         "availability": "not_stated",
         "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
         "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       },
       {
         "name": "Wisconsin Alzheimer’s Disease Research Center（W-ADRC）",
@@ -1787,7 +2153,11 @@
         "availability": "not_stated",
         "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
         "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "used",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -1796,21 +2166,54 @@
         "type": "metric",
         "task": "CIU 自动识别",
         "automatic_or_human": "both",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "CIU 时间定位准确率",
         "type": "metric",
         "task": "CIU 片段时间位置定位",
         "automatic_or_human": "both",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "Hedge's g",
         "type": "metric",
         "task": "比较正常组与临床组的图特征",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -1918,7 +2321,11 @@
         "availability": "not_stated",
         "collection_method": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
         "annotation_method": "",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "systematic_study",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       },
       {
         "name": "ADReSSo",
@@ -1935,7 +2342,11 @@
         "availability": "not_stated",
         "collection_method": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
         "annotation_method": "",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "systematic_study",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -1946,7 +2357,18 @@
         "automatic_or_human": "automatic",
         "attributes": [
           "objective"
-        ]
+        ],
+        "objective_or_subjective": "objective",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "随机标签置换负对照",
@@ -1955,7 +2377,18 @@
         "automatic_or_human": "automatic",
         "attributes": [
           "objective"
-        ]
+        ],
+        "objective_or_subjective": "objective",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "100 次 Monte Carlo 重采样",
@@ -1966,7 +2399,18 @@
           "objective",
           "robustness",
           "reliability"
-        ]
+        ],
+        "objective_or_subjective": "objective",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": true,
+        "is_reliability": true,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "VAD 语音/静音派生版本比较",
@@ -1976,7 +2420,18 @@
         "attributes": [
           "objective",
           "robustness"
-        ]
+        ],
+        "objective_or_subjective": "objective",
+        "is_benchmark": false,
+        "is_metric_study": false,
+        "is_protocol_study": false,
+        "is_robustness": true,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {
@@ -2080,7 +2535,11 @@
         "availability": "not_stated",
         "collection_method": "由 LibriSpeech 短语构成。",
         "annotation_method": "",
-        "language_status": []
+        "language_status": [],
+        "dataset_role": "benchmark",
+        "is_multilingual": false,
+        "is_low_resource": false,
+        "is_endangered_language": false
       }
     ],
     "evaluation_entities": [
@@ -2089,14 +2548,36 @@
         "type": "metric",
         "task": "LibriPhrase 关键词检测",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       },
       {
         "name": "EER",
         "type": "metric",
         "task": "LibriPhrase 关键词检测",
         "automatic_or_human": "automatic",
-        "attributes": []
+        "attributes": [],
+        "objective_or_subjective": "unknown",
+        "is_benchmark": false,
+        "is_metric_study": true,
+        "is_protocol_study": false,
+        "is_robustness": false,
+        "is_reliability": false,
+        "is_generalization": false,
+        "is_fairness": false,
+        "is_safety": false,
+        "is_foundation_model_eval": false,
+        "is_speech_llm_eval": false
       }
     ],
     "special_tags": {

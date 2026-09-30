@@ -22,6 +22,7 @@
   "doi": "10.21437/Interspeech.2026-2725",
   "pages": "77-81",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/kopar26_interspeech.html",
+  "session_zh": "具有临床实用价值的语音表征",
   "tldr_cn": "该文比较多类语音表示与认知评分层级，发现任务开放程度会影响预测效果如何随层级变化。",
   "analysis": {
     "研究动机": "认知评估包含任务、认知域和总体状态等层级，单看二分类或单一任务会掩盖语音表示随评估层级变化的规律。",
@@ -124,7 +125,11 @@
       "availability": "not_stated",
       "collection_method": "使用 TREND 研究中的 MMSE 与 CERAD+ 神经心理评估语音录音。",
       "annotation_method": "目标分数来自 MMSE、CERAD+ 任务/域/总体分数及既有 MCI 状态定义。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -133,21 +138,54 @@
       "type": "metric",
       "task": "层级认知分数预测与 MCI 分类",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "5×3 嵌套交叉验证与受试者隔离留出集",
       "type": "protocol",
       "task": "评估对未见参与者的泛化",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": true,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "DER、JER、Purity、Coverage",
       "type": "metric",
       "task": "录音预处理与说话人 diarization 参数选择",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

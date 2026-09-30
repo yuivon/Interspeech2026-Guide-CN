@@ -16,6 +16,7 @@
   "doi": "10.21437/Interspeech.2026-3336",
   "pages": "6-10",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/baek26_interspeech.html",
+  "session_zh": "信息抽取与检索",
   "tldr_cn": "该文用脉冲式音频—文本匹配做自定义关键词检测，在接近强基线的同时压缩模型并降低估算能耗。",
   "analysis": {
     "研究动机": "用户自定义关键词检测需要同时理解语音和输入文本，但常见神经网络的计算量与能耗不利于设备端部署。",
@@ -103,7 +104,11 @@
       "availability": "not_stated",
       "collection_method": "训练数据取自LibriSpeech train-clean-100与train-clean-360；测试集取自train-other-500",
       "annotation_method": "",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -112,7 +117,18 @@
       "type": "benchmark",
       "task": "比较关键词检测性能、模型规模和估算能耗",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": true,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

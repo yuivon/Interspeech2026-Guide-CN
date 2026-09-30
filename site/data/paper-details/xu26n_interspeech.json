@@ -20,6 +20,7 @@
   "doi": "10.21437/Interspeech.2026-1233",
   "pages": "54-59",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/xu26n_interspeech.html",
+  "session_zh": "具有临床实用价值的语音表征",
   "tldr_cn": "该文自动识别图像描述中的内容单元并构建时间图，揭示临床组叙述内容与组织差异。",
   "analysis": {
     "研究动机": "Cookie Theft 图像描述任务中的内容信息单元（CIU）能反映叙述的信息量，但传统识别依赖人工标注，且已有研究多关注空间分布，较少刻画 CIU 随时间的变化。",
@@ -106,7 +107,11 @@
       "availability": "not_stated",
       "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
       "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     },
     {
       "name": "Wisconsin Registry for Alzheimer’s Prevention（WRAP）",
@@ -122,7 +127,11 @@
       "availability": "not_stated",
       "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
       "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     },
     {
       "name": "Wisconsin Alzheimer’s Disease Research Center（W-ADRC）",
@@ -138,7 +147,11 @@
       "availability": "not_stated",
       "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
       "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -147,21 +160,54 @@
       "type": "metric",
       "task": "CIU 自动识别",
       "automatic_or_human": "both",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "CIU 时间定位准确率",
       "type": "metric",
       "task": "CIU 片段时间位置定位",
       "automatic_or_human": "both",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "Hedge's g",
       "type": "metric",
       "task": "比较正常组与临床组的图特征",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

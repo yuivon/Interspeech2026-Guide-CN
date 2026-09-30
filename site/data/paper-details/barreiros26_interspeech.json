@@ -17,6 +17,7 @@
   "doi": "10.21437/Interspeech.2026-1444",
   "pages": "1-5",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/barreiros26_interspeech.html",
+  "session_zh": "信息抽取与检索",
   "tldr_cn": "该文分层压缩Whisper特征支持大词表关键词检测，并比较多语种检索效果及上下文偏置的得失。",
   "analysis": {
     "研究动机": "自动语音识别容易漏掉训练中少见的专业词，开放词表关键词检测可提供补充，但现有方案难以承载数百个以上词条。",
@@ -127,7 +128,11 @@
       "availability": "not_stated",
       "collection_method": "从MLS语料提取；关键词由转写文本中的名词和专有名词抽取",
       "annotation_method": "使用MLS转写文本抽取关键词；关键词音频混合自然语音与TTS语音",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": true,
+      "is_low_resource": false,
+      "is_endangered_language": false
     },
     {
       "name": "AISHELL",
@@ -144,7 +149,11 @@
       "availability": "public",
       "collection_method": "在隔离环境中使用高保真麦克风录制",
       "annotation_method": "人工标注热词",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     },
     {
       "name": "ACL6060",
@@ -161,7 +170,11 @@
       "availability": "public",
       "collection_method": "录制现场研究演讲",
       "annotation_method": "人工标注热词",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     },
     {
       "name": "内部家庭医学问诊语料",
@@ -178,7 +191,11 @@
       "availability": "not_stated",
       "collection_method": "家庭医学问诊录音",
       "annotation_method": "关键词表从葡萄牙临床术语目录抽取，去除停用词和数字；语音标注方式未报告",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -187,7 +204,18 @@
       "type": "benchmark",
       "task": "测量检测准确率、转写质量、实体召回与特征存储效率",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": true,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

@@ -18,6 +18,7 @@
   "doi": "10.21437/Interspeech.2026-2485",
   "pages": "21-25",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/zhang26fa_interspeech.html",
+  "session_zh": "信息抽取与检索",
   "tldr_cn": "该文将音素级对齐和跨模态学习用于流式关键词检测，并支持文本与音频注册。",
   "analysis": {
     "研究动机": "音素级对齐有助于区分发音相近的关键词，但不少方案依赖完整序列，难以用于流式场景；现有流式 CTC 对齐方法又主要支持文本注册。",
@@ -100,7 +101,11 @@
       "availability": "not_stated",
       "collection_method": "由 LibriSpeech 短语构成。",
       "annotation_method": "",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "benchmark",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -109,14 +114,36 @@
       "type": "metric",
       "task": "LibriPhrase 关键词检测",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "EER",
       "type": "metric",
       "task": "LibriPhrase 关键词检测",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

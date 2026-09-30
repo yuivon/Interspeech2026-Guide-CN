@@ -21,6 +21,7 @@
   "doi": "10.21437/Interspeech.2026-1052",
   "pages": "48-53",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/gonzalezmachorro26_interspeech.html",
+  "session_zh": "具有临床实用价值的语音表征",
   "tldr_cn": "该文比较德语ALS语音任务与建模范式，发现不同任务对临床言语评分的预测价值不同。",
   "analysis": {
     "研究动机": "ALS常影响发音与言语能力，但针对德语患者、不同言语任务和个体内追踪方式的自动评估证据仍有限。",
@@ -110,7 +111,11 @@
       "availability": "not_stated",
       "collection_method": "在德国慕尼黑工业大学医院神经内科门诊采集",
       "annotation_method": "目标为ALSFRS-R-speech与QOL-Dys临床评分；语音标注方法未报告",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -119,7 +124,18 @@
       "type": "benchmark",
       "task": "从五类言语任务预测ALSFRS-R-speech与QOL-Dys",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": true,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

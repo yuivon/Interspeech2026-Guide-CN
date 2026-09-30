@@ -21,6 +21,7 @@
   "doi": "10.21437/Interspeech.2026-1247",
   "pages": "37-42",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/jeon26_interspeech.html",
+  "session_zh": "具有临床实用价值的语音表征",
   "tldr_cn": "该文借助同期认知评分区分抑郁与认知变化，并提出韩语老年MCI纵向语音语料。",
   "analysis": {
     "研究动机": "老年 MCI 人群的抑郁和认知下降会造成相似语音变化，分类器可能把认知差异误当成抑郁信号。",
@@ -117,7 +118,11 @@
       "availability": "not_stated",
       "collection_method": "在大学医院对社区老年 MCI 患者进行年度录音；每次包含阅读、持续元音、句子重复和症状访谈等任务。",
       "annotation_method": "每次录音同期收集 SGDS 与 MMSE；SGDS≥8 定义为抑郁。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "proposed",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -126,21 +131,54 @@
       "type": "protocol",
       "task": "抑郁分类",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": true,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "UAR",
       "type": "metric",
       "task": "抑郁分类",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "Sensitivity、Specificity、Accuracy、F1",
       "type": "metric",
       "task": "抑郁分类",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

@@ -16,6 +16,7 @@
   "doi": "10.21437/Interspeech.2026-1676",
   "pages": "16-20",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/chen26q_interspeech.html",
+  "session_zh": "信息抽取与检索",
   "tldr_cn": "该文交换流式语音与关键词的跨注意力角色，在困难负例上改善开放词表关键词检测。",
   "analysis": {
     "研究动机": "开放词表关键词检测依赖跨模态注意力，但传统数据流在流式场景下让语音缺少全局上下文，限制了实时部署。",
@@ -102,7 +103,11 @@
       "availability": "not_stated",
       "collection_method": "训练集取自LibriSpeech train-clean-100与train-clean-360；测试集取自train-other-500",
       "annotation_method": "使用50 Hz帧级标签；关键词最后5帧标为正，其余帧标为负",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     },
     {
       "name": "MS-SNSD babble noise subset",
@@ -117,7 +122,11 @@
       "availability": "not_stated",
       "collection_method": "从MS-SNSD取babble noise子集",
       "annotation_method": "",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -126,7 +135,18 @@
       "type": "benchmark",
       "task": "比较容易与困难负例条件下的关键词检测性能",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": true,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

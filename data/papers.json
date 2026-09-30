@@ -17,7 +17,8 @@
     "doi": "10.21437/Interspeech.2026-3336",
     "pages": "6-10",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/baek26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "信息抽取与检索"
   },
   {
     "paper_id": "barreiros26_interspeech",
@@ -38,7 +39,8 @@
     "doi": "10.21437/Interspeech.2026-1444",
     "pages": "1-5",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/barreiros26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "信息抽取与检索"
   },
   {
     "paper_id": "chen26q_interspeech",
@@ -58,7 +60,8 @@
     "doi": "10.21437/Interspeech.2026-1676",
     "pages": "16-20",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/chen26q_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "信息抽取与检索"
   },
   {
     "paper_id": "gonzalezmachorro26_interspeech",
@@ -83,7 +86,8 @@
     "doi": "10.21437/Interspeech.2026-1052",
     "pages": "48-53",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/gonzalezmachorro26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "具有临床实用价值的语音表征"
   },
   {
     "paper_id": "haghbin26_interspeech",
@@ -109,7 +113,8 @@
     "doi": "10.21437/Interspeech.2026-1252",
     "pages": "43-47",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/haghbin26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "具有临床实用价值的语音表征"
   },
   {
     "paper_id": "haghbin26b_interspeech",
@@ -131,7 +136,8 @@
     "doi": "10.21437/Interspeech.2026-1860",
     "pages": "60-65",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/haghbin26b_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "具有临床实用价值的语音表征"
   },
   {
     "paper_id": "jeon26_interspeech",
@@ -156,7 +162,8 @@
     "doi": "10.21437/Interspeech.2026-1247",
     "pages": "37-42",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/jeon26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "具有临床实用价值的语音表征"
   },
   {
     "paper_id": "khaymonenko26_interspeech",
@@ -177,7 +184,8 @@
     "doi": "10.21437/Interspeech.2026-987",
     "pages": "11-15",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/khaymonenko26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "信息抽取与检索"
   },
   {
     "paper_id": "kopar26_interspeech",
@@ -203,7 +211,8 @@
     "doi": "10.21437/Interspeech.2026-2725",
     "pages": "77-81",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/kopar26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "具有临床实用价值的语音表征"
   },
   {
     "paper_id": "kothare26_interspeech",
@@ -223,7 +232,8 @@
     "doi": "10.21437/Interspeech.2026-2847",
     "pages": "66-71",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/kothare26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "具有临床实用价值的语音表征"
   },
   {
     "paper_id": "laquatra26b_interspeech",
@@ -243,7 +253,8 @@
     "doi": "10.21437/Interspeech.2026-2369",
     "pages": "26-31",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/laquatra26b_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "信息抽取与检索"
   },
   {
     "paper_id": "loweimi26_interspeech",
@@ -270,7 +281,8 @@
     "doi": "10.21437/Interspeech.2026-790",
     "pages": "32-36",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/loweimi26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "信息抽取与检索"
   },
   {
     "paper_id": "xu26n_interspeech",
@@ -294,7 +306,8 @@
     "doi": "10.21437/Interspeech.2026-1233",
     "pages": "54-59",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/xu26n_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "具有临床实用价值的语音表征"
   },
   {
     "paper_id": "zafar26_interspeech",
@@ -314,7 +327,8 @@
     "doi": "10.21437/Interspeech.2026-2862",
     "pages": "72-76",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/zafar26_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "具有临床实用价值的语音表征"
   },
   {
     "paper_id": "zhang26fa_interspeech",
@@ -336,6 +350,7 @@
     "doi": "10.21437/Interspeech.2026-2485",
     "pages": "21-25",
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/zhang26fa_interspeech.html",
-    "detail_http_status": 200
+    "detail_http_status": 200,
+    "session_zh": "信息抽取与检索"
   }
 ]

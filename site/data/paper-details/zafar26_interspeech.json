@@ -16,6 +16,7 @@
   "doi": "10.21437/Interspeech.2026-2862",
   "pages": "72-76",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/zafar26_interspeech.html",
+  "session_zh": "具有临床实用价值的语音表征",
   "tldr_cn": "该文审计ADReSS和ADReSSo基准，发现固定划分高分可能依赖不稳定声学线索。",
   "analysis": {
     "研究动机": "ADReSS 和 ADReSSo 已成为语音失智症检测的常用基准，但其小规模测试划分可能残留录音条件差异，使模型分数未必反映疾病相关线索。",
@@ -102,7 +103,11 @@
       "availability": "not_stated",
       "collection_method": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
       "annotation_method": "",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "systematic_study",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     },
     {
       "name": "ADReSSo",
@@ -119,7 +124,11 @@
       "availability": "not_stated",
       "collection_method": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
       "annotation_method": "",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "systematic_study",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -130,7 +139,18 @@
       "automatic_or_human": "automatic",
       "attributes": [
         "objective"
-      ]
+      ],
+      "objective_or_subjective": "objective",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "随机标签置换负对照",
@@ -139,7 +159,18 @@
       "automatic_or_human": "automatic",
       "attributes": [
         "objective"
-      ]
+      ],
+      "objective_or_subjective": "objective",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "100 次 Monte Carlo 重采样",
@@ -150,7 +181,18 @@
         "objective",
         "robustness",
         "reliability"
-      ]
+      ],
+      "objective_or_subjective": "objective",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": true,
+      "is_reliability": true,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "VAD 语音/静音派生版本比较",
@@ -160,7 +202,18 @@
       "attributes": [
         "objective",
         "robustness"
-      ]
+      ],
+      "objective_or_subjective": "objective",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": true,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

@@ -17,6 +17,7 @@
   "doi": "10.21437/Interspeech.2026-987",
   "pages": "11-15",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/khaymonenko26_interspeech.html",
+  "session_zh": "信息抽取与检索",
   "tldr_cn": "该文冻结原关键词检测路径并增加轻量分支，让设备可扩展新词且保持旧词输出不变。",
   "analysis": {
     "研究动机": "嵌入式关键词检测器部署后常需增加触发词，但原训练数据可能无法再用；直接微调还可能损害已有关键词识别。",
@@ -102,7 +103,11 @@
       "availability": "not_stated",
       "collection_method": "使用官方训练、验证和测试划分；论文未报告原始采集细节。",
       "annotation_method": "按十个目标命令词分类，其余词语和静音映射为背景类。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     },
     {
       "name": "Mozilla Common Voice v17",
@@ -119,7 +124,11 @@
       "availability": "not_stated",
       "collection_method": "使用 Common Voice v17 测试划分作为负样本来源。",
       "annotation_method": "在 FAR 校准中作为 negative-only corpus；未报告其他标签处理细节。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -128,21 +137,54 @@
       "type": "metric",
       "task": "固定 FAR 工作点下的关键词扩展识别",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "FAR@1%",
       "type": "metric",
       "task": "关键词检测阈值校准",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "五组关键词对、八随机种子",
       "type": "protocol",
       "task": "增量关键词扩展比较",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": true,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

@@ -18,6 +18,7 @@
   "doi": "10.21437/Interspeech.2026-1860",
   "pages": "60-65",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/haghbin26b_interspeech.html",
+  "session_zh": "具有临床实用价值的语音表征",
   "tldr_cn": "该文融合病历、电话和患者—护士对话，显示自然交流语音能补充早期认知下降检测。",
   "analysis": {
     "研究动机": "早期认知变化常未被结构化病历及时记录，实验室中的短时语音任务也可能错过真实交流里的细微信号。",
@@ -109,7 +110,11 @@
       "availability": "not_stated",
       "collection_method": "标准化电话随访与真实临床患者—护士交谈录音，并关联 EHR。",
       "annotation_method": "认知状态标签的具体判定流程未报告；语音由 AWS Transcribe 转录并 diarize，研究者用 GPT-4o 映射患者与临床人员角色。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -118,21 +123,54 @@
       "type": "metric",
       "task": "认知障碍检测",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "F1 与 Macro F1",
       "type": "metric",
       "task": "认知障碍检测",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "55/20/25 训练、验证、测试划分及五随机种子重复",
       "type": "protocol",
       "task": "比较不同语音来源和 EHR 模态组合",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": true,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

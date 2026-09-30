@@ -22,6 +22,7 @@
   "doi": "10.21437/Interspeech.2026-1252",
   "pages": "43-47",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/haghbin26_interspeech.html",
+  "session_zh": "具有临床实用价值的语音表征",
   "tldr_cn": "该文把词级模型归因、语言特征和大模型报告结合，为语音认知筛查提供可供医生审阅的解释。",
   "analysis": {
     "研究动机": "语音模型可以筛查认知障碍，但Transformer预测通常难以解释为医生能使用的临床证据。",
@@ -124,7 +125,11 @@
       "availability": "not_stated",
       "collection_method": "录音来自多个语料库，单段截断至最多30秒，平均27秒",
       "annotation_method": "按认知健康对照、MCI与AD诊断类别分组",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "benchmark",
+      "is_multilingual": true,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -133,21 +138,54 @@
       "type": "benchmark",
       "task": "评估SpeechCARE筛查模型识别认知障碍的效果",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": true,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "70份英语样本的临床解释盲评",
       "type": "human",
       "task": "评估解释报告与患者认知语言特征的对应情况",
       "automatic_or_human": "human",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "临床工作流可用性研究",
       "type": "human",
       "task": "评估解释界面的易用性与临床工作流整合潜力",
       "automatic_or_human": "human",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

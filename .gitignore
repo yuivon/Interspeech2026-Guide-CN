@@ -1,8 +1,10 @@
 .env
+.env.*
 __pycache__/
+**pycache**/
 .venv/
 *.py[cod]
-/cache/
+cache/
 /logs/
 /work/
 /outputs/

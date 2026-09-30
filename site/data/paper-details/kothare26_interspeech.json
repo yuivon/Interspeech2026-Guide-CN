@@ -16,6 +16,7 @@
   "doi": "10.21437/Interspeech.2026-2847",
   "pages": "66-71",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/kothare26_interspeech.html",
+  "session_zh": "具有临床实用价值的语音表征",
   "tldr_cn": "该文用时间到事件分析比较ALS语音和面部指标的变化速度，并估算临床试验设计需求。",
   "analysis": {
     "研究动机": "ALSFRS-R 等临床量表可能较晚才显示早期功能变化，而临床试验需要敏感、可量化的疾病进展终点。",
@@ -103,7 +104,11 @@
       "availability": "not_stated",
       "collection_method": "EverythingALS 招募参与者，通过 Modality 云端多模态对话平台远程重复评估，频率约每两周一次。",
       "annotation_method": "临床量表提供 ALSFRS-R 分数；语音、面部和转录指标由自动分析模块提取。事件阈值按各指标的 MCID 定义。",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "used",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -114,7 +119,18 @@
       "automatic_or_human": "automatic",
       "attributes": [
         "objective"
-      ]
+      ],
+      "objective_or_subjective": "objective",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": true,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "指数近似 hazard rate 与试验样本量/时长估计",
@@ -123,7 +139,18 @@
       "automatic_or_human": "automatic",
       "attributes": [
         "objective"
-      ]
+      ],
+      "objective_or_subjective": "objective",
+      "is_benchmark": false,
+      "is_metric_study": false,
+      "is_protocol_study": true,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

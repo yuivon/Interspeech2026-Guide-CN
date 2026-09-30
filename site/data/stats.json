@@ -2513,6 +2513,9 @@
         }
       ],
       "new_dataset_count": 1,
+      "expanded_dataset_count": 0,
+      "reannotated_dataset_count": 0,
+      "curated_dataset_count": 0,
       "expanded_or_curated_count": 0,
       "benchmark_dataset_count": 0,
       "public_dataset_count": 0,
@@ -2540,6 +2543,20 @@
         },
         {
           "name": "韩语",
+          "count": 1
+        }
+      ],
+      "modality_distribution": [
+        {
+          "name": "语音",
+          "count": 2
+        },
+        {
+          "name": "MMSE 认知评分",
+          "count": 1
+        },
+        {
+          "name": "SGDS 抑郁评分",
           "count": 1
         }
       ],
@@ -2885,12 +2902,25 @@
       "benchmark_paper_count": 0,
       "metric_paper_count": 1,
       "protocol_paper_count": 1,
+      "robustness_evaluation_count": 1,
+      "reliability_evaluation_count": 1,
+      "generalization_evaluation_count": 0,
+      "fairness_evaluation_count": 0,
+      "safety_evaluation_count": 0,
+      "foundation_model_evaluation_count": 0,
+      "speech_llm_evaluation_count": 0,
       "automatic_evaluation_count": 2,
       "human_evaluation_count": 0,
       "both_evaluation_count": 0,
       "evaluation_mode_distribution": [
         {
           "name": "automatic",
+          "count": 2
+        }
+      ],
+      "objective_subjective_distribution": [
+        {
+          "name": "objective",
           "count": 2
         }
       ],
@@ -2905,6 +2935,8 @@
         "robustness": 1,
         "reliability": 1
       },
+      "objective_evaluation_count": 2,
+      "subjective_evaluation_count": 0,
       "robustness_reliability_paper_count": 1,
       "top_evaluation_entities": [
         {
@@ -2987,16 +3019,7 @@
           "name": "样本量/试验时长估计",
           "count": 1
         }
-      ],
-      "objective_evaluation_count": 2,
-      "subjective_evaluation_count": 0,
-      "foundation_model_evaluation_count": 0,
-      "speech_llm_evaluation_count": 0,
-      "fairness_evaluation_count": 0,
-      "safety_evaluation_count": 0,
-      "generalization_evaluation_count": 0,
-      "robustness_evaluation_count": 1,
-      "reliability_evaluation_count": 1
+      ]
     }
   }
 }

@@ -23,6 +23,7 @@
   "doi": "10.21437/Interspeech.2026-790",
   "pages": "32-36",
   "source_isca_page": "https://www.isca-archive.org/interspeech_2026/loweimi26_interspeech.html",
+  "session_zh": "信息抽取与检索",
   "tldr_cn": "该文按查询判断语音和人脸是否可用，再自适应融合，减少缺失模态拖累人物检索的情况。",
   "analysis": {
     "研究动机": "在广播视频中，目标人物可能只被听见、只被看见，或同时出现于声音和画面。固定融合缺失模态的分数会引入噪声，使检索效果低于最佳单模态系统。",
@@ -98,7 +99,11 @@
       "availability": "public",
       "collection_method": "",
       "annotation_method": "",
-      "language_status": []
+      "language_status": [],
+      "dataset_role": "benchmark",
+      "is_multilingual": false,
+      "is_low_resource": false,
+      "is_endangered_language": false
     }
   ],
   "evaluation_entities": [
@@ -107,14 +112,36 @@
       "type": "metric",
       "task": "判断语音、画面或音视频模态是否有效",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     },
     {
       "name": "P@1",
       "type": "metric",
       "task": "音视频人物检索",
       "automatic_or_human": "automatic",
-      "attributes": []
+      "attributes": [],
+      "objective_or_subjective": "unknown",
+      "is_benchmark": false,
+      "is_metric_study": true,
+      "is_protocol_study": false,
+      "is_robustness": false,
+      "is_reliability": false,
+      "is_generalization": false,
+      "is_fairness": false,
+      "is_safety": false,
+      "is_foundation_model_eval": false,
+      "is_speech_llm_eval": false
     }
   ],
   "special_tags": {

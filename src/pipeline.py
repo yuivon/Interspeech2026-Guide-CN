@@ -27,11 +27,36 @@ PROCEEDINGS = "https://www.isca-archive.org/interspeech_2026/index.html"
 FIELDS = ["研究动机", "解决问题", "现象分析", "主要方法", "数据与实验", "主要贡献"]
 ARRAY_FIELDS = ["topics", "tasks", "method_families", "specific_methods", "models", "representations", "datasets", "metrics", "languages", "language_details", "modalities", "application_domains", "contribution_types"]
 ENTITY_FIELDS = {
-    "dataset_entities": ["name", "role", "new_or_existing", "language", "language_status", "domain", "modality", "scale_text", "availability", "collection_method", "annotation_method", "evidence"],
-    "evaluation_entities": ["name", "type", "task", "automatic_or_human", "attributes", "evidence"],
+    "dataset_entities": ["name", "role", "dataset_role", "new_or_existing", "language", "language_status", "is_multilingual", "is_low_resource", "is_endangered_language", "domain", "modality", "scale_text", "availability", "collection_method", "annotation_method", "evidence"],
+    "evaluation_entities": ["name", "type", "task", "automatic_or_human", "objective_or_subjective", "attributes", "is_benchmark", "is_metric_study", "is_protocol_study", "is_robustness", "is_reliability", "is_generalization", "is_fairness", "is_safety", "is_foundation_model_eval", "is_speech_llm_eval", "evidence"],
 }
 EVIDENCE_TYPES = ["numerical_result", "dataset", "metric", "experiment_setup", "key_finding", "method", "model", "language"]
 EVALUATION_ATTRIBUTES = ["objective", "subjective", "foundation_model", "speech_llm", "fairness", "safety", "generalization", "robustness", "reliability"]
+ENTITY_ARRAY_FIELDS = {"dataset_entities": {"language", "language_status", "modality"}, "evaluation_entities": {"attributes"}}
+ENTITY_BOOL_FIELDS = {"is_multilingual", "is_low_resource", "is_endangered_language", "is_benchmark", "is_metric_study", "is_protocol_study", "is_robustness", "is_reliability", "is_generalization", "is_fairness", "is_safety", "is_foundation_model_eval", "is_speech_llm_eval"}
+ENTITY_ENUMS = {
+    ("dataset_entities", "role"): ["proposed", "used", "benchmark", "expanded", "reannotated", "curated", "systematic_study", "unknown"],
+    ("dataset_entities", "dataset_role"): ["proposed", "used", "benchmark", "expanded", "reannotated", "curated", "systematic_study", "unknown"],
+    ("dataset_entities", "new_or_existing"): ["new", "expanded", "reannotated", "curated", "existing", "unknown"],
+    ("dataset_entities", "availability"): ["public", "restricted", "not_stated", "unknown"],
+    ("dataset_entities", "language_status"): ["low_resource", "endangered"],
+    ("evaluation_entities", "type"): ["benchmark", "metric", "protocol", "human", "robustness", "reliability", "diagnostic", "other"],
+    ("evaluation_entities", "automatic_or_human"): ["automatic", "human", "both", "unknown"],
+    ("evaluation_entities", "objective_or_subjective"): ["objective", "subjective", "both", "unknown"],
+    ("evaluation_entities", "attributes"): EVALUATION_ATTRIBUTES,
+}
+
+def entity_schema(entity, field):
+    if field in ENTITY_ARRAY_FIELDS[entity]:
+        item = {"enum": ENTITY_ENUMS[(entity, field)]} if (entity, field) in ENTITY_ENUMS else {"type": "string"}
+        return {"type": "array", "items": item}
+    if field in ENTITY_BOOL_FIELDS:
+        return {"type": "boolean"}
+    if (entity, field) in ENTITY_ENUMS:
+        return {"type": "string", "enum": ENTITY_ENUMS[(entity, field)]}
+    return {"type": "string"}
+
+ENTITY_SCHEMAS = {key: {"type": "array", "items": {"type": "object", "required": fields, "additionalProperties": False, "properties": {field: entity_schema(key, field) for field in fields}}} for key, fields in ENTITY_FIELDS.items()}
 PAPER_SCHEMA = {
     "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "required": ["paper_id", "tldr_cn", "analysis", "structured", *ENTITY_FIELDS, "special_tags", "evidence"], "additionalProperties": False,
     "properties": {
@@ -43,7 +68,7 @@ PAPER_SCHEMA = {
         "source_hash": {"type": "string"},
         "analysis": {"type": "object", "required": FIELDS, "additionalProperties": False, "properties": {k: {"type": "string", "minLength": 1} for k in FIELDS}},
         "structured": {"type": "object", "required": ARRAY_FIELDS, "additionalProperties": False, "properties": {k: {"type": "array", "items": {"type": "string"}} for k in ARRAY_FIELDS}},
-        **{key: {"type": "array", "items": {"type": "object", "required": fields, "additionalProperties": False, "properties": {field: ({"type": "array", "items": {"type": "string"}} if field in ("language", "modality") else {"type": "array", "items": {"enum": (["low_resource", "endangered"] if field == "language_status" else EVALUATION_ATTRIBUTES)} } if field in ("language_status", "attributes") else {"type": "string", **({"enum": ["new", "expanded", "reannotated", "curated", "existing", "unknown"]} if field == "new_or_existing" else {"enum": ["public", "restricted", "not_stated", "unknown"]} if field == "availability" else {"enum": ["proposed", "used", "benchmark", "expanded", "reannotated", "curated", "systematic_study", "unknown"]} if field == "role" and key == "dataset_entities" else {"enum": ["benchmark", "metric", "protocol", "human", "robustness", "reliability", "diagnostic", "other"]} if field == "type" else {"enum": ["automatic", "human", "both", "unknown"]} if field == "automatic_or_human" else {})}) for field in fields}}} for key, fields in ENTITY_FIELDS.items()},
+        **ENTITY_SCHEMAS,
         "special_tags": {"type": "object", "required": ["dataset", "evaluation"], "additionalProperties": False, "properties": {k: {"type": "object", "required": ["relevant", "reason", "confidence"], "additionalProperties": False, "properties": {"relevant": {"type": "boolean"}, "reason": {"type": "string"}, "confidence": {"enum": ["high", "medium", "low"]}}} for k in ("dataset", "evaluation")}},
         "evidence": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["claim_type", "field", "evidence_text", "page_or_section", "source"], "additionalProperties": False, "properties": {"claim_type": {"enum": EVIDENCE_TYPES}, "field": {"type": "string", "minLength": 1}, "evidence_text": {"type": "string", "minLength": 1}, "page_or_section": {"type": "string"}, "source": {"enum": ["full_text", "abstract"]}}}},
     },
@@ -130,7 +155,7 @@ class DetailParser(HTMLParser):
 def paper_id(url):
     return Path(urlparse(url).path).stem
 
-def crawl(limit=None):
+def crawl(limit=None, output_path=None, manifest_path=None, errors_path=None):
     RAW.mkdir(parents=True, exist_ok=True)
     (RAW / "details").mkdir(parents=True, exist_ok=True)
     LOGS.mkdir(parents=True, exist_ok=True)
@@ -163,20 +188,23 @@ def crawl(limit=None):
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futures = [pool.submit(detail, p) for p in entries]
         papers = []
-        for f in as_completed(futures):
-            row = f.result()
-            if "error" in row: errors.append({"paper_id": row["paper"]["paper_id"], "title": row["paper"]["title"], "reason": row["error"]})
-            else: papers.append(row)
+    for done, f in enumerate(as_completed(futures), 1):
+        row = f.result()
+        if "error" in row: errors.append({"paper_id": row["paper"]["paper_id"], "title": row["paper"]["title"], "reason": row["error"]})
+        else: papers.append(row)
+        if done % 50 == 0 or done == len(futures): print(f"Official detail pages: {done}/{len(futures)}", flush=True)
     papers.sort(key=lambda p: p["paper_id"])
-    write_json(DATA / "papers.json", papers); write_json(LOGS / "crawl_errors.json", errors)
+    write_json(output_path or DATA / "papers.json", papers); write_json(errors_path or LOGS / "crawl_errors.json", errors)
     # Keep the raw count even if a detail page fails so validation can detect loss.
-    write_json(RAW / "crawl_manifest.json", {"proceedings_url": PROCEEDINGS, "listed_count": listed_count, "listed_sessions": listed_sessions, "sample_limit": limit, "parsed_detail_count": len(papers), "errors": len(errors)})
+    write_json(manifest_path or RAW / "crawl_manifest.json", {"proceedings_url": PROCEEDINGS, "listed_count": listed_count, "listed_sessions": listed_sessions, "sample_limit": limit, "parsed_detail_count": len(papers), "errors": len(errors)})
     return papers
 
-def normalize_sessions(papers):
+def normalize_sessions(papers, manifest_path=None, output_path=None):
     aliases_path = DATA / "category_aliases.json"; aliases = read_json(aliases_path, {})
+    session_labels = read_json(DATA / "session_labels_zh.json", {})
+    manifest_path = manifest_path or RAW / "crawl_manifest.json"
     groups = {}
-    session_names = read_json(RAW / "crawl_manifest.json", {}).get("listed_sessions", [p["original_session"] for p in papers])
+    session_names = read_json(manifest_path, {}).get("listed_sessions", [p["original_session"] for p in papers])
     for session in session_names:
         m = re.match(r"^(.*?)(?:\s+(?:Part\s+)?(\d+|I|II|III|IV|V))$", session, re.I)
         if m: groups.setdefault(m.group(1).strip(), set()).add(m.group(2).upper())
@@ -184,15 +212,21 @@ def normalize_sessions(papers):
         if len(numbers) > 1:
             for session in session_names:
                 if re.match(rf"^{re.escape(base)}\s+(?:Part\s+)?(?:\d+|I|II|III|IV|V)$", session, re.I): aliases.setdefault(session, base)
-    manifest_path = RAW / "crawl_manifest.json"
     manifest = read_json(manifest_path, {})
     manifest["normalized_sessions"] = sorted({aliases.get(session, session) for session in session_names})
     manifest["session_alias_count"] = len(aliases)
     manifest["session_normalization_pass"] = all(aliases.get(session) == base for base, numbers in groups.items() if len(numbers) > 1 for session in session_names if re.match(rf"^{re.escape(base)}\s+(?:Part\s+)?(?:\d+|I|II|III|IV|V)$", session, re.I))
     write_json(manifest_path, manifest)
     write_json(aliases_path, aliases)
-    for p in papers: p["normalized_session"] = aliases.get(p["original_session"], p["original_session"])
-    write_json(DATA / "papers.json", papers)
+    taxonomy = read_json(DATA / "taxonomy.json", {})
+    macro_names = {macro["id"]: macro["name"] for macro in taxonomy.get("macros", [])}
+    session_to_macro = taxonomy.get("session_to_macro", {})
+    for p in papers:
+        p["normalized_session"] = aliases.get(p["original_session"], p["original_session"])
+        p["session_zh"] = session_labels.get(p["normalized_session"], "")
+        p["macro_id"] = session_to_macro.get(p["normalized_session"], "")
+        p["macro_zh"] = macro_names.get(p["macro_id"], "")
+    write_json(output_path or DATA / "papers.json", papers)
     return papers
 
 def fetch_pdfs(papers, limit=None):
@@ -245,10 +279,10 @@ def analysis_schema(obj):
     except Exception:
         return False
 
-def analyze(limit=None):
+def analyze(limit=None, papers_path=None):
     key = os.getenv("OPENAI_API_KEY"); base = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/"); model = os.getenv("OPENAI_MODEL")
-    if not key or not model: raise SystemExit("ANALYSIS PIPELINE BLOCKED: MODEL CREDENTIAL REQUIRED\n请配置 OPENAI_API_KEY、OPENAI_BASE_URL（OpenAI-compatible API 地址）和 OPENAI_MODEL。")
-    papers = read_json(DATA / "papers.json", []); analyses = read_analyses()
+    if not key or not model: raise SystemExit("FULL ANALYSIS BLOCKED: MODEL ACCESS REQUIRED\n请配置 OPENAI_API_KEY、OPENAI_MODEL；兼容服务另配置 OPENAI_BASE_URL。")
+    papers = read_json(papers_path or DATA / "papers.json", []); analyses = read_analyses()
     items = []
     for p in papers:
         inp = analysis_input(p)
@@ -262,6 +296,7 @@ def analyze(limit=None):
         digest = hashlib.sha256(json.dumps(inp, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
         prompt = {"paper_id": p["paper_id"], **inp}
         system = "你是精读论文的研究者。先输出一句约30–70个中文字的 tldr_cn，概括论文做什么及其最重要结果或意义；再参考 ICLR2026-Guide-CN 六维格式简洁说明研究动机、解决问题、现象分析、主要方法、数据与实验、主要贡献。只依据标题、官方元数据、摘要和（若提供）正文，不根据领域常识补充。正文和摘要冲突时优先正文。数字、Dataset、Metric、语言、模型、实验设置和结果必须有明确文本证据；没有证据就留空或写明未报告。structured按schema填topics、tasks、method_families（方法大类）、specific_methods（具体技术）、models、representations、datasets、metrics、languages、language_details（地区/方言等原始细分）、modalities、application_domains、contribution_types；无可靠信息填空数组。dataset_entities.language_status只填写论文明确称为low_resource或endangered的语言标签；不要按语言常识猜测。evaluation_entities.attributes可用objective、subjective、foundation_model、speech_llm、fairness、safety、generalization、robustness、reliability，只填正文明确支持的属性。对重要数字、dataset、metric、experiment setup、key finding及方法事实，在evidence中保存claim_type、field、原文逐字短摘录evidence_text、可靠的页码或section和source（full_text或abstract）；不得把转述伪装成引文。dataset_entities的new_or_existing仅用new/expanded/reannotated/curated/existing/unknown；availability仅用public/restricted/not_stated/unknown；evaluation_entities的type仅用benchmark/metric/protocol/human/robustness/reliability/diagnostic/other，automatic_or_human仅用automatic/human/both/unknown。实体evidence使用原文短摘录。数据集专项只在数据集建设、发布、扩充、标注、治理或系统研究本身是重要贡献时相关；实验使用数据集不算。评测专项只在评测、benchmark、metric、protocol、诊断、可靠性、鲁棒性或人工评测本身是重要贡献时相关。只输出符合 JSON Schema 的 JSON，不要Markdown。"
+        system += " Dataset实体字段必须包括dataset_role、is_multilingual、is_low_resource、is_endangered_language；评测实体字段必须包括objective_or_subjective，以及is_benchmark、is_metric_study、is_protocol_study、is_robustness、is_reliability、is_generalization、is_fairness、is_safety、is_foundation_model_eval、is_speech_llm_eval。只依据论文明确证据填写；不能确认的布尔值填false，枚举值填unknown。"
         payload = {"model": model, "temperature": 0, "response_format": {"type":"json_object"}, "messages":[{"role":"system","content":system},{"role":"user","content":json.dumps(prompt,ensure_ascii=False)}]}
         try:
             obj = None
@@ -287,11 +322,13 @@ def get_json_request(req):
 
 def aggregate(papers):
     analyses = read_analyses()
+    session_labels = read_json(DATA / "session_labels_zh.json", {})
     aliases = {key: read_json(DATA / f"{key}_aliases.json", {}) for key in ("dataset", "metric", "language", "modality", "method_family")}
     rows = []
     for paper in papers:
         analysis = analyses.get(paper["paper_id"], {})
         metadata = {key: value for key, value in paper.items() if key not in {"tldr_cn", "analysis", "structured", "dataset_entities", "evaluation_entities", "special_tags", "analysis_source", "evidence"}}
+        metadata["session_zh"] = session_labels.get(paper.get("normalized_session", ""), "")
         structured = copy.deepcopy(analysis.get("structured", {}))
         for field, alias_key in (("datasets", "dataset"), ("metrics", "metric"), ("languages", "language"), ("modalities", "modality"), ("method_families", "method_family")):
             alias = aliases[alias_key]
@@ -319,7 +356,7 @@ def aggregate(papers):
     complete = lambda p: bool(p.get("tldr_cn")) and all(p.get("analysis", {}).get(field) for field in FIELDS) and all(isinstance(p.get("structured", {}).get(field), list) for field in ARRAY_FIELDS) and all(isinstance(p.get("special_tags", {}).get(key, {}).get("relevant"), bool) and p.get("special_tags", {}).get(key, {}).get("confidence") in ("high", "medium", "low") for key in ("dataset", "evaluation"))
     analyzed = [p for p in rows if complete(p)]
     analysis_count = len(analyzed)
-    data_scope = "full" if manifest.get("sample_limit") is None and len(rows) == official_count else "sample"
+    data_scope = "full" if manifest.get("sample_limit") is None and len(rows) == official_count and len(analyzed) == official_count else "partial" if len(rows) == official_count else "sample"
     denom = max(1, analysis_count)
 
     def top(rows_in, *fields):
@@ -375,16 +412,20 @@ def aggregate(papers):
     evaluation_papers = [p for p in analyzed if p.get("special_tags", {}).get("evaluation", {}).get("relevant") is True]
     dataset_detail = {
         "new_dataset_count": papers_with(dataset_papers, lambda p: any(e.get("new_or_existing") == "new" for e in p["dataset_entities"])),
+        "expanded_dataset_count": papers_with(dataset_papers, lambda p: any(e.get("new_or_existing") == "expanded" for e in p["dataset_entities"])),
+        "reannotated_dataset_count": papers_with(dataset_papers, lambda p: any(e.get("new_or_existing") == "reannotated" for e in p["dataset_entities"])),
+        "curated_dataset_count": papers_with(dataset_papers, lambda p: any(e.get("new_or_existing") == "curated" for e in p["dataset_entities"])),
         "expanded_or_curated_count": papers_with(dataset_papers, lambda p: any(e.get("new_or_existing") in ("expanded", "reannotated", "curated") for e in p["dataset_entities"])),
-        "benchmark_dataset_count": papers_with(dataset_papers, lambda p: any(e.get("role") == "benchmark" for e in p["dataset_entities"])),
+        "benchmark_dataset_count": papers_with(dataset_papers, lambda p: any(e.get("dataset_role") == "benchmark" for e in p["dataset_entities"])),
         "public_dataset_count": papers_with(dataset_papers, lambda p: any(e.get("availability") == "public" for e in p["dataset_entities"])),
-        "multilingual_paper_count": papers_with(dataset_papers, lambda p: any(len(set(e.get("language", []))) > 1 for e in p["dataset_entities"])),
-        "low_resource_paper_count": papers_with(dataset_papers, lambda p: any("low_resource" in e.get("language_status", []) for e in p["dataset_entities"])),
-        "endangered_language_paper_count": papers_with(dataset_papers, lambda p: any("endangered" in e.get("language_status", []) for e in p["dataset_entities"])),
+        "multilingual_paper_count": papers_with(dataset_papers, lambda p: any(e.get("is_multilingual") for e in p["dataset_entities"])),
+        "low_resource_paper_count": papers_with(dataset_papers, lambda p: any(e.get("is_low_resource") for e in p["dataset_entities"])),
+        "endangered_language_paper_count": papers_with(dataset_papers, lambda p: any(e.get("is_endangered_language") for e in p["dataset_entities"])),
         "top_entities": entity_counts(dataset_papers, "dataset_entities", "name"),
         "language_distribution": entity_counts(dataset_papers, "dataset_entities", "language"),
+        "modality_distribution": entity_counts(dataset_papers, "dataset_entities", "modality"),
         "availability_distribution": entity_counts(dataset_papers, "dataset_entities", "availability"),
-        "dataset_role_distribution": entity_counts(dataset_papers, "dataset_entities", "role"),
+        "dataset_role_distribution": entity_counts(dataset_papers, "dataset_entities", "dataset_role"),
         "collection_methods": entity_counts(dataset_papers, "dataset_entities", "collection_method"),
         "annotation_methods": entity_counts(dataset_papers, "dataset_entities", "annotation_method"),
         "task_distribution": top(dataset_papers, "tasks"),
@@ -392,16 +433,22 @@ def aggregate(papers):
     }
     attr_counts = {attribute: papers_with(evaluation_papers, lambda p, a=attribute: any(a in e.get("attributes", []) for e in p["evaluation_entities"])) for attribute in EVALUATION_ATTRIBUTES}
     mode_counts = {mode: papers_with(evaluation_papers, lambda p, m=mode: any(e.get("automatic_or_human") == m for e in p["evaluation_entities"])) for mode in ("automatic", "human", "both")}
+    evaluation_flags = {
+        "benchmark_paper_count": "is_benchmark", "metric_paper_count": "is_metric_study", "protocol_paper_count": "is_protocol_study",
+        "robustness_evaluation_count": "is_robustness", "reliability_evaluation_count": "is_reliability", "generalization_evaluation_count": "is_generalization",
+        "fairness_evaluation_count": "is_fairness", "safety_evaluation_count": "is_safety", "foundation_model_evaluation_count": "is_foundation_model_eval", "speech_llm_evaluation_count": "is_speech_llm_eval",
+    }
     evaluation_detail = {
-        "benchmark_paper_count": papers_with(evaluation_papers, lambda p: any(e.get("type") == "benchmark" for e in p["evaluation_entities"])),
-        "metric_paper_count": papers_with(evaluation_papers, lambda p: any(e.get("type") == "metric" for e in p["evaluation_entities"])),
-        "protocol_paper_count": papers_with(evaluation_papers, lambda p: any(e.get("type") == "protocol" for e in p["evaluation_entities"])),
+        **{key: papers_with(evaluation_papers, lambda p, flag=flag: any(e.get(flag) for e in p["evaluation_entities"])) for key, flag in evaluation_flags.items()},
         "automatic_evaluation_count": mode_counts["automatic"],
         "human_evaluation_count": mode_counts["human"],
         "both_evaluation_count": mode_counts["both"],
         "evaluation_mode_distribution": entity_counts(evaluation_papers, "evaluation_entities", "automatic_or_human"),
+        "objective_subjective_distribution": entity_counts(evaluation_papers, "evaluation_entities", "objective_or_subjective"),
         "attribute_evaluation_counts": attr_counts,
-        "robustness_reliability_paper_count": papers_with(evaluation_papers, lambda p: any(tag in e.get("attributes", []) for e in p["evaluation_entities"] for tag in ("robustness", "reliability"))),
+        "objective_evaluation_count": papers_with(evaluation_papers, lambda p: any(e.get("objective_or_subjective") in ("objective", "both") for e in p["evaluation_entities"])),
+        "subjective_evaluation_count": papers_with(evaluation_papers, lambda p: any(e.get("objective_or_subjective") in ("subjective", "both") for e in p["evaluation_entities"])),
+        "robustness_reliability_paper_count": papers_with(evaluation_papers, lambda p: any(e.get("is_robustness") or e.get("is_reliability") for e in p["evaluation_entities"])),
         "top_evaluation_entities": entity_counts(evaluation_papers, "evaluation_entities", "name"),
         "evaluation_tasks": top(evaluation_papers, "tasks"),
         "evaluation_metrics": top(evaluation_papers, "metrics"),
@@ -478,6 +525,7 @@ def validate(papers, stats):
     doi_values=[p.get("doi", "").lower() for p in papers if p.get("doi")]
     titles=[p.get("title", "").casefold() for p in papers if p.get("title")]
     taxonomy = read_json(DATA / "taxonomy.json", {})
+    session_labels = read_json(DATA / "session_labels_zh.json", {})
     normalized_sessions = set(manifest.get("normalized_sessions", []))
     raw_sessions = set(manifest.get("listed_sessions", []))
     taxonomy_sessions = taxonomy.get("session_to_macro", {})
@@ -485,6 +533,10 @@ def validate(papers, stats):
     expected_raw_map = {name: read_json(DATA / "category_aliases.json", {}).get(name, name) for name in raw_sessions}
     taxonomy_raw_map = taxonomy.get("raw_session_to_normalized_session", {})
     taxonomy_valid = set(taxonomy_sessions) == normalized_sessions and len(taxonomy_sessions) == len(normalized_sessions) and all(macro_id in valid_macro_ids for macro_id in taxonomy_sessions.values()) and set(taxonomy.get("raw_sessions", [])) == raw_sessions and taxonomy_raw_map == expected_raw_map
+    official_normalized = set(manifest.get("normalized_sessions", []))
+    session_zh_count = sum(bool(session_labels.get(name, "").strip()) for name in official_normalized)
+    session_zh_missing = len(official_normalized) - session_zh_count
+    paper_session_zh_count = sum(bool(p.get("session_zh")) and p.get("session_zh") == session_labels.get(p.get("normalized_session"), "") for p in papers)
     def evidence_valid(paper):
         entries = analyses.get(paper["paper_id"], {}).get("evidence", [])
         if not entries: return False
@@ -501,7 +553,8 @@ def validate(papers, stats):
         return True
     evidence_ok = sum(evidence_valid(p) for p in papers)
     schema_ok = sum(analysis_schema(analyses.get(p["paper_id"], {})) for p in papers)
-    report={"official_listed_count":manifest.get("listed_count",0),"sample_size":len(papers),"parsed_papers":len(papers),"metadata_failures":manifest.get("errors",0),"missing_from_details":manifest.get("listed_count",0)-len(papers),"unique_paper_ids":len(set(ids)),"duplicate_paper_ids":len(ids)-len(set(ids)),"missing_titles":sum(not p.get("title") for p in papers),"missing_authors":sum(not p.get("authors") for p in papers),"missing_abstracts":sum(not p.get("abstract") for p in papers),"missing_isca_urls":sum(not p.get("isca_page_url") for p in papers),"duplicate_dois":len(doi_values)-len(set(doi_values)),"duplicate_titles":len(titles)-len(set(titles)),"raw_session_count":len({p.get("original_session") for p in papers}),"official_raw_session_count":len(manifest.get("listed_sessions", [])),"normalized_session_count":len({p.get("normalized_session") for p in papers}),"official_normalized_session_count":len(manifest.get("normalized_sessions", [])),"session_alias_count":manifest.get("session_alias_count",0),"session_normalization_pass":manifest.get("session_normalization_pass",False) and all(p.get("normalized_session") for p in papers),"taxonomy_macro_count":len(taxonomy.get("macros", [])),"taxonomy_session_count":len(taxonomy_sessions),"taxonomy_coverage_pass":taxonomy_valid,"analysis_schema_valid_count":schema_ok,"six_dimension_complete":complete,"analysis_source_full_text":sum(p.get("analysis_source")=="full_text" for p in papers),"analysis_source_abstract":sum(p.get("analysis_source")=="abstract" for p in papers),"structured_extraction_complete":sum(all(isinstance(analyses.get(p["paper_id"],{}).get("structured",{}).get(k),list) for k in ARRAY_FIELDS) for p in papers),"special_judgment_complete":sum(all(isinstance(analyses.get(p["paper_id"],{}).get("special_tags",{}).get(k,{}).get("relevant"),bool) and analyses.get(p["paper_id"],{}).get("special_tags",{}).get(k,{}).get("confidence") in ("high","medium","low") for k in ("dataset","evaluation")) for p in papers),"evidence_trace_complete":evidence_ok,"evidence_items_total":sum(len(analyses.get(p["paper_id"],{}).get("evidence",[])) for p in papers),"dataset_special_count":stats["special"]["dataset"]["paper_count"],"evaluation_special_count":stats["special"]["evaluation"]["paper_count"],"stats_count_matches":stats["all"]["paper_count"]==len(papers),"pdf_success_count":pdf_ok,"pdf_failure_count":len(papers)-pdf_ok,"full_text_success_count":text_ok,"full_text_failure_count":len(papers)-text_ok,"analysis_block_reason":"MODEL CREDENTIAL REQUIRED" if stats.get("analysis_status")=="blocked" else ""}
+    report={"official_listed_count":manifest.get("listed_count",0),"sample_size":len(papers),"parsed_papers":len(papers),"metadata_failures":manifest.get("errors",0),"missing_from_details":manifest.get("listed_count",0)-len(papers),"unique_paper_ids":len(set(ids)),"duplicate_paper_ids":len(ids)-len(set(ids)),"missing_titles":sum(not p.get("title") for p in papers),"missing_authors":sum(not p.get("authors") for p in papers),"missing_abstracts":sum(not p.get("abstract") for p in papers),"missing_isca_urls":sum(not p.get("isca_page_url") for p in papers),"duplicate_dois":len(doi_values)-len(set(doi_values)),"duplicate_titles":len(titles)-len(set(titles)),"raw_session_count":len({p.get("original_session") for p in papers}),"official_raw_session_count":len(manifest.get("listed_sessions", [])),"normalized_session_count":len({p.get("normalized_session") for p in papers}),"official_normalized_session_count":len(manifest.get("normalized_sessions", [])),"session_alias_count":manifest.get("session_alias_count",0),"session_normalization_pass":manifest.get("session_normalization_pass",False) and all(p.get("normalized_session") for p in papers),"taxonomy_macro_count":len(taxonomy.get("macros", [])),"taxonomy_session_count":len(taxonomy_sessions),"taxonomy_coverage_pass":taxonomy_valid,"analysis_schema_valid_count":schema_ok,"six_dimension_complete":complete,"analysis_source_full_text":sum(p.get("analysis_source")=="full_text" for p in papers),"analysis_source_abstract":sum(p.get("analysis_source")=="abstract" for p in papers),"structured_extraction_complete":sum(all(isinstance(analyses.get(p["paper_id"],{}).get("structured",{}).get(k),list) for k in ARRAY_FIELDS) for p in papers),"special_judgment_complete":sum(all(isinstance(analyses.get(p["paper_id"],{}).get("special_tags",{}).get(k,{}).get("relevant"),bool) and analyses.get(p["paper_id"],{}).get("special_tags",{}).get(k,{}).get("confidence") in ("high","medium","low") for k in ("dataset","evaluation")) for p in papers),"evidence_trace_complete":evidence_ok,"evidence_items_total":sum(len(analyses.get(p["paper_id"],{}).get("evidence",[])) for p in papers),"dataset_special_count":stats["special"]["dataset"]["paper_count"],"evaluation_special_count":stats["special"]["evaluation"]["paper_count"],"stats_count_matches":stats["all"]["paper_count"]==len(papers),"pdf_success_count":pdf_ok,"pdf_failure_count":len(papers)-pdf_ok,"full_text_success_count":text_ok,"full_text_failure_count":len(papers)-text_ok,"analysis_block_reason":"FULL ANALYSIS BLOCKED: MODEL ACCESS REQUIRED" if stats.get("analysis_status")=="blocked" else ""}
+    report.update({"session_zh_count":session_zh_count,"session_zh_missing":session_zh_missing,"paper_session_zh_count":paper_session_zh_count,"session_labels_pass":session_zh_missing==0 and paper_session_zh_count==len(papers)})
     public_dir = ROOT / "site" / "data"
     public_index = read_json(public_dir / "papers-index.json", [])
     details_dir = public_dir / "paper-details"
@@ -563,7 +616,7 @@ def validate(papers, stats):
         "paper_detail_ids_match": set(public_details) == set(ids),
         "paper_detail_six_dimensions_complete": sum(all(public_details.get(paper_id, {}).get("analysis", {}).get(field) for field in FIELDS) for paper_id in ids),
         "lazy_detail_split_pass": len(public_index) == len(papers) and all("abstract" not in item and not has_private_quote(item) for item in public_index) and all(bool(public_details.get(paper_id, {}).get("abstract")) for paper_id in ids),
-        "detail_lazy_load_pass": route_supported and "loadDetail(item.dataset.abstract)" in app_js and all("abstract" not in item for item in public_index),
+        "detail_lazy_load_pass": route_supported and "item.dataset.paperMore" in app_js and "item.dataset.abstract" in app_js and all("abstract" not in item for item in public_index),
         "public_payload_no_raw_evidence": not has_private_quote(public_index) and not any(has_private_quote(detail) for detail in public_details.values()),
         "evidence_locations_only": all(all(set(location).issubset({"claim_type", "field", "page_or_section", "source"}) for location in detail.get("evidence_locations", [])) for detail in public_details.values()),
         "sample_percentage_pass": stats["all"].get("sample_share_percentage") == 100 and sample_stats_pass,
@@ -573,8 +626,8 @@ def validate(papers, stats):
         "papers_index_size": (public_dir / "papers-index.json").stat().st_size if (public_dir / "papers-index.json").exists() else 0,
         "major_results_rendered": major_results_rendered,
         "macro_narrative_complete": macro_narratives_complete == len(macro_hashes),
-        "dataset_stats_contract_pass": all(key in stats["special"]["dataset"] for key in ("multilingual_paper_count", "low_resource_paper_count", "endangered_language_paper_count", "language_distribution", "dataset_role_distribution", "task_distribution", "availability_distribution")),
-        "evaluation_stats_contract_pass": all(key in stats["special"]["evaluation"] for key in ("automatic_evaluation_count", "human_evaluation_count", "both_evaluation_count", *[f"{attribute}_evaluation_count" for attribute in EVALUATION_ATTRIBUTES])),
+        "dataset_stats_contract_pass": all(key in stats["special"]["dataset"] for key in ("multilingual_paper_count", "low_resource_paper_count", "endangered_language_paper_count", "language_distribution", "modality_distribution", "dataset_role_distribution", "task_distribution", "availability_distribution", "new_dataset_count", "expanded_dataset_count", "reannotated_dataset_count", "curated_dataset_count")),
+        "evaluation_stats_contract_pass": all(key in stats["special"]["evaluation"] for key in ("automatic_evaluation_count", "human_evaluation_count", "both_evaluation_count", "objective_evaluation_count", "subjective_evaluation_count", "benchmark_paper_count", "metric_paper_count", "protocol_paper_count", *[f"{attribute}_evaluation_count" for attribute in EVALUATION_ATTRIBUTES])),
         "methods_split_pass": "top_method_families" in stats["all"] and "top_specific_methods" in stats["all"] and "top_methods" not in stats["all"],
         "global_search_pass": required_search and "#search/" in app_js and "function searchText" in app_js,
         "mobile_drawer_present": mobile_drawer_present,
@@ -597,8 +650,10 @@ def validate(papers, stats):
     report["public_detail_sample_pass"] = report["paper_detail_route_count"]==15 and report["paper_detail_correct_id"]==15 and report["paper_detail_payload_count"]==15 and report["paper_detail_ids_match"] and report["paper_detail_six_dimensions_complete"]==15 and report["lazy_detail_split_pass"] and report["detail_lazy_load_pass"] and report["public_payload_no_raw_evidence"] and report["evidence_locations_only"]
     report["macro_narrative_sample_pass"] = report["macro_narratives_with_current_stats"]==report["macro_narrative_expected_count"]
     report["product_ui_sample_pass"] = all(report[key] for key in ("paper_detail_direct_refresh", "major_results_rendered", "language_alias_normalization_pass", "modality_alias_normalization_pass", "global_search_pass", "mobile_drawer_present", "favorites_detail_sync", "back_forward_navigation_pass"))
-    report["session_sample_pass"] = report["session_normalization_pass"]
-    report["sample_pass"] = all(report[k] for k in ("metadata_sample_pass","pdf_sample_pass","full_text_sample_pass","analysis_sample_pass","tldr_sample_pass","structured_sample_pass","special_judgment_sample_pass","stats_sample_pass","public_detail_sample_pass","macro_narrative_sample_pass","sample_percentage_pass","dataset_stats_contract_pass","evaluation_stats_contract_pass","methods_split_pass","product_ui_sample_pass","session_sample_pass")) and report["taxonomy_coverage_pass"] and report["analysis_schema_valid_count"] == len(papers) and report["evidence_trace_complete"] == len(papers)
+    report["session_merge_pass"] = report["session_normalization_pass"] and report["session_alias_count"] == len(read_json(DATA / "category_aliases.json", {}))
+    report["session_sample_pass"] = report["session_normalization_pass"] and report["session_labels_pass"]
+    report["card_details_expand_pass"] = "data-paper-more" in app_js and "function paperMore" in app_js
+    report["sample_pass"] = all(report[k] for k in ("metadata_sample_pass","pdf_sample_pass","full_text_sample_pass","analysis_sample_pass","tldr_sample_pass","structured_sample_pass","special_judgment_sample_pass","stats_sample_pass","public_detail_sample_pass","macro_narrative_sample_pass","sample_percentage_pass","dataset_stats_contract_pass","evaluation_stats_contract_pass","methods_split_pass","product_ui_sample_pass","session_sample_pass","card_details_expand_pass")) and report["taxonomy_coverage_pass"] and report["analysis_schema_valid_count"] == len(papers) and report["evidence_trace_complete"] == len(papers)
     report["overall_pass"] = report["sample_pass"] if manifest.get("sample_limit") else report["sample_pass"] and report["missing_from_details"]==0
     report["incomplete_analyses"] = [{"paper_id":p["paper_id"],"title":p["title"],"reason":"model credentials unavailable"} for p in papers if not all(p.get("analysis",{}).get(f) for f in FIELDS)]
     write_json(DATA/"validation_report.json",report)
@@ -613,6 +668,7 @@ def build_site(papers, stats):
     detail_dir = data_dir / "paper-details"
     detail_dir.mkdir(parents=True, exist_ok=True)
     taxonomy = read_json(DATA / "taxonomy.json", {})
+    session_labels = read_json(DATA / "session_labels_zh.json", {})
     session_to_macro = taxonomy.get("session_to_macro", {})
     macro_names = {macro["id"]: macro["name"] for macro in taxonomy.get("macros", [])}
     index = []
@@ -620,17 +676,18 @@ def build_site(papers, stats):
     for paper in papers:
         macro_id = session_to_macro.get(paper.get("normalized_session"), "")
         macro_name = macro_names.get(macro_id, "")
+        session_zh = session_labels.get(paper.get("normalized_session", ""), "")
         analysis = copy.deepcopy(paper.get("analysis", {}))
         structured = copy.deepcopy(paper.get("structured", {}))
         authors = paper.get("authors", "")
         author_text = ", ".join(authors) if isinstance(authors, list) else authors
         topics = structured.get("topics", [])[:5]
         search_terms = [value for values in structured.values() if isinstance(values, list) for value in values if isinstance(value, str)]
-        search_text = " ".join([paper.get("title", ""), author_text, paper.get("original_session", ""), paper.get("normalized_session", ""), macro_name, paper.get("tldr_cn", ""), *search_terms, *[analysis.get(field, "") for field in FIELDS]])
+        search_text = " ".join([paper.get("title", ""), author_text, paper.get("original_session", ""), paper.get("normalized_session", ""), session_zh, macro_name, paper.get("tldr_cn", ""), *search_terms, *[analysis.get(field, "") for field in FIELDS]])
         index.append({
             "paper_id": paper["paper_id"], "title": paper.get("title", ""), "authors": authors,
             "macro_id": macro_id, "macro_name": macro_name, "macro": macro_name,
-            "normalized_session": paper.get("normalized_session", ""), "original_session": paper.get("original_session", ""),
+            "normalized_session": paper.get("normalized_session", ""), "original_session": paper.get("original_session", ""), "session_zh": session_zh,
             "tldr_cn": paper.get("tldr_cn", ""), "analysis": analysis, "topics": topics,
             "special_tags": copy.deepcopy(paper.get("special_tags", {})), "pdf_url": paper.get("pdf_url", ""),
             "isca_page_url": paper.get("isca_page_url", ""), "doi": paper.get("doi", ""), "search_text": search_text,
@@ -640,6 +697,7 @@ def build_site(papers, stats):
         for field in ("dataset_entities", "evaluation_entities"):
             for entity in details.get(field, []): entity.pop("evidence", None)
         details.update(macro_id=macro_id, macro_name=macro_name, macro=macro_name, evidence_locations=evidence_locations)
+        details["session_zh"] = session_zh
         details.pop("detail_http_status", None)
         paper_id = paper["paper_id"]
         expected_details.add(paper_id)
@@ -653,16 +711,25 @@ def build_site(papers, stats):
     write_json(data_dir / "stats.json", stats)
     write_json(data_dir / "category_analysis.json", read_json(DATA / "category_analysis.json", {}))
     write_json(data_dir / "taxonomy.json", taxonomy)
+    write_json(data_dir / "session_labels_zh.json", session_labels)
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("command",choices=["crawl","normalize","pdf","extract","analyze","narratives","stats","build","validate","sample"]); ap.add_argument("--limit",type=int)
+    ap=argparse.ArgumentParser(); ap.add_argument("command",choices=["crawl","crawl-official","normalize","pdf","extract","analyze","analyze-official","narratives","stats","build","validate","sample"]); ap.add_argument("--limit",type=int)
     args=ap.parse_args(); papers=read_json(DATA/"papers.json",[])
+    if args.command=="crawl-official":
+        official_path=RAW/"official_papers_metadata.json"
+        official_manifest=RAW/"official_crawl_manifest.json"
+        official_errors=LOGS/"official_crawl_errors.json"
+        papers=crawl(output_path=official_path,manifest_path=official_manifest,errors_path=official_errors)
+        papers=normalize_sessions(papers,manifest_path=official_manifest,output_path=official_path)
+        print(json.dumps({"official_count":read_json(official_manifest,{}).get("listed_count",0),"parsed_count":len(papers),"errors":read_json(official_manifest,{}).get("errors",0),"metadata_path":str(official_path),"manifest_path":str(official_manifest)},ensure_ascii=False,indent=2))
     if args.command=="crawl": papers=crawl(args.limit); papers=normalize_sessions(papers)
     if args.command=="sample": papers=crawl(args.limit or 15); papers=normalize_sessions(papers)
     if args.command in ("pdf","sample"): fetch_pdfs(papers,args.limit or (15 if args.command=="sample" else None))
     if args.command in ("extract","sample"): extract_text(papers,args.limit or (15 if args.command=="sample" else None))
     if args.command=="normalize": papers=normalize_sessions(papers)
     if args.command=="analyze": analyze(args.limit)
+    if args.command=="analyze-official": analyze(args.limit,RAW/"official_papers_metadata.json")
     if args.command=="narratives": generate_narratives()
     if args.command in ("stats","build","validate"):
         stats=aggregate(papers)
