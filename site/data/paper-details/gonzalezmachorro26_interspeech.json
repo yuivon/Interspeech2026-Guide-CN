@@ -1,0 +1,173 @@
+{
+  "paper_id": "gonzalezmachorro26_interspeech",
+  "title": "Towards Speech Impairment Prediction in German-Speaking Individuals with Amyotrophic Lateral Sclerosis",
+  "authors": [
+    "Gonzalez-Machorro, Monica",
+    "Heynitz, Ricarda von",
+    "Hanslmeier, Justin",
+    "Grimm, Finja",
+    "Deac, Alexandra-Iulia",
+    "Gründel, Anne",
+    "Cordts, Isabell",
+    "Schuller, Bjoern"
+  ],
+  "original_session": "Clinically Useful Speech Representations 1",
+  "normalized_session": "Clinically Useful Speech Representations",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/gonzalezmachorro26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "Amyotrophic Lateral Sclerosis (ALS) is a neurodegenerative disease, often affecting speech due to bulbar dysfunction. In this study, we predict speech impairment in people with ALS (pwALS) using two clinical speech-related scores. We evaluate cross-sectional (across speakers) and personalised (within-speaker) modelling paradigms and analyse the utility of common speech tasks to contribute to the standardisation of speech data collection for pwALS. Experiments on a German-speaking cohort of 66 pwALS show that repetition tasks (/da/-/da/, /da/-/ba/) achieved the best cross-sectional performance (Concordance Correlation Coefficient (CCC) = 0.62) for predicting the Quality of Life in the Dysarthric Speaker questionnaire, while the within-speaker setting reached a CCC of 0.86. This study represents an initial step towards speech impairment prediction in German-speaking pwALS and highlights the potential of automated speech analysis as a supportive tool for speech impairment assessment.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/gonzalezmachorro26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-1052",
+  "pages": "48-53",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/gonzalezmachorro26_interspeech.html",
+  "tldr_cn": "该文比较德语ALS语音任务与建模范式，发现不同任务对临床言语评分的预测价值不同。",
+  "analysis": {
+    "研究动机": "ALS常影响发音与言语能力，但针对德语患者、不同言语任务和个体内追踪方式的自动评估证据仍有限。",
+    "解决问题": "论文比较跨说话人和同一说话人建模，判断常用言语任务能否预测ALS相关言语功能评分。",
+    "现象分析": "任务效果因临床评分而异：重复音节更适合预测QOL-Dys，朗读任务对ALSFRS-R-speech较好；多任务融合没有稳定提升。",
+    "主要方法": "研究使用SVM、随机森林和XGBoost回归Whisper、wav2vec及eGeMAPS特征，并比较说话人独立与个体内数据划分。",
+    "数据与实验": "实验使用AIMnd 2.0中的66名德语pwALS。跨说话人测试中最佳CCC为0.65和0.62；个体内测试中最佳CCC为0.71和0.86，分别对应ALSFRS-R-speech与QOL-Dys。",
+    "主要贡献": "提供德语ALS言语障碍预测的初步结果，并比较五类言语任务在两种建模范式中的实用性。"
+  },
+  "structured": {
+    "topics": [
+      "ALS言语障碍预测",
+      "临床语音分析",
+      "言语任务效用"
+    ],
+    "tasks": [
+      "预测ALSFRS-R-speech评分",
+      "预测QOL-Dys评分",
+      "比较临床言语任务"
+    ],
+    "method_families": [
+      "监督回归",
+      "说话人独立建模",
+      "个体内建模"
+    ],
+    "specific_methods": [
+      "支持向量机",
+      "随机森林",
+      "XGBoost",
+      "任务预测均值融合",
+      "GroupKFold说话人级交叉验证"
+    ],
+    "models": [
+      "Whisper-large-v3",
+      "Wav2Vec2-large-xlsr-53-German",
+      "SVM",
+      "Random Forest",
+      "XGBoost"
+    ],
+    "representations": [
+      "Whisper语音嵌入",
+      "Wav2Vec2语音嵌入",
+      "eGeMAPS声学特征"
+    ],
+    "datasets": [
+      "AIMnd 2.0"
+    ],
+    "metrics": [
+      "CCC",
+      "置信区间",
+      "Bias",
+      "一致性界限"
+    ],
+    "languages": [
+      "德语"
+    ],
+    "modalities": [
+      "语音"
+    ],
+    "application_domains": [
+      "ALS临床评估",
+      "言语障碍监测"
+    ],
+    "contribution_types": [
+      "临床预测实证研究",
+      "言语任务比较",
+      "个体内与跨说话人分析"
+    ],
+    "language_details": [
+      "德语"
+    ]
+  },
+  "dataset_entities": [
+    {
+      "name": "AIMnd 2.0",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [
+        "德语"
+      ],
+      "domain": "运动神经元疾病与ALS临床语音",
+      "modality": [
+        "视听记录",
+        "语音"
+      ],
+      "scale_text": "研究纳入66名pwALS，每名参与者最多3次记录",
+      "availability": "not_stated",
+      "collection_method": "在德国慕尼黑工业大学医院神经内科门诊采集",
+      "annotation_method": "目标为ALSFRS-R-speech与QOL-Dys临床评分；语音标注方法未报告",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "AIMnd 2.0跨说话人与个体内测试",
+      "type": "benchmark",
+      "task": "从五类言语任务预测ALSFRS-R-speech与QOL-Dys",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "文章使用既有AIMnd 2.0数据分析言语任务与临床评分；数据集构建或发布不是本文主要贡献。",
+      "confidence": "medium"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "文章比较预测任务和数据划分方式，但没有提出新的Evaluation或Benchmark本身。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M07",
+  "macro_name": "医疗健康、临床语音与辅助技术",
+  "macro": "医疗健康、临床语音与辅助技术",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "dataset_entities; structured.datasets",
+      "page_or_section": "2.1. Dataset",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "structured.tasks; dataset_entities",
+      "page_or_section": "2.1. Dataset",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "structured.tasks; structured.contribution_types",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验; structured.metrics",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验",
+      "page_or_section": "3. Results",
+      "source": "full_text"
+    }
+  ]
+}

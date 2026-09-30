@@ -1,0 +1,207 @@
+{
+  "paper_id": "kopar26_interspeech",
+  "title": "Beyond Binary: Speech Representations Across the Cognitive Score Hierarchy",
+  "authors": [
+    "Kopar, Serli",
+    "Rane, Roshan P.",
+    "Mychajliw, Christian",
+    "Federmann, Lydia",
+    "Eschweiler, Gerhard",
+    "Berg, Daniela",
+    "Gijsen, Sam",
+    "Pérez-Toro, Paula Andrea",
+    "Ritter, Kerstin"
+  ],
+  "original_session": "Clinically Useful Speech Representations 1",
+  "normalized_session": "Clinically Useful Speech Representations",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/kopar26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "This study examines the relationship between speech representations and the hierarchical structure of cognitive assessment in mild cognitive impairment. Utilizing 5,754 German neuropsychological assessment recordings, we evaluate six cognitive tasks across three score levels: task, domain, and global levels. We compare hand-crafted acoustic features with self-supervised learning (SSL) embeddings. Results show that although SSL representations generally outperform hand-crafted features at lower levels, this trend reverses for MCI classification. Furthermore, task-specific constraints influence performance: tasks with greater response freedom exhibit performance dilution as hierarchical levels increase, suggesting \"specialist\" representations, whereas the performance of highly structured tasks increases toward higher levels, suggesting \"generalist\" representations. These findings show links between task constraints and assessment hierarchy in automated clinical speech analysis.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/kopar26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-2725",
+  "pages": "77-81",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/kopar26_interspeech.html",
+  "tldr_cn": "该文比较多类语音表示与认知评分层级，发现任务开放程度会影响预测效果如何随层级变化。",
+  "analysis": {
+    "研究动机": "认知评估包含任务、认知域和总体状态等层级，单看二分类或单一任务会掩盖语音表示随评估层级变化的规律。",
+    "解决问题": "研究不同语音任务和表示在认知分数层级上何时更适合预测，以及从任务分数汇总到总体分数后性能如何变化。",
+    "现象分析": "自监督表示通常更适合低层级任务分数，但在 MCI 二分类中，eGeMAPS 表示表现更好。开放式流利度任务从任务级到总体级出现性能稀释，而 MMSE、词表识别等较受约束的任务在更高层级上表现提升。",
+    "主要方法": "比较 eGeMAPS 与 wav2vec 2.0、HuBERT 表示，用 Ridge、SVM/SVR 和 XGBoost 预测六项认知任务在任务、认知域和总体状态层级的分数；采用受试者隔离的嵌套交叉验证并在独立留出集复核。",
+    "数据与实验": "TREND 语料经过质量筛选后纳入 959 个评估 session、593 名参与者，涵盖 5,754 段德语神经心理评估录音；开发集 772 个 session，留出集 187 个 session。",
+    "主要贡献": "指出语音预测能力取决于任务的回答开放度和目标分数层级，并据此提出“专才型”与“通才型”任务的解释。研究还提供受试者隔离留出验证，但语料来自单一德语队列。"
+  },
+  "structured": {
+    "topics": [
+      "认知评估层级",
+      "轻度认知障碍",
+      "临床语音分析",
+      "语音表示"
+    ],
+    "tasks": [
+      "神经心理任务分数预测",
+      "认知域分数预测",
+      "CERAD+ 总分预测",
+      "MCI 分类"
+    ],
+    "method_families": [
+      "语音表示比较",
+      "层级预测",
+      "回归与分类",
+      "嵌套交叉验证"
+    ],
+    "specific_methods": [
+      "eGeMAPS 声学特征",
+      "wav2vec 2.0 与 HuBERT 全局均值池化",
+      "Ridge 回归",
+      "SVM/SVR",
+      "XGBoost",
+      "5×3 嵌套交叉验证",
+      "受试者隔离留出验证"
+    ],
+    "models": [
+      "Ridge",
+      "SVM",
+      "SVR",
+      "XGBoost",
+      "wav2vec 2.0 Base",
+      "HuBERT Large"
+    ],
+    "representations": [
+      "eGeMAPS Prosody",
+      "eGeMAPS Voice Quality",
+      "eGeMAPS All",
+      "wav2vec 2.0 embeddings",
+      "HuBERT embeddings"
+    ],
+    "datasets": [
+      "TREND 研究队列"
+    ],
+    "metrics": [
+      "Pearson r",
+      "Balanced Accuracy",
+      "R²",
+      "DER",
+      "JER",
+      "Purity",
+      "Coverage"
+    ],
+    "languages": [
+      "德语"
+    ],
+    "modalities": [
+      "语音",
+      "临床神经心理测验分数"
+    ],
+    "application_domains": [
+      "轻度认知障碍检测",
+      "神经心理评估",
+      "临床语音监测"
+    ],
+    "contribution_types": [
+      "层级语音分析",
+      "语音表示比较",
+      "经验规律与任务解释"
+    ],
+    "language_details": [
+      "德语"
+    ]
+  },
+  "dataset_entities": [
+    {
+      "name": "TREND 研究队列",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [
+        "德语"
+      ],
+      "domain": "老年认知状态与轻度认知障碍评估",
+      "modality": [
+        "语音",
+        "神经心理测验分数"
+      ],
+      "scale_text": "质量筛选后 593 名参与者、959 个 session（698 HC、261 MCI）；论文摘要称涵盖 5,754 段评估录音。",
+      "availability": "not_stated",
+      "collection_method": "使用 TREND 研究中的 MMSE 与 CERAD+ 神经心理评估语音录音。",
+      "annotation_method": "目标分数来自 MMSE、CERAD+ 任务/域/总体分数及既有 MCI 状态定义。",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "Pearson r、Balanced Accuracy、R²",
+      "type": "metric",
+      "task": "层级认知分数预测与 MCI 分类",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "5×3 嵌套交叉验证与受试者隔离留出集",
+      "type": "protocol",
+      "task": "评估对未见参与者的泛化",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "DER、JER、Purity、Coverage",
+      "type": "metric",
+      "task": "录音预处理与说话人 diarization 参数选择",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "研究使用既有 TREND 队列并公开代码；没有把新语料构建或数据发布作为主要贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "论文系统比较多个目标层级和模型，但没有提出新的 benchmark 或独立评测资源；评估协议用于支撑其经验发现。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M07",
+  "macro_name": "医疗健康、临床语音与辅助技术",
+  "macro": "医疗健康、临床语音与辅助技术",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; analysis.数据与实验",
+      "page_or_section": "2.1 Dataset and Quality Control",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "analysis.数据与实验; structured.specific_methods",
+      "page_or_section": "2.4 Prediction and Validation Framework",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "structured.specific_methods",
+      "page_or_section": "2.4 Prediction and Validation Framework",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "metric",
+      "field": "structured.metrics",
+      "page_or_section": "2.4 Prediction and Validation Framework",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "key_finding",
+      "field": "analysis.现象分析",
+      "page_or_section": "3.3 Level 3: Global Status Score Predictions",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析",
+      "page_or_section": "3.4 Generalizability to Hold-out & Feature Importance",
+      "source": "full_text"
+    }
+  ]
+}

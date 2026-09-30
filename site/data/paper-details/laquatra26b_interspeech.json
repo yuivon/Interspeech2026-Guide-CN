@@ -1,0 +1,195 @@
+{
+  "paper_id": "laquatra26b_interspeech",
+  "title": "SSL-based Sequence Matching for Unsupervised Audio Retrieval",
+  "authors": [
+    "La Quatra, Moreno",
+    "Koudounas, Alkis",
+    "Siniscalchi, Sabato Marco"
+  ],
+  "original_session": "Information Extraction and Retrieval",
+  "normalized_session": "Information Extraction and Retrieval",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/laquatra26b_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "This paper investigates audio-to-audio retrieval using self-supervised learning (SSL) models to generate audio representations without labeled data. To enhance retrieval accuracy, we explore the use of SSL embeddings with sequence matching techniques, including Dynamic Time Warping (DTW), and clustering methods, such as K-Means combined with TF-IDF and BM25. We evaluate our framework on two distinct tasks: music retrieval via query-by-humming and spoken content retrieval via query-by-example. Experimental evidence shows that clustering-based methods, which reduce SSL embeddings into discrete hidden units, are particularly effective for speech retrieval. Conversely, DTW applied directly on SSL embeddings, which preserves full sequence information, excels in music retrieval. Extensive experiments demonstrate that combining SSL representations with appropriate sequence matching improves retrieval accuracy across different audio domains.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/laquatra26b_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-2369",
+  "pages": "26-31",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/laquatra26b_interspeech.html",
+  "tldr_cn": "该文系统比较自监督音频序列匹配，发现音乐更适合DTW，语音检索更适合离散单元与文本检索。",
+  "analysis": {
+    "研究动机": "自监督学习能从无标签音频中提取表示，但不同序列匹配方法在音乐和语音检索中的适用性还缺少系统比较。论文希望弄清楚表示形式、匹配策略与音频领域之间的关系。",
+    "解决问题": "研究在不依赖标注和任务专用训练的条件下，怎样从音频库中检索与查询相符的歌曲或语音片段，以及不同领域各自适合什么匹配方式。",
+    "现象分析": "音乐检索中，保留连续帧序列并用 DTW 对齐表现较好；语音检索中，将 SSL 表示聚类成离散单元，再用文本检索方法匹配更有效。MIR-QBSH2 上 HuBERT-LS 配合 DTW 的 Recall@1 为 0.765、MRR 为 0.801。",
+    "主要方法": "使用冻结的 SSL 模型提取帧级表示，并比较 DTW、Soft-DTW 与 K-Means 离散化后的 TF-IDF、BM25 等方法。论文还提出 Temporal TF-IDF，用时间敏感性分析解释音乐与语音检索结果的差异。",
+    "数据与实验": "实验覆盖哼唱检索和语音片段检索：MIR-QBSH2 有 4,206 个查询、48 首歌曲和 225 个库内样本；作者构建的 QbE-LibriSpeech 有 27 个查询和 107 个正例。检索指标包括 Recall@1、MRR、Recall@3 和 Recall@5。",
+    "主要贡献": "比较了连续序列对齐与离散单元检索，并报告两类策略在音乐和语音检索中的差异。研究还分析了预训练数据来源及时间顺序对检索表现的影响。"
+  },
+  "structured": {
+    "topics": [
+      "无监督音频检索",
+      "自监督音频表示",
+      "跨领域序列匹配"
+    ],
+    "tasks": [
+      "哼唱检索（query-by-humming）",
+      "语音片段检索（query-by-example）"
+    ],
+    "method_families": [
+      "自监督表示检索",
+      "序列对齐",
+      "聚类与离散单元检索"
+    ],
+    "specific_methods": [
+      "Dynamic Time Warping（DTW）",
+      "Soft-DTW",
+      "K-Means",
+      "TF-IDF",
+      "BM25",
+      "Temporal TF-IDF（T-TF-IDF）",
+      "余弦相似度"
+    ],
+    "models": [
+      "Wav2Vec2",
+      "HuBERT",
+      "WavLM",
+      "MERT",
+      "voc2vec"
+    ],
+    "representations": [
+      "SSL 帧级连续嵌入",
+      "聚类中心嵌入（C-Emb）",
+      "离散聚类 ID（C-IDs）"
+    ],
+    "datasets": [
+      "MIR-QBSH2",
+      "QbE-LibriSpeech（由 LibriSpeech 构建）"
+    ],
+    "metrics": [
+      "Recall@1",
+      "MRR",
+      "Recall@3",
+      "Recall@5"
+    ],
+    "languages": [],
+    "modalities": [
+      "音频",
+      "语音",
+      "音乐"
+    ],
+    "application_domains": [
+      "音乐检索",
+      "语音内容检索"
+    ],
+    "contribution_types": [
+      "无监督检索方法比较",
+      "跨领域实验分析",
+      "时间敏感性分析"
+    ],
+    "language_details": []
+  },
+  "dataset_entities": [
+    {
+      "name": "MIR-QBSH2",
+      "role": "benchmark",
+      "new_or_existing": "existing",
+      "language": [],
+      "domain": "音乐检索",
+      "modality": [
+        "哼唱或口哨音频"
+      ],
+      "scale_text": "4,206 个查询，覆盖 48 首歌曲；检索库有 225 个样本。",
+      "availability": "public",
+      "collection_method": "",
+      "annotation_method": "",
+      "language_status": []
+    },
+    {
+      "name": "QbE-LibriSpeech",
+      "role": "proposed",
+      "new_or_existing": "new",
+      "language": [],
+      "domain": "口语短语检索",
+      "modality": [
+        "语音",
+        "转写文本"
+      ],
+      "scale_text": "27 个查询、107 个正例，平均每个查询有 3.70 个正例。",
+      "availability": "not_stated",
+      "collection_method": "从 LibriSpeech 转写中抽取双词短语，去除停用词并按出现频次筛选。",
+      "annotation_method": "使用 WhisperX 获取词级时间戳以截取短语音频。",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "Recall@1",
+      "type": "metric",
+      "task": "音频检索",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "MRR",
+      "type": "metric",
+      "task": "音频检索",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "Recall@3 与 Recall@5",
+      "type": "metric",
+      "task": "音频检索",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "QbE-LibriSpeech 是实验用的自建数据，但论文主要研究检索策略，数据集建设本身不是重要贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "Recall@k 和 MRR 用于比较检索方法；论文没有把评测基准、指标或协议本身作为重要贡献。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M11",
+  "macro_name": "口语理解、信息检索与对话",
+  "macro": "口语理解、信息检索与对话",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; analysis.数据与实验",
+      "page_or_section": "3.1 Datasets",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; analysis.数据与实验",
+      "page_or_section": "3.1 Datasets",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "metric",
+      "field": "structured.metrics",
+      "page_or_section": "Table 1: Performance of different models on MIR-QBSH",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "key_finding",
+      "field": "analysis.现象分析; structured.specific_methods; structured.models",
+      "page_or_section": "4.1 Query-by-Humming (QbH)",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "method",
+      "field": "structured.specific_methods",
+      "page_or_section": "4.1 Query-by-Humming (QbH)",
+      "source": "full_text"
+    }
+  ]
+}

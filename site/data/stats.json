@@ -1,12 +1,18 @@
 {
   "source_listed_count": 1375,
   "data_scope": "sample",
+  "sample_paper_count": 15,
   "analysis_complete_count": 15,
   "analysis_total_count": 15,
   "analysis_status": "complete",
   "all": {
     "paper_count": 15,
-    "percentage": 1.09,
+    "sample_paper_count": 15,
+    "sample_share_percentage": 100.0,
+    "coverage_percentage": 1.09,
+    "unique_task_count": 42,
+    "unique_dataset_count": 23,
+    "unique_language_count": 8,
     "top_topics": [
       {
         "name": "临床语音分析",
@@ -91,13 +97,51 @@
         "count": 1
       }
     ],
-    "top_methods": [
+    "top_method_families": [
       {
-        "name": "XGBoost",
+        "name": "跨模态注意力",
         "count": 2
       },
       {
-        "name": "跨模态注意力",
+        "name": "SHAP特征归因",
+        "count": 1
+      },
+      {
+        "name": "hazard rate 建模",
+        "count": 1
+      },
+      {
+        "name": "上下文偏置",
+        "count": 1
+      },
+      {
+        "name": "个体内建模",
+        "count": 1
+      },
+      {
+        "name": "临床终点比较",
+        "count": 1
+      },
+      {
+        "name": "临床语音特征分析",
+        "count": 1
+      },
+      {
+        "name": "低层声学特征分类",
+        "count": 1
+      },
+      {
+        "name": "关键词检测",
+        "count": 1
+      },
+      {
+        "name": "分类",
+        "count": 1
+      }
+    ],
+    "top_specific_methods": [
+      {
+        "name": "XGBoost",
         "count": 2
       },
       {
@@ -130,6 +174,10 @@
       },
       {
         "name": "CIU 转移时间图",
+        "count": 1
+      },
+      {
+        "name": "CTC beam-search 困难负例挖掘",
         "count": 1
       }
     ],
@@ -220,7 +268,7 @@
     "top_languages": [
       {
         "name": "英语",
-        "count": 5
+        "count": 6
       },
       {
         "name": "德语",
@@ -243,10 +291,6 @@
         "count": 1
       },
       {
-        "name": "美国英语",
-        "count": 1
-      },
-      {
         "name": "葡萄牙语",
         "count": 1
       },
@@ -258,15 +302,15 @@
     "top_modalities": [
       {
         "name": "语音",
-        "count": 10
+        "count": 15
       },
       {
         "name": "文本",
         "count": 5
       },
       {
-        "name": "语音音频",
-        "count": 5
+        "name": "转写文本",
+        "count": 3
       },
       {
         "name": "临床神经心理测验分数",
@@ -385,7 +429,12 @@
   "categories": {
     "Clinically Useful Speech Representations": {
       "paper_count": 8,
-      "percentage": 0.58,
+      "sample_paper_count": 8,
+      "sample_share_percentage": 53.33,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 27,
+      "unique_dataset_count": 11,
+      "unique_language_count": 5,
       "top_topics": [
         {
           "name": "临床语音分析",
@@ -470,7 +519,49 @@
           "count": 1
         }
       ],
-      "top_methods": [
+      "top_method_families": [
+        {
+          "name": "SHAP特征归因",
+          "count": 1
+        },
+        {
+          "name": "hazard rate 建模",
+          "count": 1
+        },
+        {
+          "name": "个体内建模",
+          "count": 1
+        },
+        {
+          "name": "临床终点比较",
+          "count": 1
+        },
+        {
+          "name": "临床语音特征分析",
+          "count": 1
+        },
+        {
+          "name": "低层声学特征分类",
+          "count": 1
+        },
+        {
+          "name": "回归与分类",
+          "count": 1
+        },
+        {
+          "name": "图特征分析",
+          "count": 1
+        },
+        {
+          "name": "声学特征分类",
+          "count": 1
+        },
+        {
+          "name": "多标签分类",
+          "count": 1
+        }
+      ],
+      "top_specific_methods": [
         {
           "name": "XGBoost",
           "count": 2
@@ -602,15 +693,11 @@
           "count": 2
         },
         {
-          "name": "中文",
-          "count": 1
-        },
-        {
-          "name": "美国英语",
-          "count": 1
-        },
-        {
           "name": "英语",
+          "count": 2
+        },
+        {
+          "name": "中文",
           "count": 1
         },
         {
@@ -625,11 +712,11 @@
       "top_modalities": [
         {
           "name": "语音",
-          "count": 4
+          "count": 8
         },
         {
-          "name": "语音音频",
-          "count": 4
+          "name": "转写文本",
+          "count": 3
         },
         {
           "name": "临床神经心理测验分数",
@@ -660,7 +747,7 @@
           "count": 1
         },
         {
-          "name": "语音转录文本",
+          "name": "面部视频/关键点",
           "count": 1
         }
       ],
@@ -751,7 +838,12 @@
     },
     "Information Extraction and Retrieval": {
       "paper_count": 7,
-      "percentage": 0.51,
+      "sample_paper_count": 7,
+      "sample_share_percentage": 46.67,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 15,
+      "unique_dataset_count": 12,
+      "unique_language_count": 7,
       "top_topics": [
         {
           "name": "关键词检测",
@@ -836,11 +928,49 @@
           "count": 1
         }
       ],
-      "top_methods": [
+      "top_method_families": [
         {
           "name": "跨模态注意力",
           "count": 2
         },
+        {
+          "name": "上下文偏置",
+          "count": 1
+        },
+        {
+          "name": "关键词检测",
+          "count": 1
+        },
+        {
+          "name": "分类",
+          "count": 1
+        },
+        {
+          "name": "参数高效适配",
+          "count": 1
+        },
+        {
+          "name": "增量学习",
+          "count": 1
+        },
+        {
+          "name": "多任务学习",
+          "count": 1
+        },
+        {
+          "name": "序列对齐",
+          "count": 1
+        },
+        {
+          "name": "查询自适应融合",
+          "count": 1
+        },
+        {
+          "name": "模块化网络扩展",
+          "count": 1
+        }
+      ],
+      "top_specific_methods": [
         {
           "name": "BM25",
           "count": 1
@@ -875,6 +1005,10 @@
         },
         {
           "name": "Soft-DTW",
+          "count": 1
+        },
+        {
+          "name": "Spike-Driven Self-Attention",
           "count": 1
         }
       ],
@@ -995,7 +1129,7 @@
       "top_modalities": [
         {
           "name": "语音",
-          "count": 6
+          "count": 7
         },
         {
           "name": "文本",
@@ -1007,10 +1141,6 @@
         },
         {
           "name": "视频",
-          "count": 1
-        },
-        {
-          "name": "语音音频",
           "count": 1
         },
         {
@@ -1111,10 +1241,16 @@
   "macro_categories": {
     "M01": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1124,10 +1260,16 @@
     },
     "M02": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1137,10 +1279,16 @@
     },
     "M03": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1150,10 +1298,16 @@
     },
     "M04": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1163,10 +1317,16 @@
     },
     "M05": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1176,10 +1336,16 @@
     },
     "M06": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1189,7 +1355,12 @@
     },
     "M07": {
       "paper_count": 8,
-      "percentage": 0.58,
+      "sample_paper_count": 8,
+      "sample_share_percentage": 53.33,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 27,
+      "unique_dataset_count": 11,
+      "unique_language_count": 5,
       "top_topics": [
         {
           "name": "临床语音分析",
@@ -1274,7 +1445,49 @@
           "count": 1
         }
       ],
-      "top_methods": [
+      "top_method_families": [
+        {
+          "name": "SHAP特征归因",
+          "count": 1
+        },
+        {
+          "name": "hazard rate 建模",
+          "count": 1
+        },
+        {
+          "name": "个体内建模",
+          "count": 1
+        },
+        {
+          "name": "临床终点比较",
+          "count": 1
+        },
+        {
+          "name": "临床语音特征分析",
+          "count": 1
+        },
+        {
+          "name": "低层声学特征分类",
+          "count": 1
+        },
+        {
+          "name": "回归与分类",
+          "count": 1
+        },
+        {
+          "name": "图特征分析",
+          "count": 1
+        },
+        {
+          "name": "声学特征分类",
+          "count": 1
+        },
+        {
+          "name": "多标签分类",
+          "count": 1
+        }
+      ],
+      "top_specific_methods": [
         {
           "name": "XGBoost",
           "count": 2
@@ -1406,15 +1619,11 @@
           "count": 2
         },
         {
-          "name": "中文",
-          "count": 1
-        },
-        {
-          "name": "美国英语",
-          "count": 1
-        },
-        {
           "name": "英语",
+          "count": 2
+        },
+        {
+          "name": "中文",
           "count": 1
         },
         {
@@ -1429,11 +1638,11 @@
       "top_modalities": [
         {
           "name": "语音",
-          "count": 4
+          "count": 8
         },
         {
-          "name": "语音音频",
-          "count": 4
+          "name": "转写文本",
+          "count": 3
         },
         {
           "name": "临床神经心理测验分数",
@@ -1464,7 +1673,7 @@
           "count": 1
         },
         {
-          "name": "语音转录文本",
+          "name": "面部视频/关键点",
           "count": 1
         }
       ],
@@ -1555,10 +1764,16 @@
     },
     "M08": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1568,10 +1783,16 @@
     },
     "M09": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1581,10 +1802,16 @@
     },
     "M10": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1594,7 +1821,12 @@
     },
     "M11": {
       "paper_count": 7,
-      "percentage": 0.51,
+      "sample_paper_count": 7,
+      "sample_share_percentage": 46.67,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 15,
+      "unique_dataset_count": 12,
+      "unique_language_count": 7,
       "top_topics": [
         {
           "name": "关键词检测",
@@ -1679,11 +1911,49 @@
           "count": 1
         }
       ],
-      "top_methods": [
+      "top_method_families": [
         {
           "name": "跨模态注意力",
           "count": 2
         },
+        {
+          "name": "上下文偏置",
+          "count": 1
+        },
+        {
+          "name": "关键词检测",
+          "count": 1
+        },
+        {
+          "name": "分类",
+          "count": 1
+        },
+        {
+          "name": "参数高效适配",
+          "count": 1
+        },
+        {
+          "name": "增量学习",
+          "count": 1
+        },
+        {
+          "name": "多任务学习",
+          "count": 1
+        },
+        {
+          "name": "序列对齐",
+          "count": 1
+        },
+        {
+          "name": "查询自适应融合",
+          "count": 1
+        },
+        {
+          "name": "模块化网络扩展",
+          "count": 1
+        }
+      ],
+      "top_specific_methods": [
         {
           "name": "BM25",
           "count": 1
@@ -1718,6 +1988,10 @@
         },
         {
           "name": "Soft-DTW",
+          "count": 1
+        },
+        {
+          "name": "Spike-Driven Self-Attention",
           "count": 1
         }
       ],
@@ -1838,7 +2112,7 @@
       "top_modalities": [
         {
           "name": "语音",
-          "count": 6
+          "count": 7
         },
         {
           "name": "文本",
@@ -1850,10 +2124,6 @@
         },
         {
           "name": "视频",
-          "count": 1
-        },
-        {
-          "name": "语音音频",
           "count": 1
         },
         {
@@ -1952,10 +2222,16 @@
     },
     "M12": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1965,10 +2241,16 @@
     },
     "M13": {
       "paper_count": 0,
-      "percentage": 0.0,
+      "sample_paper_count": 0,
+      "sample_share_percentage": 0.0,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 0,
+      "unique_dataset_count": 0,
+      "unique_language_count": 0,
       "top_topics": [],
       "top_tasks": [],
-      "top_methods": [],
+      "top_method_families": [],
+      "top_specific_methods": [],
       "top_datasets": [],
       "top_metrics": [],
       "top_languages": [],
@@ -1980,7 +2262,12 @@
   "special": {
     "dataset": {
       "paper_count": 2,
-      "percentage": 0.15,
+      "sample_paper_count": 2,
+      "sample_share_percentage": 13.33,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 6,
+      "unique_dataset_count": 3,
+      "unique_language_count": 2,
       "top_topics": [
         {
           "name": "基准数据集有效性",
@@ -2041,7 +2328,41 @@
           "count": 1
         }
       ],
-      "top_methods": [
+      "top_method_families": [
+        {
+          "name": "低层声学特征分类",
+          "count": 1
+        },
+        {
+          "name": "声学特征分类",
+          "count": 1
+        },
+        {
+          "name": "混杂因素控制",
+          "count": 1
+        },
+        {
+          "name": "特征组合分析",
+          "count": 1
+        },
+        {
+          "name": "纵向统计分析",
+          "count": 1
+        },
+        {
+          "name": "自监督表示对比",
+          "count": 1
+        },
+        {
+          "name": "负对照实验",
+          "count": 1
+        },
+        {
+          "name": "重采样可靠性分析",
+          "count": 1
+        }
+      ],
+      "top_specific_methods": [
         {
           "name": "100 次 Monte Carlo 重采样",
           "count": 1
@@ -2079,7 +2400,7 @@
           "count": 1
         },
         {
-          "name": "低层声学特征分类",
+          "name": "控制 MMSE、年龄和性别的偏 Spearman 相关",
           "count": 1
         }
       ],
@@ -2125,7 +2446,7 @@
       ],
       "top_languages": [
         {
-          "name": "美国英语",
+          "name": "英语",
           "count": 1
         },
         {
@@ -2135,15 +2456,11 @@
       ],
       "top_modalities": [
         {
-          "name": "临床量表评分",
-          "count": 1
-        },
-        {
           "name": "语音",
-          "count": 1
+          "count": 2
         },
         {
-          "name": "语音音频",
+          "name": "临床量表评分",
           "count": 1
         }
       ],
@@ -2199,6 +2516,9 @@
       "expanded_or_curated_count": 0,
       "benchmark_dataset_count": 0,
       "public_dataset_count": 0,
+      "multilingual_paper_count": 0,
+      "low_resource_paper_count": 0,
+      "endangered_language_paper_count": 0,
       "top_entities": [
         {
           "name": "ADReSS",
@@ -2213,19 +2533,71 @@
           "count": 1
         }
       ],
-      "collection_methods": [
+      "language_distribution": [
         {
-          "name": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
-          "count": 2
+          "name": "英语",
+          "count": 1
         },
         {
+          "name": "韩语",
+          "count": 1
+        }
+      ],
+      "availability_distribution": [
+        {
+          "name": "not_stated",
+          "count": 2
+        }
+      ],
+      "dataset_role_distribution": [
+        {
+          "name": "proposed",
+          "count": 1
+        },
+        {
+          "name": "systematic_study",
+          "count": 1
+        }
+      ],
+      "collection_methods": [
+        {
           "name": "在大学医院对社区老年 MCI 患者进行年度录音；每次包含阅读、持续元音、句子重复和症状访谈等任务。",
+          "count": 1
+        },
+        {
+          "name": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
           "count": 1
         }
       ],
       "annotation_methods": [
         {
           "name": "每次录音同期收集 SGDS 与 MMSE；SGDS≥8 定义为抑郁。",
+          "count": 1
+        }
+      ],
+      "task_distribution": [
+        {
+          "name": "基于语音的失智症分类",
+          "count": 1
+        },
+        {
+          "name": "声学特征稳定性分析",
+          "count": 1
+        },
+        {
+          "name": "抑郁相关声学特征识别",
+          "count": 1
+        },
+        {
+          "name": "抑郁语音分类",
+          "count": 1
+        },
+        {
+          "name": "测试集有效性分析",
+          "count": 1
+        },
+        {
+          "name": "认知与情绪症状区分",
           "count": 1
         }
       ],
@@ -2252,7 +2624,12 @@
     },
     "evaluation": {
       "paper_count": 2,
-      "percentage": 0.15,
+      "sample_paper_count": 2,
+      "sample_share_percentage": 13.33,
+      "coverage_percentage": 1.09,
+      "unique_task_count": 7,
+      "unique_dataset_count": 3,
+      "unique_language_count": 1,
       "top_topics": [
         {
           "name": "ALS 语音数字生物标志物",
@@ -2317,7 +2694,41 @@
           "count": 1
         }
       ],
-      "top_methods": [
+      "top_method_families": [
+        {
+          "name": "hazard rate 建模",
+          "count": 1
+        },
+        {
+          "name": "临床终点比较",
+          "count": 1
+        },
+        {
+          "name": "低层声学特征分类",
+          "count": 1
+        },
+        {
+          "name": "时间到事件分析",
+          "count": 1
+        },
+        {
+          "name": "特征组合分析",
+          "count": 1
+        },
+        {
+          "name": "生存分析",
+          "count": 1
+        },
+        {
+          "name": "负对照实验",
+          "count": 1
+        },
+        {
+          "name": "重采样可靠性分析",
+          "count": 1
+        }
+      ],
+      "top_specific_methods": [
         {
           "name": "100 次 Monte Carlo 重采样",
           "count": 1
@@ -2339,10 +2750,6 @@
           "count": 1
         },
         {
-          "name": "hazard rate 建模",
-          "count": 1
-        },
-        {
           "name": "openSMILE 特征提取",
           "count": 1
         },
@@ -2351,11 +2758,15 @@
           "count": 1
         },
         {
-          "name": "临床终点比较",
+          "name": "以最保守 MCID 定义事件",
           "count": 1
         },
         {
-          "name": "以最保守 MCID 定义事件",
+          "name": "基于 log-rank 的样本量与时长估算",
+          "count": 1
+        },
+        {
+          "name": "指数近似 hazard rate",
           "count": 1
         }
       ],
@@ -2401,25 +2812,21 @@
       ],
       "top_languages": [
         {
-          "name": "美国英语",
+          "name": "英语",
           "count": 1
         }
       ],
       "top_modalities": [
         {
+          "name": "语音",
+          "count": 2
+        },
+        {
           "name": "临床量表",
           "count": 1
         },
         {
-          "name": "语音",
-          "count": 1
-        },
-        {
-          "name": "语音音频",
-          "count": 1
-        },
-        {
-          "name": "转录文本",
+          "name": "转写文本",
           "count": 1
         },
         {
@@ -2478,7 +2885,26 @@
       "benchmark_paper_count": 0,
       "metric_paper_count": 1,
       "protocol_paper_count": 1,
-      "human_evaluation_paper_count": 0,
+      "automatic_evaluation_count": 2,
+      "human_evaluation_count": 0,
+      "both_evaluation_count": 0,
+      "evaluation_mode_distribution": [
+        {
+          "name": "automatic",
+          "count": 2
+        }
+      ],
+      "attribute_evaluation_counts": {
+        "objective": 2,
+        "subjective": 0,
+        "foundation_model": 0,
+        "speech_llm": 0,
+        "fairness": 0,
+        "safety": 0,
+        "generalization": 0,
+        "robustness": 1,
+        "reliability": 1
+      },
       "robustness_reliability_paper_count": 1,
       "top_evaluation_entities": [
         {
@@ -2506,12 +2932,71 @@
           "count": 1
         }
       ],
-      "evaluation_modes": [
+      "evaluation_tasks": [
         {
-          "name": "automatic",
-          "count": 6
+          "name": "临床试验时长估算",
+          "count": 1
+        },
+        {
+          "name": "临床试验样本量估算",
+          "count": 1
+        },
+        {
+          "name": "功能下降事件检测",
+          "count": 1
+        },
+        {
+          "name": "基于语音的失智症分类",
+          "count": 1
+        },
+        {
+          "name": "声学特征稳定性分析",
+          "count": 1
+        },
+        {
+          "name": "数字生物标志物敏感度比较",
+          "count": 1
+        },
+        {
+          "name": "测试集有效性分析",
+          "count": 1
         }
-      ]
+      ],
+      "evaluation_metrics": [
+        {
+          "name": "hazard rate",
+          "count": 1
+        },
+        {
+          "name": "hazard ratio",
+          "count": 1
+        },
+        {
+          "name": "log-rank p-value",
+          "count": 1
+        },
+        {
+          "name": "macro-F1",
+          "count": 1
+        },
+        {
+          "name": "time-to-event",
+          "count": 1
+        },
+        {
+          "name": "样本量/试验时长估计",
+          "count": 1
+        }
+      ],
+      "objective_evaluation_count": 2,
+      "subjective_evaluation_count": 0,
+      "foundation_model_evaluation_count": 0,
+      "speech_llm_evaluation_count": 0,
+      "fairness_evaluation_count": 0,
+      "safety_evaluation_count": 0,
+      "generalization_evaluation_count": 0,
+      "robustness_evaluation_count": 1,
+      "reliability_evaluation_count": 1
     }
   }
 }

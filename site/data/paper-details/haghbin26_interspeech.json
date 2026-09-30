@@ -1,0 +1,201 @@
+{
+  "paper_id": "haghbin26_interspeech",
+  "title": "From Black-Box to Clinical Insight: A Multi-Stage Explainable Framework for Speech-Based Cognitive Impairment Detection",
+  "authors": [
+    "Haghbin, Yasaman",
+    "Rashidi, Sina",
+    "Zolnour, Ali",
+    "Taherinezhad, Fatemeh",
+    "Fartoot, Ali",
+    "Azadmaleki, Hossein",
+    "Noble, James M.",
+    "Dadkhah, Maryam",
+    "Zolnoori, Maryam"
+  ],
+  "original_session": "Clinically Useful Speech Representations 1",
+  "normalized_session": "Clinically Useful Speech Representations",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/haghbin26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "Speech-based cognitive impairment detection offers a noninvasive, accessible alternative to costly biomarker assays, yet transformer-based models remain clinically uninterpretable. We propose a multi-stage explainability framework that translates black-box transformer predictions into clinically grounded narratives by integrating SHapley Additive exPlanations (SHAP)-based token attribution, theory-informed linguistic features, and a four-stage LLM reasoning pipeline using LLaMA-3.1-70B-Instruct. Built on the SpeechCARE-Adaptive Gating Network multimodal screening model (F1 = 72.11% on the NIA PREPARE benchmark), the framework maps model outputs to four cognitive-linguistic dimensions, including lexical richness, syntactic complexity, and semantic coherence. Physician evaluation on 70 stratified English samples demonstrated strong alignment with patient-level cognitive profiles, and a System Usability Scale score of 82/100 indicated high potential for clinical workflow integration.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/haghbin26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-1252",
+  "pages": "43-47",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/haghbin26_interspeech.html",
+  "tldr_cn": "该文把词级模型归因、语言特征和大模型报告结合，为语音认知筛查提供可供医生审阅的解释。",
+  "analysis": {
+    "研究动机": "语音模型可以筛查认知障碍，但Transformer预测通常难以解释为医生能使用的临床证据。",
+    "解决问题": "论文尝试把模型的词级预测线索与语言学特征整合成针对个体的临床解释，而非只给出黑箱分类结果。",
+    "现象分析": "医师对解释报告的判断一致率为98%、Cohen's κ为0.85；可用性量表得分为82/100，显示初步临床可读性与使用潜力。",
+    "主要方法": "框架依次进行SHAP词元归因、理论指导的语言特征分析、跨来源证据整合和四阶段LLM报告生成；LLM使用LLaMA-3.1-70B-Instruct。",
+    "数据与实验": "底层SpeechCARE筛查模型在NIA PREPARE官方测试集上F1为72.11%、AUC为86.83%；临床解释由医生盲评70份英语样本。",
+    "主要贡献": "提出将模型归因、语言学线索与LLM推理结合的可解释框架，并报告医生盲评和临床工作流可用性结果。"
+  },
+  "structured": {
+    "topics": [
+      "认知障碍检测",
+      "可解释人工智能",
+      "临床语音分析",
+      "LLM临床解释"
+    ],
+    "tasks": [
+      "认知障碍筛查",
+      "生成个体化临床解释",
+      "医生评估解释有效性"
+    ],
+    "method_families": [
+      "SHAP特征归因",
+      "语言学特征分析",
+      "多阶段LLM推理",
+      "多模态门控融合"
+    ],
+    "specific_methods": [
+      "层级SHAP词元归因",
+      "四阶段解释流程",
+      "跨来源证据整合",
+      "理论指导的语言特征提取",
+      "System Usability Scale评估"
+    ],
+    "models": [
+      "SpeechCARE-Adaptive Gating Network",
+      "mHuBERT",
+      "mGTE",
+      "LLaMA-3.1-70B-Instruct"
+    ],
+    "representations": [
+      "声学表示",
+      "文本词元归因",
+      "词汇与句法特征",
+      "语义连贯特征",
+      "年龄信息"
+    ],
+    "datasets": [
+      "NIA PREPARE benchmark"
+    ],
+    "metrics": [
+      "F1",
+      "AUC",
+      "医生一致率",
+      "Cohen's κ",
+      "SUS"
+    ],
+    "languages": [
+      "英语",
+      "西班牙语",
+      "中文"
+    ],
+    "modalities": [
+      "语音",
+      "文本",
+      "人口统计信息"
+    ],
+    "application_domains": [
+      "认知障碍临床筛查",
+      "基层医疗决策支持"
+    ],
+    "contribution_types": [
+      "可解释性框架",
+      "临床解释生成",
+      "医生验证与可用性评估"
+    ],
+    "language_details": [
+      "英语",
+      "西班牙语",
+      "中文"
+    ]
+  },
+  "dataset_entities": [
+    {
+      "name": "NIA PREPARE benchmark",
+      "role": "benchmark",
+      "new_or_existing": "existing",
+      "language": [
+        "英语",
+        "西班牙语",
+        "中文"
+      ],
+      "domain": "认知健康、轻度认知障碍与阿尔茨海默病",
+      "modality": [
+        "语音",
+        "文本",
+        "人口统计信息"
+      ],
+      "scale_text": "2,058名参与者：1,646训练、412测试；诊断组包括1,140名对照、268名MCI和650名AD",
+      "availability": "not_stated",
+      "collection_method": "录音来自多个语料库，单段截断至最多30秒，平均27秒",
+      "annotation_method": "按认知健康对照、MCI与AD诊断类别分组",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "NIA PREPARE官方测试集",
+      "type": "benchmark",
+      "task": "评估SpeechCARE筛查模型识别认知障碍的效果",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "70份英语样本的临床解释盲评",
+      "type": "human",
+      "task": "评估解释报告与患者认知语言特征的对应情况",
+      "automatic_or_human": "human",
+      "attributes": []
+    },
+    {
+      "name": "临床工作流可用性研究",
+      "type": "human",
+      "task": "评估解释界面的易用性与临床工作流整合潜力",
+      "automatic_or_human": "human",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "论文使用NIA PREPARE既有基准训练筛查模型；数据集构建或发布不是本文贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "医生盲评和可用性研究用于验证解释框架，但论文没有提出新的Evaluation或Benchmark本身。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M07",
+  "macro_name": "医疗健康、临床语音与辅助技术",
+  "macro": "医疗健康、临床语音与辅助技术",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "dataset_entities; structured.datasets",
+      "page_or_section": "2.1. Data: PREPARE challenge dataset",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验; structured.metrics",
+      "page_or_section": "3.1. SpeechCARE performance",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析; evaluation_entities",
+      "page_or_section": "3.3. Clinical evaluation",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验; evaluation_entities",
+      "page_or_section": "3.4. Usability and clinical workflow integration",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "model",
+      "field": "analysis.主要方法; structured.models",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    }
+  ]
+}

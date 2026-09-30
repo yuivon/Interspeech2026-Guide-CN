@@ -1,0 +1,226 @@
+{
+  "paper_id": "zafar26_interspeech",
+  "title": "Rethinking Acoustic Variability Of ADReSS and ADReSSo Datasets For Dementia Detection",
+  "authors": [
+    "Zafar, Muhammad Abdullah",
+    "Shahin, Mostafa",
+    "Ahmed, Beena"
+  ],
+  "original_session": "Clinically Useful Speech Representations 1",
+  "normalized_session": "Clinically Useful Speech Representations",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/zafar26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "The ADReSS and ADReSSo challenge datasets have become the de-facto standards for research on dementia detection through speech, with over half of recent ICASSP and Interspeech studies on the topic relying on them. Despite their widespread adoption, both datasets exhibit properties that may undermine the validity of reported results. In this paper, the acoustic variability in the test sets of ADReSS and ADReSSo is systematically examined. Results show that (i) near state-of-the-art classification performance on the test sets can be achieved using only two low-level acoustic features, (ii) classifiers trained on randomly permuted dementia labels can nonetheless reach competitive test performance, and (iii) feature discriminability does not generalize across Monte Carlo resampling, with no stable features emerging from low-level acoustic feature sets. These findings indicate that strong results on these datasets can stem from spurious correlations rather than pathology-relevant cues. The analysis calls for more cautious interpretation of benchmark performance, as well as renewed attention to small dataset evaluation strategies in dementia detection.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/zafar26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-2862",
+  "pages": "72-76",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/zafar26_interspeech.html",
+  "tldr_cn": "该文审计ADReSS和ADReSSo基准，发现固定划分高分可能依赖不稳定声学线索。",
+  "analysis": {
+    "研究动机": "ADReSS 和 ADReSSo 已成为语音失智症检测的常用基准，但其小规模测试划分可能残留录音条件差异，使模型分数未必反映疾病相关线索。",
+    "解决问题": "论文检验仅用少量低层声学特征能否在固定测试集取得高分，并进一步检查这种表现是否经得住随机标签、语音与静音拆分以及数据重采样。",
+    "现象分析": "仅用两个声学特征，ADReSS 和 ADReSSo 测试集 macro-F1 分别达到 0.875 和 0.831；随机置换标签时也偶有接近的分数。100 次 Monte Carlo 重采样的均值降至 0.622 和 0.667，且静音片段上的分数高于语音片段，显示固定划分可能受伪相关影响。",
+    "主要方法": "使用 openSMILE 提取 eGeMAPS 与 ComParE 低层声学特征，以逻辑回归测试两特征组合。通过训练标签置换、VAD 生成的语音/静音版本和 100 次 Monte Carlo 重采样，诊断基准结果的稳定性。",
+    "数据与实验": "研究 ADReSS 与 ADReSSo：ADReSS 训练集有 54 名对照与 54 名失智症参与者、测试集各 24 名；ADReSSo 训练集为 87 名对照与 79 名失智症参与者、测试集为 36 名与 35 名。论文比较固定测试集、标签置换、语音/静音切分及重采样的 macro-F1。",
+    "主要贡献": "系统揭示两个基准的固定测试集高分可能由不稳定声学线索驱动，并提出用重复分层重采样、负对照和多次划分结果审慎解释小数据集性能。"
+  },
+  "structured": {
+    "topics": [
+      "语音失智症检测",
+      "基准数据集有效性",
+      "声学伪相关",
+      "小样本评测可靠性"
+    ],
+    "tasks": [
+      "基于语音的失智症分类",
+      "测试集有效性分析",
+      "声学特征稳定性分析"
+    ],
+    "method_families": [
+      "低层声学特征分类",
+      "特征组合分析",
+      "负对照实验",
+      "重采样可靠性分析"
+    ],
+    "specific_methods": [
+      "openSMILE 特征提取",
+      "逻辑回归",
+      "eGeMAPS 特征组合",
+      "ComParE 特征组合",
+      "随机标签置换",
+      "VAD 语音/静音切分",
+      "100 次 Monte Carlo 重采样"
+    ],
+    "models": [
+      "逻辑回归"
+    ],
+    "representations": [
+      "eGeMAPS v02（88 个特征）",
+      "ComParE 2016（6,373 个特征）",
+      "低层声学描述符（LLDs）"
+    ],
+    "datasets": [
+      "ADReSS",
+      "ADReSSo"
+    ],
+    "metrics": [
+      "macro-F1"
+    ],
+    "languages": [
+      "英语"
+    ],
+    "modalities": [
+      "语音"
+    ],
+    "application_domains": [
+      "失智症检测",
+      "临床语音评测"
+    ],
+    "contribution_types": [
+      "基准有效性诊断",
+      "声学特征稳定性分析",
+      "小样本评测建议"
+    ],
+    "language_details": [
+      "美国英语"
+    ]
+  },
+  "dataset_entities": [
+    {
+      "name": "ADReSS",
+      "role": "systematic_study",
+      "new_or_existing": "existing",
+      "language": [
+        "英语"
+      ],
+      "domain": "阿尔茨海默病与失智症语音检测",
+      "modality": [
+        "语音"
+      ],
+      "scale_text": "训练集：54 名健康对照、54 名失智症参与者；测试集：24 名健康对照、24 名失智症参与者。",
+      "availability": "not_stated",
+      "collection_method": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
+      "annotation_method": "",
+      "language_status": []
+    },
+    {
+      "name": "ADReSSo",
+      "role": "systematic_study",
+      "new_or_existing": "existing",
+      "language": [
+        "英语"
+      ],
+      "domain": "阿尔茨海默病与失智症语音检测",
+      "modality": [
+        "语音"
+      ],
+      "scale_text": "训练集：87 名健康对照、79 名失智症参与者；测试集：36 名健康对照、35 名失智症参与者。",
+      "availability": "not_stated",
+      "collection_method": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
+      "annotation_method": "",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "macro-F1",
+      "type": "metric",
+      "task": "二分类失智症检测",
+      "automatic_or_human": "automatic",
+      "attributes": [
+        "objective"
+      ]
+    },
+    {
+      "name": "随机标签置换负对照",
+      "type": "diagnostic",
+      "task": "检验测试集高分是否可能由偶然相关产生",
+      "automatic_or_human": "automatic",
+      "attributes": [
+        "objective"
+      ]
+    },
+    {
+      "name": "100 次 Monte Carlo 重采样",
+      "type": "reliability",
+      "task": "检查声学特征分类结果跨数据划分的稳定性",
+      "automatic_or_human": "automatic",
+      "attributes": [
+        "objective",
+        "robustness",
+        "reliability"
+      ]
+    },
+    {
+      "name": "VAD 语音/静音派生版本比较",
+      "type": "diagnostic",
+      "task": "检查特征表现是否来自语音内容而非静音或录音条件",
+      "automatic_or_human": "automatic",
+      "attributes": [
+        "objective",
+        "robustness"
+      ]
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": true,
+      "reason": "ADReSS 与 ADReSSo 的声学变异和测试划分有效性就是论文的核心研究对象；论文还构造语音/静音派生版本进行系统审计，并非仅把它们用作实验数据。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": true,
+      "reason": "论文的主要贡献是诊断基准测试分数的可靠性与泛化问题，并实证比较标签置换、静音/语音切分和重采样评测方案。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M07",
+  "macro_name": "医疗健康、临床语音与辅助技术",
+  "macro": "医疗健康、临床语音与辅助技术",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; analysis.数据与实验",
+      "page_or_section": "2.1 Datasets",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "analysis.数据与实验",
+      "page_or_section": "Table 1: Dataset composition of ADReSS and ADReSSo",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "metric",
+      "field": "structured.metrics",
+      "page_or_section": "2.4 Validation",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "structured.specific_methods; analysis.数据与实验",
+      "page_or_section": "2.4 Validation",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "structured.specific_methods",
+      "page_or_section": "2.4 Validation",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "key_finding",
+      "field": "analysis.现象分析",
+      "page_or_section": "3.3 Unstable High Performing Features",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "key_finding",
+      "field": "analysis.现象分析; special_tags.dataset; special_tags.evaluation",
+      "page_or_section": "3.2 Results",
+      "source": "full_text"
+    }
+  ]
+}

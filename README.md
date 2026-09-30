@@ -1,6 +1,6 @@
 # Interspeech 2026 中文论文导读 · 15篇开发样本
 
-当前公开预览范围为15篇论文，完整 Interspeech 2026 论文将在后续版本加入。网站从 ISCA Archive 官方论文集获取论文页、摘要、PDF 地址和 DOI，提供样本分类统计、Dataset/Corpus 与 Evaluation/Benchmark 专项、全文搜索、六维中文导读和本地收藏。
+当前公开预览范围为15篇论文，完整 Interspeech 2026 论文将在后续版本加入。网站从 ISCA Archive 官方论文集获取论文页、摘要、PDF 地址和 DOI，提供样本分类统计、Dataset/Corpus 与 Evaluation/Benchmark 专项、全站搜索、站内论文详情、六维中文导读和本地收藏。
 
 ## 数据来源和现状
 
@@ -14,7 +14,7 @@
 - 已完成：15/15 官方 metadata、Abstract、六维中文导读、结构化字段与 Dataset/Evaluation 判断；分析均使用现有全文并记录 `analysis_source=full_text`。统计由程序从这 15 篇真实标签计算。
 - 当前样本分类为 8 篇临床语音表示、7 篇信息提取与检索；Dataset 专项 2 篇、Evaluation 专项 2 篇。全量抓取保持暂停；扩展自动分析时需配置 `OPENAI_API_KEY` 与 `OPENAI_MODEL`（兼容服务另配 `OPENAI_BASE_URL`）。详见 `data/validation_report.json`。
 - 页面导航按完整目录设计为 13 个宏观方向 → 162 个归一化官方 session；映射来源是 proceedings 中184个原始 session 名称，论文的 `original_session` 保留不变。当前页面所有论文数、热点和专项计数都标为“样本统计”。
-- 每篇分析 JSON 的 `evidence` 保存关键原文摘录、来源及可确认的页码/章节；引用与本地提取全文或官方摘要逐条核对，网页不展示这些内部证据。
+- 每篇分析的原文证据仅保存在本地忽略文件 `data/internal_evidence.json`，构建时公开详情页只保留证据类型、页码/章节和来源，不发布摘录文本。站点加载轻量索引；进入 `#paper/<paper_id>` 或展开 Abstract 时再按需载入论文详情。
 
 ## 目录
 
@@ -26,6 +26,8 @@ cache/pdfs/       已下载 PDF（不提交）
 cache/text/       PDF 可检索正文（不提交）
 logs/             采集、PDF、分析失败记录（不提交）
 src/pipeline.py   采集、session 合并、PDF、分析、统计、构建和验证
+site/data/papers-index.json 公开论文轻量索引
+site/data/paper-details/     按需加载的论文详情 JSON
 site/             GitHub Pages 静态站点
 ```
 

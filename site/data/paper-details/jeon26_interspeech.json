@@ -1,0 +1,194 @@
+{
+  "paper_id": "jeon26_interspeech",
+  "title": "Disentangling Depression from Cognitive Decline in Elderly Speech Using Concurrent Clinical Assessments",
+  "authors": [
+    "Jeon, Woori",
+    "Ha, Seunghee",
+    "Lee, Sang-Kyu",
+    "Yoon, Ji Hye",
+    "Yoon, Tae-Jin",
+    "Lee, Seung Jin",
+    "Han, Woojae",
+    "So, Jungmin"
+  ],
+  "original_session": "Clinically Useful Speech Representations 1",
+  "normalized_session": "Clinically Useful Speech Representations",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/jeon26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "Detecting depression from speech in elderly patients with mild cognitive impairment (MCI) is complicated by overlapping acoustic effects of cognitive decline. Without disentangling these, classifiers risk learning cognitive rather than depression-specific patterns. We present a Korean elderly speech corpus of 89 MCI speakers collected over three years with concurrent depression (SGDS) and cognitive (MMSE) assessments. Both linear mixed-effects models and partial correlations identify the same pattern: of seven feature groups, only formant features are associated with depression after controlling for cognitive function, while widely used F0 features carry no signal. The F1+F2 subset achieves UAR 0.760 with just 12 features, outperforming both the full eGeMAPS baseline and self-supervised representations. These findings show that concurrent clinical assessments can identify interpretable, depression-specific acoustic markers in populations where cognitive and affective symptoms co-occur.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/jeon26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-1247",
+  "pages": "37-42",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/jeon26_interspeech.html",
+  "tldr_cn": "该文借助同期认知评分区分抑郁与认知变化，并提出韩语老年MCI纵向语音语料。",
+  "analysis": {
+    "研究动机": "老年 MCI 人群的抑郁和认知下降会造成相似语音变化，分类器可能把认知差异误当成抑郁信号。",
+    "解决问题": "研究在同时控制认知水平后，哪些声学特征仍与抑郁相关，并检验这些特征能否用于抑郁检测。",
+    "现象分析": "七组 eGeMAPS 特征中，共振峰组是两种统计分析都支持的抑郁相关特征；常用 F0 特征没有显示有效信号。F1+F2 的 12 个特征取得 UAR=0.760，高于完整 eGeMAPS 基线的 0.655 和最佳 SSL 线性模型的 0.729。",
+    "主要方法": "使用纵向线性混合效应模型和控制 MMSE、年龄、性别的偏 Spearman 相关筛查特征组，再以 RBF-SVM 做被试留一交叉验证；同时比较 eGeMAPS 与 WavLM、wav2vec2、HuBERT 表示。",
+    "数据与实验": "语料包含 89 名经临床诊断的韩语 MCI 老年人、209 次观测，覆盖三年；每次包含多种语音任务，本研究分析标准化阅读任务，并用 SGDS 与 MMSE 同期评分。",
+    "主要贡献": "论文明确提出首个韩语老年 MCI 语音语料，并展示同期认知评估有助于区分抑郁和认知变化。结果指出 F1、F2 特征有用，但作者也报告女性假阳性偏多，且研究仅覆盖阅读任务和单一语言。"
+  },
+  "structured": {
+    "topics": [
+      "老年语音",
+      "抑郁检测",
+      "轻度认知障碍",
+      "认知混杂控制"
+    ],
+    "tasks": [
+      "抑郁语音分类",
+      "抑郁相关声学特征识别",
+      "认知与情绪症状区分"
+    ],
+    "method_families": [
+      "纵向统计分析",
+      "混杂因素控制",
+      "声学特征分类",
+      "自监督表示对比"
+    ],
+    "specific_methods": [
+      "线性混合效应模型",
+      "控制 MMSE、年龄和性别的偏 Spearman 相关",
+      "eGeMAPS 七组特征",
+      "RBF-SVM",
+      "leave-one-subject-out 交叉验证",
+      "F1+F2 共振峰子集"
+    ],
+    "models": [
+      "RBF-SVM",
+      "WavLM-Base",
+      "WavLM-Large",
+      "wav2vec2-Base",
+      "HuBERT-Base"
+    ],
+    "representations": [
+      "88 维 eGeMAPS 声学特征",
+      "F1/F2 共振峰特征",
+      "自监督语音嵌入"
+    ],
+    "datasets": [
+      "本研究韩语老年 MCI 纵向语音语料"
+    ],
+    "metrics": [
+      "UAR",
+      "Sensitivity",
+      "Specificity",
+      "Accuracy",
+      "F1"
+    ],
+    "languages": [
+      "韩语"
+    ],
+    "modalities": [
+      "语音",
+      "临床量表评分"
+    ],
+    "application_domains": [
+      "老年心理健康",
+      "抑郁筛查",
+      "轻度认知障碍临床评估"
+    ],
+    "contribution_types": [
+      "新语料库",
+      "混杂因素分析",
+      "可解释声学特征发现"
+    ],
+    "language_details": [
+      "韩语"
+    ]
+  },
+  "dataset_entities": [
+    {
+      "name": "韩语老年 MCI 纵向语音语料",
+      "role": "proposed",
+      "new_or_existing": "new",
+      "language": [
+        "韩语"
+      ],
+      "domain": "老年轻度认知障碍与抑郁评估",
+      "modality": [
+        "语音",
+        "SGDS 抑郁评分",
+        "MMSE 认知评分"
+      ],
+      "scale_text": "89 名 MCI 参与者，三年内共 209 次年度观测；41 次观测达到 SGDS 抑郁阈值。",
+      "availability": "not_stated",
+      "collection_method": "在大学医院对社区老年 MCI 患者进行年度录音；每次包含阅读、持续元音、句子重复和症状访谈等任务。",
+      "annotation_method": "每次录音同期收集 SGDS 与 MMSE；SGDS≥8 定义为抑郁。",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "Leave-one-subject-out 交叉验证",
+      "type": "protocol",
+      "task": "抑郁分类",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "UAR",
+      "type": "metric",
+      "task": "抑郁分类",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "Sensitivity、Specificity、Accuracy、F1",
+      "type": "metric",
+      "task": "抑郁分类",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": true,
+      "reason": "论文将首个韩语老年 MCI 语音语料列为明确贡献；语料包含三年纵向记录和同期抑郁、认知评分，支持后续研究。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "论文没有提出新的评测基准或评测协议；LOSO、UAR 和特征组对比用于验证其科学发现。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M07",
+  "macro_name": "医疗健康、临床语音与辅助技术",
+  "macro": "医疗健康、临床语音与辅助技术",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "dataset_entities; structured.datasets",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "analysis.数据与实验; dataset_entities",
+      "page_or_section": "2.1. Corpus",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "evaluation_entities; structured.specific_methods",
+      "page_or_section": "3.3. Classification",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析; analysis.数据与实验; structured.metrics",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    },
+    {
+      "claim_type": "key_finding",
+      "field": "analysis.现象分析; structured.specific_methods",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    }
+  ]
+}

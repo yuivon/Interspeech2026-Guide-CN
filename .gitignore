@@ -7,6 +7,8 @@ __pycache__/
 /work/
 /outputs/
 /data/raw/
+/data/processed_papers.json
+/data/internal_evidence.json
 /task_plan.md
 /progress.md
 /findings.md

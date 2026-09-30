@@ -65,6 +65,9 @@
         "关键词检测方法",
         "低能耗模型设计",
         "计算效率评估"
+      ],
+      "language_details": [
+        "英语"
       ]
     },
     "dataset_entities": [
@@ -84,7 +87,7 @@
         "availability": "not_stated",
         "collection_method": "训练数据取自LibriSpeech train-clean-100与train-clean-360；测试集取自train-other-500",
         "annotation_method": "",
-        "evidence": "论文称训练用LibriPhrase，含800k样本；其测试集由LibriSpeech train-other-500构建。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -93,7 +96,7 @@
         "type": "benchmark",
         "task": "比较关键词检测性能、模型规模和估算能耗",
         "automatic_or_human": "automatic",
-        "evidence": "SPARK在LE子集的AUC为99.07%、EER为3.97%；每次推理估算能耗18.44 µJ，较PhonMatchNet低21.7倍。"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -112,36 +115,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/baek26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/baek26_interspeech.pdf",
     "source_hash": "18b15f3847af4e4326024243b8486dbc0db9b53e99b2304b2eb5e6c785c45a77",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; dataset_entities[0].scale_text",
-        "evidence_text": "It contains 800k samples, with 200k for each phrase length from 1 to 4 words.",
-        "page_or_section": "4.1. Datasets",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "metric",
-        "field": "structured.metrics",
-        "evidence_text": "KWS performance was measured using the area under the curve (AUC) and the equal error rate (EER).",
-        "page_or_section": "4.3. Evaluation Metrics",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验; analysis.现象分析",
-        "evidence_text": "achieving an AUC of 99.07% and an EER of 3.97% on LE.",
-        "page_or_section": "5.1. Main Results",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "key_finding",
-        "field": "analysis.主要贡献; analysis.数据与实验",
-        "evidence_text": "Our experimental results on the LibriPhrase test dataset demonstrate that SPARK achieves competitive performance with a 2.1 times reduction in parameter count and a 21.7 times reduction in energy consumption compared to its artificial neural network counterpart.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      }
-    ]
+    "tldr_cn": "该文用脉冲式音频—文本匹配做自定义关键词检测，在接近强基线的同时压缩模型并降低估算能耗。"
   },
   "barreiros26_interspeech": {
     "paper_id": "barreiros26_interspeech",
@@ -221,6 +195,15 @@
         "特征压缩方法",
         "开放词表关键词检测系统",
         "跨语种实验分析"
+      ],
+      "language_details": [
+        "英语",
+        "法语",
+        "德语",
+        "波兰语",
+        "葡萄牙语",
+        "西班牙语",
+        "中文"
       ]
     },
     "dataset_entities": [
@@ -245,7 +228,7 @@
         "availability": "not_stated",
         "collection_method": "从MLS语料提取；关键词由转写文本中的名词和专有名词抽取",
         "annotation_method": "使用MLS转写文本抽取关键词；关键词音频混合自然语音与TTS语音",
-        "evidence": "论文称训练数据取自MLS，为六种语言各准备25小时训练数据，并为每种语言随机选取12,000个关键词。"
+        "language_status": []
       },
       {
         "name": "AISHELL",
@@ -262,7 +245,7 @@
         "availability": "public",
         "collection_method": "在隔离环境中使用高保真麦克风录制",
         "annotation_method": "人工标注热词",
-        "evidence": "论文称AISHELL为中文开放语料；表1列出76分钟、808条话语和400个实体。"
+        "language_status": []
       },
       {
         "name": "ACL6060",
@@ -279,7 +262,7 @@
         "availability": "public",
         "collection_method": "录制现场研究演讲",
         "annotation_method": "人工标注热词",
-        "evidence": "论文称ACL6060包含现场研究演讲音频及人工标注热词；表1列出51分钟、123条话语和200个实体。"
+        "language_status": []
       },
       {
         "name": "内部家庭医学问诊语料",
@@ -296,7 +279,7 @@
         "availability": "not_stated",
         "collection_method": "家庭医学问诊录音",
         "annotation_method": "关键词表从葡萄牙临床术语目录抽取，去除停用词和数字；语音标注方式未报告",
-        "evidence": "论文称该语料由葡萄牙语家庭医学问诊组成；表1列出103分钟和210条话语，关键词表含16,062个词条。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -305,7 +288,7 @@
         "type": "benchmark",
         "task": "测量检测准确率、转写质量、实体召回与特征存储效率",
         "automatic_or_human": "automatic",
-        "evidence": "LHF-comp的KWS F1/F1@5在ACL6060、AISHELL和内部语料上分别为69±4、86±4和28±2；论文报告特征存储最多缩小128倍。"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -324,43 +307,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/barreiros26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/barreiros26_interspeech.pdf",
     "source_hash": "312b3f13c84a2a05f4fab63e64da8832af51ed631a57a6c30020a55658982fe2",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; structured.languages",
-        "evidence_text": "prepare 25 h of training data for six languages: English, French, German, Polish, Portuguese, and Spanish.",
-        "page_or_section": "3.1.1. Training data",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "dataset_entities",
-        "evidence_text": "For evaluation, we used two open-source and one internal corpora.",
-        "page_or_section": "3.1.2. Validation and evaluation data",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "evaluation_entities; structured.metrics",
-        "evidence_text": "with F1 under the optimal threshold (defined on the validation corpora).",
-        "page_or_section": "3.3.1. Keyword-spotting model evaluation",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验; evaluation_entities",
-        "evidence_text": "LHF-comp 69 ± 4 86 ± 4 28 ± 2",
-        "page_or_section": "Table 3: KWS metrics (F1 and F1@5)",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.主要贡献; structured.metrics",
-        "evidence_text": "Our experiments demonstrate our system can process massive databases 6 times faster using 128 times less memory.",
-        "page_or_section": "1. Introduction",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文分层压缩Whisper特征支持大词表关键词检测，并比较多语种检索效果及上下文偏置的得失。"
   },
   "chen26q_interspeech": {
     "paper_id": "chen26q_interspeech",
@@ -427,6 +374,9 @@
         "流式跨注意力架构",
         "训练策略",
         "困难负例鲁棒性分析"
+      ],
+      "language_details": [
+        "英语"
       ]
     },
     "dataset_entities": [
@@ -446,7 +396,7 @@
         "availability": "not_stated",
         "collection_method": "训练集取自LibriSpeech train-clean-100与train-clean-360；测试集取自train-other-500",
         "annotation_method": "使用50 Hz帧级标签；关键词最后5帧标为正，其余帧标为负",
-        "evidence": "论文称训练集来自LibriSpeech train-clean-100/360，测试集来自train-other-500，并区分easy与hard negatives。"
+        "language_status": []
       },
       {
         "name": "MS-SNSD babble noise subset",
@@ -461,7 +411,7 @@
         "availability": "not_stated",
         "collection_method": "从MS-SNSD取babble noise子集",
         "annotation_method": "",
-        "evidence": "论文称使用MS-SNSD的babble noise子集模拟噪声环境，SNR均匀采样于−5至15 dB。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -470,7 +420,7 @@
         "type": "benchmark",
         "task": "比较容易与困难负例条件下的关键词检测性能",
         "automatic_or_human": "automatic",
-        "evidence": "本文模型在LPE上的EER/AUC为6.82%/97.95%，在LPH上为28.21%/79.19%；LPH上的AUC高于SYNASPOT-AT与CTCAT基线。"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -489,36 +439,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/chen26q_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/chen26q_interspeech.pdf",
     "source_hash": "8ce2ca7c5b7d8d74d95d67fdbdfaa5ece86be86e21489f04ed00ef20c290c532",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; evaluation_entities",
-        "evidence_text": "We evaluate the proposed method using the LibriPhrase dataset [3], where the training set is extracted from the train-clean-100 and train-clean-360 subsets of LibriSpeech, and the test set is drawn from the train-others-500 subset of LibriSpeech.",
-        "page_or_section": "3.1. Datasets",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "dataset_entities; evaluation_entities",
-        "evidence_text": "LibriPhrase categorizes negatives into two classes: easy negatives (LPE) and hard negatives (LPH), a classification standard adopted here.",
-        "page_or_section": "3.1. Datasets",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "method",
-        "field": "analysis.主要方法; structured.specific_methods",
-        "evidence_text": "To resolve this mismatch, we propose a role-swapping streaming open-vocabulary KWS approach: streaming speech becomes Query (carrying frame-level local info) and enrollment representation as Key/Value (encoding global semantics), enabling streaming processing.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验; analysis.现象分析; structured.metrics",
-        "evidence_text": "Without loss of generality, we instantiate this framework with a text-registered model (~0.8M parameters) and evaluate it on LibriPhrase, achieving an EER/AUC of 6.82%/97.95% on easy negative subset and 28.21%/79.19% on hard negative subset.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      }
-    ]
+    "tldr_cn": "该文交换流式语音与关键词的跨注意力角色，在困难负例上改善开放词表关键词检测。"
   },
   "gonzalezmachorro26_interspeech": {
     "paper_id": "gonzalezmachorro26_interspeech",
@@ -588,6 +509,9 @@
         "临床预测实证研究",
         "言语任务比较",
         "个体内与跨说话人分析"
+      ],
+      "language_details": [
+        "德语"
       ]
     },
     "dataset_entities": [
@@ -607,7 +531,7 @@
         "availability": "not_stated",
         "collection_method": "在德国慕尼黑工业大学医院神经内科门诊采集",
         "annotation_method": "目标为ALSFRS-R-speech与QOL-Dys临床评分；语音标注方法未报告",
-        "evidence": "论文称AIMnd 2.0扩展自既有数据集；本研究纳入66名pwALS，每人最多三个session。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -616,7 +540,7 @@
         "type": "benchmark",
         "task": "从五类言语任务预测ALSFRS-R-speech与QOL-Dys",
         "automatic_or_human": "automatic",
-        "evidence": "跨说话人设置的最佳CCC为ALSFRS-R-speech 0.65、QOL-Dys 0.62；个体内设置分别为0.71和0.86。"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -635,43 +559,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/gonzalezmachorro26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/gonzalezmachorro26_interspeech.pdf",
     "source_hash": "5cebec861d1f42b7ed388995fcdc51f68408040017aad666f11a104f47e8700a",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "dataset_entities; structured.datasets",
-        "evidence_text": "In this study, we include only pwALS (n=66), with up to three sessions per participant.",
-        "page_or_section": "2.1. Dataset",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "structured.tasks; dataset_entities",
-        "evidence_text": "We analyse five speech tasks: sustained /a:/ (maximum phonation time), the Cookie Theft picture description [20], two diadochokinetic tasks (/da/-/da/ and /da/-/ba/), and the reading passage “North Wind and the Sun” (German version).",
-        "page_or_section": "2.1. Dataset",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "structured.tasks; structured.contribution_types",
-        "evidence_text": "We evaluate cross-sectional (across speakers) and personalised (within-speaker) modelling paradigms and analyse the utility of common speech tasks to contribute to the standardisation of speech data collection for pwALS.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验; structured.metrics",
-        "evidence_text": "Experiments on a German-speaking cohort of 66 pwALS show that repetition tasks (/da/-/da/, /da/-/ba/) achieved the best cross-sectional performance (Concordance Correlation Coefficient (CCC) = 0.62) for predicting the Quality of Life in the Dysarthric Speaker questionnaire, while the within-speaker setting reached a CCC of 0.86.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验",
-        "evidence_text": "the read passage using Whisper embeddings achieves the highest performance for predicting the ALSFRS-R-speech (CCC = 0.65).",
-        "page_or_section": "3. Results",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文比较德语ALS语音任务与建模范式，发现不同任务对临床言语评分的预测价值不同。"
   },
   "haghbin26_interspeech": {
     "paper_id": "haghbin26_interspeech",
@@ -749,6 +637,11 @@
         "可解释性框架",
         "临床解释生成",
         "医生验证与可用性评估"
+      ],
+      "language_details": [
+        "英语",
+        "西班牙语",
+        "中文"
       ]
     },
     "dataset_entities": [
@@ -771,7 +664,7 @@
         "availability": "not_stated",
         "collection_method": "录音来自多个语料库，单段截断至最多30秒，平均27秒",
         "annotation_method": "按认知健康对照、MCI与AD诊断类别分组",
-        "evidence": "论文报告NIA PREPARE含2,058名参与者，覆盖英语、西班牙语和中文；官方测试集有412人。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -780,21 +673,21 @@
         "type": "benchmark",
         "task": "评估SpeechCARE筛查模型识别认知障碍的效果",
         "automatic_or_human": "automatic",
-        "evidence": "模型在挑战赛官方测试集上AUC为86.83%、F1为72.11%。"
+        "attributes": []
       },
       {
         "name": "70份英语样本的临床解释盲评",
         "type": "human",
         "task": "评估解释报告与患者认知语言特征的对应情况",
         "automatic_or_human": "human",
-        "evidence": "两名基层医生独立盲评70份分层样本；论文报告98%一致率、Cohen's κ为0.85。"
+        "attributes": []
       },
       {
         "name": "临床工作流可用性研究",
         "type": "human",
         "task": "评估解释界面的易用性与临床工作流整合潜力",
         "automatic_or_human": "human",
-        "evidence": "3名基层医生和2名神经科医生参与评估；SUS总分为82/100。"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -813,43 +706,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/haghbin26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/haghbin26_interspeech.pdf",
     "source_hash": "e8ceb9d8e9ab7d77ed7fbb310e6d43043fd0fc3ad6de721011ffefcb104e127f",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "dataset_entities; structured.datasets",
-        "evidence_text": "comprising speech recordings from 2,058 participants (1,646 training, 412 testing)",
-        "page_or_section": "2.1. Data: PREPARE challenge dataset",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验; structured.metrics",
-        "evidence_text": "The model achieved an Area Under the Curve (AUC) of 86.83% and an F1-score of 72.11%.",
-        "page_or_section": "3.1. SpeechCARE performance",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析; evaluation_entities",
-        "evidence_text": "physicians agreed on 98% of cases, with Cohen’s κ = 0.85.",
-        "page_or_section": "3.3. Clinical evaluation",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验; evaluation_entities",
-        "evidence_text": "achieved an overall usability score of 82 out of 100",
-        "page_or_section": "3.4. Usability and clinical workflow integration",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "model",
-        "field": "analysis.主要方法; structured.models",
-        "evidence_text": "using LLaMA-3.1-70B-Instruct.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      }
-    ]
+    "tldr_cn": "该文把词级模型归因、语言特征和大模型报告结合，为语音认知筛查提供可供医生审阅的解释。"
   },
   "haghbin26b_interspeech": {
     "paper_id": "haghbin26b_interspeech",
@@ -923,7 +780,8 @@
         "临床语音实证研究",
         "多模态预测",
         "模态贡献分析"
-      ]
+      ],
+      "language_details": []
     },
     "dataset_entities": [
       {
@@ -942,7 +800,7 @@
         "availability": "not_stated",
         "collection_method": "标准化电话随访与真实临床患者—护士交谈录音，并关联 EHR。",
         "annotation_method": "认知状态标签的具体判定流程未报告；语音由 AWS Transcribe 转录并 diarize，研究者用 GPT-4o 映射患者与临床人员角色。",
-        "evidence": "全文 Dataset 与 preprocessing 部分报告 175 人、两类语音来源及其与 EHR 的关联；论文称该组合语料具有独特性，但未说明数据开放。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -951,21 +809,21 @@
         "type": "metric",
         "task": "认知障碍检测",
         "automatic_or_human": "automatic",
-        "evidence": "摘要报告 EHR 基线 AUC=0.74，最佳组合 AUC=0.92；全文按五个随机种子报告均值与标准差。"
+        "attributes": []
       },
       {
         "name": "F1 与 Macro F1",
         "type": "metric",
         "task": "认知障碍检测",
         "automatic_or_human": "automatic",
-        "evidence": "最佳模型 F1=83.08±3.59、Macro F1=88.31±2.68。"
+        "attributes": []
       },
       {
         "name": "55/20/25 训练、验证、测试划分及五随机种子重复",
         "type": "protocol",
         "task": "比较不同语音来源和 EHR 模态组合",
         "automatic_or_human": "automatic",
-        "evidence": "全文 Model training 部分报告分层 55/20/25 划分和每种配置五次运行。"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -984,36 +842,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/haghbin26b_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/haghbin26b_interspeech.pdf",
     "source_hash": "bbe5b9fb40e8f180cbf3880baebb61db22da0f9403276e0c886ef474e49be519",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "analysis.数据与实验; dataset_entities",
-        "evidence_text": "The study group comprised 175 individuals, including 47 with cognitive decline and 128 cognitively healthy.",
-        "page_or_section": "2.1. Dataset",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析; structured.metrics",
-        "evidence_text": "Using an attention-based fusion model across 175 participants, structured clinical data alone achieved AUC = 0.74; adding phone calls improved performance (AUC = 0.76), and participant verbal communication yielded the largest gains (AUC = 0.90).",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验; structured.metrics",
-        "evidence_text": "The best configuration achieved AUC = 0.92 and F1 = 83.08, establishing naturalistic speech as a scalable, non-invasive biomarker in clinical settings.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "analysis.数据与实验; evaluation_entities",
-        "evidence_text": "each configuration was run with five random seeds.",
-        "page_or_section": "2.5. Model training and hyperparameter tuning",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文融合病历、电话和患者—护士对话，显示自然交流语音能补充早期认知下降检测。"
   },
   "jeon26_interspeech": {
     "paper_id": "jeon26_interspeech",
@@ -1089,6 +918,9 @@
         "新语料库",
         "混杂因素分析",
         "可解释声学特征发现"
+      ],
+      "language_details": [
+        "韩语"
       ]
     },
     "dataset_entities": [
@@ -1109,7 +941,7 @@
         "availability": "not_stated",
         "collection_method": "在大学医院对社区老年 MCI 患者进行年度录音；每次包含阅读、持续元音、句子重复和症状访谈等任务。",
         "annotation_method": "每次录音同期收集 SGDS 与 MMSE；SGDS≥8 定义为抑郁。",
-        "evidence": "全文贡献明确称首次引入该语料，并给出 89 人、209 次观测及同期临床评分。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -1118,21 +950,21 @@
         "type": "protocol",
         "task": "抑郁分类",
         "automatic_or_human": "automatic",
-        "evidence": "论文说明在 209 次观测、89 名受试者上按受试者分组留一验证，避免同一受试者同时进入训练和测试。"
+        "attributes": []
       },
       {
         "name": "UAR",
         "type": "metric",
         "task": "抑郁分类",
         "automatic_or_human": "automatic",
-        "evidence": "F1+F2 子集 UAR=0.760；共振峰组 UAR=0.747。"
+        "attributes": []
       },
       {
         "name": "Sensitivity、Specificity、Accuracy、F1",
         "type": "metric",
         "task": "抑郁分类",
         "automatic_or_human": "automatic",
-        "evidence": "论文报告这些分类指标，并在表格中比较 eGeMAPS、SSL 表示和特征组。"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -1151,43 +983,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/jeon26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/jeon26_interspeech.pdf",
     "source_hash": "d2c9efa8722c14a190322a7599fd5eeb187bcf04a58cf1c881a6772198ef2997",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "dataset_entities; structured.datasets",
-        "evidence_text": "We present a Korean elderly speech corpus of 89 MCI speakers collected over three years with concurrent depression (SGDS) and cognitive (MMSE) assessments.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "analysis.数据与实验; dataset_entities",
-        "evidence_text": "Of 89 participants who were recorded at least once, 72 participated in two or more years, yielding 209 total observations.",
-        "page_or_section": "2.1. Corpus",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "evaluation_entities; structured.specific_methods",
-        "evidence_text": "on all 209 observations (89 subjects), where all observations from the same subject are held out together.",
-        "page_or_section": "3.3. Classification",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析; analysis.数据与实验; structured.metrics",
-        "evidence_text": "The F1+F2 subset achieves UAR 0.760 with just 12 features, outperforming both the full eGeMAPS baseline and self-supervised representations.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      },
-      {
-        "claim_type": "key_finding",
-        "field": "analysis.现象分析; structured.specific_methods",
-        "evidence_text": "of seven feature groups, only formant features are associated with depression after controlling for cognitive function, while widely used F0 features carry no signal.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      }
-    ]
+    "tldr_cn": "该文借助同期认知评分区分抑郁与认知变化，并提出韩语老年MCI纵向语音语料。"
   },
   "khaymonenko26_interspeech": {
     "paper_id": "khaymonenko26_interspeech",
@@ -1254,6 +1050,9 @@
         "模型架构",
         "增量学习方法",
         "旧类无回归保证"
+      ],
+      "language_details": [
+        "英语"
       ]
     },
     "dataset_entities": [
@@ -1272,7 +1071,7 @@
         "availability": "not_stated",
         "collection_method": "使用官方训练、验证和测试划分；论文未报告原始采集细节。",
         "annotation_method": "按十个目标命令词分类，其余词语和静音映射为背景类。",
-        "evidence": "全文 Experiments 部分列出十个命令词、官方划分和背景类定义。"
+        "language_status": []
       },
       {
         "name": "Mozilla Common Voice v17",
@@ -1289,7 +1088,7 @@
         "availability": "not_stated",
         "collection_method": "使用 Common Voice v17 测试划分作为负样本来源。",
         "annotation_method": "在 FAR 校准中作为 negative-only corpus；未报告其他标签处理细节。",
-        "evidence": "全文说明 positives 来自 GSC 测试集，FAR 校准负样本来自 Common Voice v17 测试集。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -1298,21 +1097,21 @@
         "type": "metric",
         "task": "固定 FAR 工作点下的关键词扩展识别",
         "automatic_or_human": "automatic",
-        "evidence": "论文报告在 Common Voice 上校准至 FAR=1% 后，在 GSC 测试集计算宏平均 FRR。"
+        "attributes": []
       },
       {
         "name": "FAR@1%",
         "type": "metric",
         "task": "关键词检测阈值校准",
         "automatic_or_human": "automatic",
-        "evidence": "每个关键词阈值在 Common Voice 测试负样本上校准到 1% FAR。"
+        "attributes": []
       },
       {
         "name": "五组关键词对、八随机种子",
         "type": "protocol",
         "task": "增量关键词扩展比较",
         "automatic_or_human": "automatic",
-        "evidence": "论文使用五组留出命令词对，并对每个方法与词对配置运行八次。"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -1331,50 +1130,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/khaymonenko26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/khaymonenko26_interspeech.pdf",
     "source_hash": "7969029b6fdb640f1d537f61d7082e2d349b08d80852565016b355a6be2d53e8",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "dataset_entities; structured.datasets",
-        "evidence_text": "Experiments are conducted on Google Speech Commands v2 (GSC) using the official train/validation/test splits.",
-        "page_or_section": "4.1. Datasets and expansion tasks",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "structured.tasks; dataset_entities",
-        "evidence_text": "The target vocabulary is the standard set of 10 commands {left, right, on, off, stop, go, up, down, yes, no}.",
-        "page_or_section": "4.1. Datasets and expansion tasks",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "metric",
-        "field": "structured.metrics; evaluation_entities",
-        "evidence_text": "Performance is reported as macro false reject rate (FRR) at a fixed false accept rate (FAR) operating point.",
-        "page_or_section": "4.3. Metric, thresholds, and confidence intervals",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "analysis.数据与实验; evaluation_entities",
-        "evidence_text": "Each (method, keyword-pair) configuration is repeated with 8 independent runs (different random seeds).",
-        "page_or_section": "4.3. Metric, thresholds, and confidence intervals",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析; analysis.数据与实验; structured.metrics",
-        "evidence_text": "At a fixed operating point, our method reduces average new-keyword false reject rate (FRR) from 6.46% to 4.37% versus a parameter-matched separate-model baseline and outperforms parameter-efficient tuning baselines (adapters, LoRA), while using fewer multiply-accumulate operations (MACs) under the same added-parameter budget (≤10k): 16.34M vs 18.45M/20.52M.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      },
-      {
-        "claim_type": "method",
-        "field": "analysis.主要方法; structured.specific_methods",
-        "evidence_text": "We achieve this via parameter-capped modular expansion: the base network, including batch-normalization statistics and the core classifier, is frozen, and only a lightweight expansion branch with a separate new-keyword head is trained, preserving core logits, shipped outputs, and thresholds for existing keywords.",
-        "page_or_section": "Abstract",
-        "source": "abstract"
-      }
-    ]
+    "tldr_cn": "该文冻结原关键词检测路径并增加轻量分支，让设备可扩展新词且保持旧词输出不变。"
   },
   "kopar26_interspeech": {
     "paper_id": "kopar26_interspeech",
@@ -1457,6 +1213,9 @@
         "层级语音分析",
         "语音表示比较",
         "经验规律与任务解释"
+      ],
+      "language_details": [
+        "德语"
       ]
     },
     "dataset_entities": [
@@ -1476,7 +1235,7 @@
         "availability": "not_stated",
         "collection_method": "使用 TREND 研究中的 MMSE 与 CERAD+ 神经心理评估语音录音。",
         "annotation_method": "目标分数来自 MMSE、CERAD+ 任务/域/总体分数及既有 MCI 状态定义。",
-        "evidence": "全文 Dataset 部分报告 TREND 来源、六类测试、筛选后的 959 个 session 和 593 名参与者；摘要报告 5,754 段录音。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -1485,21 +1244,21 @@
         "type": "metric",
         "task": "层级认知分数预测与 MCI 分类",
         "automatic_or_human": "automatic",
-        "evidence": "论文以 Pearson 相关评估连续分数预测，以 Balanced Accuracy 评估分类，并以内层 R² 优化回归模型。"
+        "attributes": []
       },
       {
         "name": "5×3 嵌套交叉验证与受试者隔离留出集",
         "type": "protocol",
         "task": "评估对未见参与者的泛化",
         "automatic_or_human": "automatic",
-        "evidence": "全文 Prediction and Validation Framework 报告开发集嵌套交叉验证和独立受试者留出集。"
+        "attributes": []
       },
       {
         "name": "DER、JER、Purity、Coverage",
         "type": "metric",
         "task": "录音预处理与说话人 diarization 参数选择",
         "automatic_or_human": "automatic",
-        "evidence": "论文用人工转写子集网格搜索预处理配置，并报告 DER、JER、Purity 与 Coverage。"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -1518,50 +1277,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/kopar26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/kopar26_interspeech.pdf",
     "source_hash": "e0dbeac51fb887390a2b2d370b19b9ae739917ffd77dbbce02cdc46e634137c3",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; analysis.数据与实验",
-        "evidence_text": "These filtering steps yielded 959 sessions (698 HC, 261 MCI) from 593 participants.",
-        "page_or_section": "2.1 Dataset and Quality Control",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "analysis.数据与实验; structured.specific_methods",
-        "evidence_text": "To evaluate prediction performance on the development set, we employed 5 × 3 nested cross-validation (NCV).",
-        "page_or_section": "2.4 Prediction and Validation Framework",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "structured.specific_methods",
-        "evidence_text": "models were trained from scratch with strictly subject-disjoint folds, ensuring that no participant appeared in multiple folds or across training and validation/test sets.",
-        "page_or_section": "2.4 Prediction and Validation Framework",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "metric",
-        "field": "structured.metrics",
-        "evidence_text": "Inner-loop optimization targeted balanced accuracy for classification and R2 for regression.",
-        "page_or_section": "2.4 Prediction and Validation Framework",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "key_finding",
-        "field": "analysis.现象分析",
-        "evidence_text": "Open-ended tasks (PF, VF) exhibit dilution, with predictive performance decreasing from task (L1) to global-level (L3) scores.",
-        "page_or_section": "3.3 Level 3: Global Status Score Predictions",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析",
-        "evidence_text": "In contrast, MCI classification performs best using MMSE record- ings with eGeMAPS (DEV: 0.62±0.07; HO: 0.63).",
-        "page_or_section": "3.4 Generalizability to Hold-out & Feature Importance",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文比较多类语音表示与认知评分层级，发现任务开放程度会影响预测效果如何随层级变化。"
   },
   "kothare26_interspeech": {
     "paper_id": "kothare26_interspeech",
@@ -1631,7 +1347,8 @@
         "纵向评估方法应用",
         "临床终点比较",
         "临床试验设计分析"
-      ]
+      ],
+      "language_details": []
     },
     "dataset_entities": [
       {
@@ -1650,7 +1367,7 @@
         "availability": "not_stated",
         "collection_method": "EverythingALS 招募参与者，通过 Modality 云端多模态对话平台远程重复评估，频率约每两周一次。",
         "annotation_method": "临床量表提供 ALSFRS-R 分数；语音、面部和转录指标由自动分析模块提取。事件阈值按各指标的 MCID 定义。",
-        "evidence": "全文 Data 与 Methods 部分报告招募来源、远程纵向采集、样本/session 数及自动特征提取流程。"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -1659,14 +1376,18 @@
         "type": "protocol",
         "task": "比较各语音/面部指标与 ALSFRS-R 达到临床有意义变化的时间",
         "automatic_or_human": "automatic",
-        "evidence": "论文对未达到事件者作删失处理，以 Kaplan–Meier 估计事件概率并用 pairwise log-rank 检验比较曲线。"
+        "attributes": [
+          "objective"
+        ]
       },
       {
         "name": "指数近似 hazard rate 与试验样本量/时长估计",
         "type": "protocol",
         "task": "在假设 HR=0.5 或 0.8 时估算两组试验设计需求",
         "automatic_or_human": "automatic",
-        "evidence": "全文说明从 KM 曲线估计 hazard rate，并用 log-rank 公式计算不同试验时长的每组样本量及固定样本量下所需时长。"
+        "attributes": [
+          "objective"
+        ]
       }
     ],
     "special_tags": {
@@ -1685,57 +1406,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/kothare26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/kothare26_interspeech.pdf",
     "source_hash": "fb930fd842444b44814e199c37b834103316042210004384a96a1fc029e29a9a",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; analysis.数据与实验",
-        "evidence_text": "Participants were recruited by EverythingALS and all participants provided informed consent before participation.",
-        "page_or_section": "2. Data",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "analysis.数据与实验",
-        "evidence_text": "Participants interacted remotely on a longitudinal basis (roughly every 2 weeks) with the Modality platform",
-        "page_or_section": "2. Data",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "analysis.数据与实验",
-        "evidence_text": "Non-bulbar Male: 57, Female: 53 60.0 (9.8) 2884 26.2 (25.9) 38.0 (31.0-42.0) Bulbar Female: 17, Male: 17 62.2 (11.8) 579 17.0 (18.8) 38.5 (36.25-43.0)",
-        "page_or_section": "Table 1: Demographics",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "structured.specific_methods; structured.metrics",
-        "evidence_text": "Kaplan–Meier (KM) curves were estimated using the sksurv package [36] and event probabilities were computed. Pairwise differences between KM curves were assessed using log-rank tests [37], and p-values were visualised in a heatmap.",
-        "page_or_section": "3.1 Kaplan-Meier time-to-event analysis",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析",
-        "evidence_text": "time taken for 20% of patients to experience a clinically meaningful change = 14 days",
-        "page_or_section": "4. Results",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析",
-        "evidence_text": "it would take 660 days and 208 days for 20% of the population to show a 3 and 1 point decline on the ALSFRS-R bulbar subscore and ALSFRS-R speech score, respectively.",
-        "page_or_section": "4. Results",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "analysis.主要方法",
-        "evidence_text": "Event-specific hazard rates were estimated from KM curves using an exponential approximation.",
-        "page_or_section": "3.2 Hazard rate analysis and sample size estimation",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文用时间到事件分析比较ALS语音和面部指标的变化速度，并估算临床试验设计需求。"
   },
   "laquatra26b_interspeech": {
     "paper_id": "laquatra26b_interspeech",
@@ -1807,7 +1478,8 @@
         "无监督检索方法比较",
         "跨领域实验分析",
         "时间敏感性分析"
-      ]
+      ],
+      "language_details": []
     },
     "dataset_entities": [
       {
@@ -1823,7 +1495,7 @@
         "availability": "public",
         "collection_method": "",
         "annotation_method": "",
-        "evidence": "contains 4,206 queries covering 48 unique songs and a search database of 225 samples"
+        "language_status": []
       },
       {
         "name": "QbE-LibriSpeech",
@@ -1839,7 +1511,7 @@
         "availability": "not_stated",
         "collection_method": "从 LibriSpeech 转写中抽取双词短语，去除停用词并按出现频次筛选。",
         "annotation_method": "使用 WhisperX 获取词级时间戳以截取短语音频。",
-        "evidence": "The final dataset contains 27 unique queries and 107 positive examples, with an average of 3.70 positive matches per query."
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -1848,21 +1520,21 @@
         "type": "metric",
         "task": "音频检索",
         "automatic_or_human": "automatic",
-        "evidence": "Accuracy (Recall@1), which measures the fraction of queries where the correct result is the top-ranked item"
+        "attributes": []
       },
       {
         "name": "MRR",
         "type": "metric",
         "task": "音频检索",
         "automatic_or_human": "automatic",
-        "evidence": "Mean Reciprocal Rank (MRR)"
+        "attributes": []
       },
       {
         "name": "Recall@3 与 Recall@5",
         "type": "metric",
         "task": "音频检索",
         "automatic_or_human": "automatic",
-        "evidence": "Recall@3 and Recall@5, which measure the fraction of queries with a correct result in the top 3 and 5 items"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -1881,43 +1553,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/laquatra26b_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/laquatra26b_interspeech.pdf",
     "source_hash": "fee302460e699a0d07935a9a89397716b1db52f897800264cc488f45f332bf1a",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; analysis.数据与实验",
-        "evidence_text": "The dataset contains 4,206 queries covering 48 unique songs and a search database of 225 samples covering the same songs.",
-        "page_or_section": "3.1 Datasets",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; analysis.数据与实验",
-        "evidence_text": "The final dataset contains 27 unique queries and 107 positive examples, with an average of 3.70 positive matches per query.",
-        "page_or_section": "3.1 Datasets",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "metric",
-        "field": "structured.metrics",
-        "evidence_text": "Seq. Type Seq. Match. Accuracy MRR R@3 R@5",
-        "page_or_section": "Table 1: Performance of different models on MIR-QBSH",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "key_finding",
-        "field": "analysis.现象分析; structured.specific_methods; structured.models",
-        "evidence_text": "Table 1 shows that DTW on raw SSL embeddings is the best matching strategy for music retrieval. Among the models, HuBERT-LS achieves the highest performance (Accuracy: 0.765, MRR: 0.801)",
-        "page_or_section": "4.1 Query-by-Humming (QbH)",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "method",
-        "field": "structured.specific_methods",
-        "evidence_text": "DTW on raw SSL embeddings is the best matching strategy for music retrieval.",
-        "page_or_section": "4.1 Query-by-Humming (QbH)",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文系统比较自监督音频序列匹配，发现音乐更适合DTW，语音检索更适合离散单元与文本检索。"
   },
   "loweimi26_interspeech": {
     "paper_id": "loweimi26_interspeech",
@@ -1977,7 +1613,8 @@
       "contribution_types": [
         "查询自适应多模态检索方法",
         "主动模态检测方法"
-      ]
+      ],
+      "language_details": []
     },
     "dataset_entities": [
       {
@@ -1994,7 +1631,7 @@
         "availability": "public",
         "collection_method": "",
         "annotation_method": "",
-        "evidence": "a publicly available collection of 12,594 video files (409 h) spanning 1948–1979"
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -2003,14 +1640,14 @@
         "type": "metric",
         "task": "判断语音、画面或音视频模态是否有效",
         "automatic_or_human": "automatic",
-        "evidence": "Classifiers driven by these cross-modal features achieve 89% detection accuracy."
+        "attributes": []
       },
       {
         "name": "P@1",
         "type": "metric",
         "task": "音视频人物检索",
         "automatic_or_human": "automatic",
-        "evidence": "the adaptive system attains 94.2% P@1"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -2029,57 +1666,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/loweimi26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/loweimi26_interspeech.pdf",
     "source_hash": "401a47e92f5a759c2894ffd03e9dcd3fb3786d18895cedc1eb1f2d401bad242c",
-    "evidence": [
-      {
-        "claim_type": "method",
-        "field": "analysis.主要方法; structured.method_families",
-        "evidence_text": "We propose a query-adaptive framework that detects active modalities via cross-modal score consistency",
-        "page_or_section": "Abstract",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; analysis.数据与实验",
-        "evidence_text": "12,594 video files (409 hours) spanning 1948–1979.",
-        "page_or_section": "4. Experimental Setup",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "analysis.数据与实验; structured.metrics",
-        "evidence_text": "For retrieval evaluation, we report Precision@K (P@K) for K∈{1, 3, 5, 10}",
-        "page_or_section": "4. Experimental Setup",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "structured.specific_methods",
-        "evidence_text": "We focus on LoSoCV instead of vanilla k-fold cross validation, as it is the most practically relevant setting and tests whether the classifier generalises to entirely unseen speakers.",
-        "page_or_section": "4. Experimental Setup",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析; structured.metrics",
-        "evidence_text": "Classifiers driven by these cross-modal features achieve 89% detection accuracy.",
-        "page_or_section": "Abstract",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析; structured.metrics",
-        "evidence_text": "the adaptive system attains 94.2% P@1",
-        "page_or_section": "Abstract",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "key_finding",
-        "field": "analysis.现象分析",
-        "evidence_text": "Despite this, fixed fusion yields a P@1 of 90.0%, falling below the face-only baseline (93.4%).",
-        "page_or_section": "5.2 Retrieval performance",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文按查询判断语音和人脸是否可用，再自适应融合，减少缺失模态拖累人物检索的情况。"
   },
   "xu26n_interspeech": {
     "paper_id": "xu26n_interspeech",
@@ -2150,7 +1737,8 @@
         "自动化 CIU 分析框架",
         "时间图表示",
         "临床可解释分析"
-      ]
+      ],
+      "language_details": []
     },
     "dataset_entities": [
       {
@@ -2167,7 +1755,7 @@
         "availability": "not_stated",
         "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
         "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
-        "evidence": "The Pitt Corpus and the WRAP dataset were combined to train the BERT model ... a total of 2,783 transcripts from 1,352 speakers."
+        "language_status": []
       },
       {
         "name": "Wisconsin Registry for Alzheimer’s Prevention（WRAP）",
@@ -2183,7 +1771,7 @@
         "availability": "not_stated",
         "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
         "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
-        "evidence": "The Pitt Corpus and the WRAP dataset were combined to train the BERT model ... a total of 2,783 transcripts from 1,352 speakers."
+        "language_status": []
       },
       {
         "name": "Wisconsin Alzheimer’s Disease Research Center（W-ADRC）",
@@ -2199,7 +1787,7 @@
         "availability": "not_stated",
         "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
         "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
-        "evidence": "The W-ADRC dataset was used for testing and statistical analysis."
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -2208,21 +1796,21 @@
         "type": "metric",
         "task": "CIU 自动识别",
         "automatic_or_human": "both",
-        "evidence": "Test performance of CIU identification using manual and ASR transcripts"
+        "attributes": []
       },
       {
         "name": "CIU 时间定位准确率",
         "type": "metric",
         "task": "CIU 片段时间位置定位",
         "automatic_or_human": "both",
-        "evidence": "A sample-level review of the results yielded an accuracy of 0.910 ± 0.067"
+        "attributes": []
       },
       {
         "name": "Hedge's g",
         "type": "metric",
         "task": "比较正常组与临床组的图特征",
         "automatic_or_human": "automatic",
-        "evidence": "Table 5: Comparison of features across groups"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -2241,64 +1829,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/xu26n_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/xu26n_interspeech.pdf",
     "source_hash": "ad555a57de36d95d63b221d49166e192c4325395f5bc41723d8b003c41668c0c",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets",
-        "evidence_text": "The data used in this study include the Pitt Corpus from DementiaBank [18], the Wisconsin Registry for Alzheimer’s Prevention (WRAP) [19], and the Wisconsin Alzheimer’s Disease Research Center (W-ADRC) clinical core [20].",
-        "page_or_section": "2.1 Datasets",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "analysis.数据与实验; structured.datasets",
-        "evidence_text": "The Pitt Corpus and the WRAP dataset were combined to train the BERT model for CIU identification, resulting in a total of 2,783 transcripts from 1,352 speakers.",
-        "page_or_section": "2.1 Datasets",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "analysis.数据与实验",
-        "evidence_text": "Samples 488 80 Speakers 306 64",
-        "page_or_section": "Table 2: The demographic information of W-ADRC dataset",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "method",
-        "field": "analysis.主要方法; structured.specific_methods; structured.models",
-        "evidence_text": "using WhisperX [15] to obtain textual transcripts along with word-level time stamps.",
-        "page_or_section": "2. Methods",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验; structured.metrics",
-        "evidence_text": "A sample-level review of the results yielded an accuracy of 0.910 ± 0.067",
-        "page_or_section": "3. Results and Discussion",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.数据与实验; structured.metrics",
-        "evidence_text": "F1 0.879 ± 0.086 0.865 ± 0.098",
-        "page_or_section": "Table 4: Test performance of CIU identification using manual and ASR transcripts",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "key_finding",
-        "field": "analysis.现象分析",
-        "evidence_text": "First, the Clinical group produced significantly shorter descriptions than the Normal group, accompanied by an increased unfilled pause rate and a reduced speech rate.",
-        "page_or_section": "3. Results and Discussion",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析",
-        "evidence_text": "Unique nodes 14.89 ± 2.99 12.33 ± 3.23 0.80∗∗",
-        "page_or_section": "Table 5: Comparison of features across groups",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文自动识别图像描述中的内容单元并构建时间图，揭示临床组叙述内容与组织差异。"
   },
   "zafar26_interspeech": {
     "paper_id": "zafar26_interspeech",
@@ -2366,6 +1897,9 @@
         "基准有效性诊断",
         "声学特征稳定性分析",
         "小样本评测建议"
+      ],
+      "language_details": [
+        "美国英语"
       ]
     },
     "dataset_entities": [
@@ -2384,7 +1918,7 @@
         "availability": "not_stated",
         "collection_method": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
         "annotation_method": "",
-        "evidence": "The ADReSS and ADReSSo datasets are derived from the Pitt Cookie Theft Corpus."
+        "language_status": []
       },
       {
         "name": "ADReSSo",
@@ -2401,7 +1935,7 @@
         "availability": "not_stated",
         "collection_method": "来源于 Pitt Cookie Theft 语料，并经挑战数据集预处理。",
         "annotation_method": "",
-        "evidence": "Two benchmark datasets are studied: the ADReSS dataset released in 2020 and the ADReSSo dataset released in 2021."
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -2410,28 +1944,39 @@
         "type": "metric",
         "task": "二分类失智症检测",
         "automatic_or_human": "automatic",
-        "evidence": "All classifier performance is reported using the macro-F1"
+        "attributes": [
+          "objective"
+        ]
       },
       {
         "name": "随机标签置换负对照",
         "type": "diagnostic",
         "task": "检验测试集高分是否可能由偶然相关产生",
         "automatic_or_human": "automatic",
-        "evidence": "across 100 repeat label permutations of the train set labels"
+        "attributes": [
+          "objective"
+        ]
       },
       {
         "name": "100 次 Monte Carlo 重采样",
         "type": "reliability",
         "task": "检查声学特征分类结果跨数据划分的稳定性",
         "automatic_or_human": "automatic",
-        "evidence": "evaluated by examining their performance across 100 Monte Carlo resampling splits"
+        "attributes": [
+          "objective",
+          "robustness",
+          "reliability"
+        ]
       },
       {
         "name": "VAD 语音/静音派生版本比较",
         "type": "diagnostic",
         "task": "检查特征表现是否来自语音内容而非静音或录音条件",
         "automatic_or_human": "automatic",
-        "evidence": "silence-only and speech-only variants of the datasets"
+        "attributes": [
+          "objective",
+          "robustness"
+        ]
       }
     ],
     "special_tags": {
@@ -2450,57 +1995,7 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/zafar26_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/zafar26_interspeech.pdf",
     "source_hash": "56c9cee0777dc4408475bccc29cc44c4c2971270d6d97f965bdb22432b66300e",
-    "evidence": [
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; analysis.数据与实验",
-        "evidence_text": "The ADReSS and ADReSSo datasets are derived from the Pitt Cookie Theft Corpus",
-        "page_or_section": "2.1 Datasets",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "analysis.数据与实验",
-        "evidence_text": "ADReSS Train 54 54 Test 24 24 ADReSSo Train 87 79 Test 36 35",
-        "page_or_section": "Table 1: Dataset composition of ADReSS and ADReSSo",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "metric",
-        "field": "structured.metrics",
-        "evidence_text": "All classifier performance is reported using the macro-F1 score",
-        "page_or_section": "2.4 Validation",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "structured.specific_methods; analysis.数据与实验",
-        "evidence_text": "For each of 100 iterations, the class labels in the training split - dementia and control - are randomly permuted and the classifier is retrained and evaluated.",
-        "page_or_section": "2.4 Validation",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "structured.specific_methods",
-        "evidence_text": "Specifically, we repeatedly sample random train/test splits in a 70/30 ratio from the full dataset",
-        "page_or_section": "2.4 Validation",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "key_finding",
-        "field": "analysis.现象分析",
-        "evidence_text": "Whereas the test set scores approached 0.875 and 0.831 respectively (see Table 2), the Monte Carlo mean values drop substantially: 0.622 for ADReSS and 0.667 for ADReSSo.",
-        "page_or_section": "3.3 Unstable High Performing Features",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "key_finding",
-        "field": "analysis.现象分析; special_tags.dataset; special_tags.evaluation",
-        "evidence_text": "chance configurations of spurious correlations between features and labels can occasionally produce results that are deceptively strong.",
-        "page_or_section": "3.2 Results",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文审计ADReSS和ADReSSo基准，发现固定划分高分可能依赖不稳定声学线索。"
   },
   "zhang26fa_interspeech": {
     "paper_id": "zhang26fa_interspeech",
@@ -2567,7 +2062,8 @@
         "流式多模态关键词检测方法",
         "音素级对比学习方法",
         "困难负例生成策略"
-      ]
+      ],
+      "language_details": []
     },
     "dataset_entities": [
       {
@@ -2584,7 +2080,7 @@
         "availability": "not_stated",
         "collection_method": "由 LibriSpeech 短语构成。",
         "annotation_method": "",
-        "evidence": "The training set of LibriPhrase is sourced from the train-clean-360 and train-clean-100 subsets, while the test set is derived from the train-other-500 subset."
+        "language_status": []
       }
     ],
     "evaluation_entities": [
@@ -2593,14 +2089,14 @@
         "type": "metric",
         "task": "LibriPhrase 关键词检测",
         "automatic_or_human": "automatic",
-        "evidence": "utilizing the area under the curve (AUC) and equal error rate (EER) as evaluation metrics"
+        "attributes": []
       },
       {
         "name": "EER",
         "type": "metric",
         "task": "LibriPhrase 关键词检测",
         "automatic_or_human": "automatic",
-        "evidence": "utilizing the area under the curve (AUC) and equal error rate (EER) as evaluation metrics"
+        "attributes": []
       }
     ],
     "special_tags": {
@@ -2619,63 +2115,6 @@
     "source_isca_page": "https://www.isca-archive.org/interspeech_2026/zhang26fa_interspeech.html",
     "source_pdf": "https://www.isca-archive.org/interspeech_2026/zhang26fa_interspeech.pdf",
     "source_hash": "8d96a4065d987494d9da04c478dfc7839e5d134b7dab4aed358de8965b178195",
-    "evidence": [
-      {
-        "claim_type": "method",
-        "field": "analysis.主要方法; structured.specific_methods",
-        "evidence_text": "the W-CTC forced alignment algorithm and multimodal phoneme-level contrastive learning.",
-        "page_or_section": "Abstract",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "structured.datasets; analysis.数据与实验",
-        "evidence_text": "The training set of LibriPhrase is sourced from the train-clean-360 and train-clean-100 subsets",
-        "page_or_section": "3.1 Dataset",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "dataset",
-        "field": "analysis.数据与实验",
-        "evidence_text": "while the test set is derived from the train-other-500 subset.",
-        "page_or_section": "3.1 Dataset",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "metric",
-        "field": "structured.metrics",
-        "evidence_text": "area under the curve (AUC) and equal error rate (EER) as evaluation metrics.",
-        "page_or_section": "3.3 Performance of MPA",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "experiment_setup",
-        "field": "structured.models; analysis.数据与实验",
-        "evidence_text": "The total number of trainable parameters in the model is 4.03 M.",
-        "page_or_section": "3.2 Implementation Details",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析; analysis.数据与实验",
-        "evidence_text": "our text-only model achieves an AUC of 96.04% and an EER of 9.53%",
-        "page_or_section": "3.3 Performance of MPA",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析",
-        "evidence_text": "When the phoneme- level contrastive loss is entirely eliminated, the EER on the LibriPhrase-Hard set rises sharply to 11.87%",
-        "page_or_section": "3.4 Ablation Study",
-        "source": "full_text"
-      },
-      {
-        "claim_type": "numerical_result",
-        "field": "analysis.现象分析",
-        "evidence_text": "discarding the confusing word data augmentation results in a severe drop in model performance, with the EER reaching 12.52%.",
-        "page_or_section": "3.4 Ablation Study",
-        "source": "full_text"
-      }
-    ]
+    "tldr_cn": "该文将音素级对齐和跨模态学习用于流式关键词检测，并支持文本与音频注册。"
   }
 }

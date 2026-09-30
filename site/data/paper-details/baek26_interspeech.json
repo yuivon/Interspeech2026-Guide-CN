@@ -1,0 +1,160 @@
+{
+  "paper_id": "baek26_interspeech",
+  "title": "SPARK: Efficient Audio-Text Matching for User-Defined Keyword Spotting via Spiking Neural Networks",
+  "authors": [
+    "Baek, Seung-Yeop",
+    "Han, Sangho",
+    "Chang, Joon-Hyuk"
+  ],
+  "original_session": "Information Extraction and Retrieval",
+  "normalized_session": "Information Extraction and Retrieval",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/baek26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "With the increasing prevalence of voice-driven interaction, keyword spotting (KWS) has become an essential component of hands-free control. This has led to a growing demand for user-defined KWS, allowing users to customize target keywords via text. While various models have emerged to support this, their high computational costs and energy consumption make real-world deployment challenging. In response, we introduce SPARK, a SPike-driven Audio-text matching framework for eneRgy-efficient user-defined Keyword spotting. SPARK employs a spike-driven attention mechanism to enable end-to-end processing within the spiking domain, replacing heavy floating-point operations with low-cost accumulate operations. Our experimental results on the LibriPhrase test dataset demonstrate that SPARK achieves competitive performance with a 2.1 times reduction in parameter count and a 21.7 times reduction in energy consumption compared to its artificial neural network counterpart.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/baek26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-3336",
+  "pages": "6-10",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/baek26_interspeech.html",
+  "tldr_cn": "该文用脉冲式音频—文本匹配做自定义关键词检测，在接近强基线的同时压缩模型并降低估算能耗。",
+  "analysis": {
+    "研究动机": "用户自定义关键词检测需要同时理解语音和输入文本，但常见神经网络的计算量与能耗不利于设备端部署。",
+    "解决问题": "SPARK研究如何在保持关键词检测能力的同时，减少模型参数和推理能耗。",
+    "现象分析": "测试中SPARK的检测效果有竞争力，但AUC和EER并未超过最强基线；它的优势集中在计算与能耗。",
+    "主要方法": "SPARK用脉冲神经网络处理音频和文本，并以脉冲驱动自注意力完成跨模态匹配；训练同时使用语句级和音素级损失。",
+    "数据与实验": "在LibriPhrase测试集上，容易负例子集的AUC为99.07%、EER为3.97%；相对PhonMatchNet，参数量约减少2.1倍、估算能耗约减少21.7倍。",
+    "主要贡献": "提出端到端脉冲式音频—文本关键词匹配框架，并展示在关键词检测效果接近强基线时降低参数量和估算能耗的可能性。"
+  },
+  "structured": {
+    "topics": [
+      "关键词检测",
+      "脉冲神经网络",
+      "低能耗语音处理"
+    ],
+    "tasks": [
+      "用户自定义关键词检测",
+      "音频—文本匹配"
+    ],
+    "method_families": [
+      "脉冲神经网络",
+      "跨模态注意力"
+    ],
+    "specific_methods": [
+      "SPARK",
+      "Spike-Driven Self-Attention",
+      "语句级与音素级二元交叉熵训练"
+    ],
+    "models": [
+      "SPARK",
+      "CMCD",
+      "PhonMatchNet"
+    ],
+    "representations": [
+      "40-bin log-Mel频谱",
+      "音素序列",
+      "脉冲特征"
+    ],
+    "datasets": [
+      "LibriPhrase",
+      "LibriSpeech"
+    ],
+    "metrics": [
+      "AUC",
+      "EER",
+      "参数量",
+      "FLOPs",
+      "SOPs",
+      "估算能耗"
+    ],
+    "languages": [
+      "英语"
+    ],
+    "modalities": [
+      "语音",
+      "文本"
+    ],
+    "application_domains": [
+      "设备端语音交互",
+      "语音唤醒"
+    ],
+    "contribution_types": [
+      "关键词检测方法",
+      "低能耗模型设计",
+      "计算效率评估"
+    ],
+    "language_details": [
+      "英语"
+    ]
+  },
+  "dataset_entities": [
+    {
+      "name": "LibriPhrase",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [
+        "英语"
+      ],
+      "domain": "朗读语音与关键词检测",
+      "modality": [
+        "语音",
+        "文本"
+      ],
+      "scale_text": "训练集80万条样本；测试集规模未报告",
+      "availability": "not_stated",
+      "collection_method": "训练数据取自LibriSpeech train-clean-100与train-clean-360；测试集取自train-other-500",
+      "annotation_method": "",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "LibriPhrase Easy/Hard测试子集",
+      "type": "benchmark",
+      "task": "比较关键词检测性能、模型规模和估算能耗",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "论文使用既有LibriPhrase/LibriSpeech数据开展方法实验，没有把构建或发布数据集作为主要贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "论文提出关键词检测模型并用既有测试集评估，没有提出新的Evaluation或Benchmark本身。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M11",
+  "macro_name": "口语理解、信息检索与对话",
+  "macro": "口语理解、信息检索与对话",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; dataset_entities[0].scale_text",
+      "page_or_section": "4.1. Datasets",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "metric",
+      "field": "structured.metrics",
+      "page_or_section": "4.3. Evaluation Metrics",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验; analysis.现象分析",
+      "page_or_section": "5.1. Main Results",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "key_finding",
+      "field": "analysis.主要贡献; analysis.数据与实验",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    }
+  ]
+}

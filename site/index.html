@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Interspeech 2026 15篇开发样本中文导读、两级session导航与样本统计">
   <title>Interspeech 2026 · 15篇开发样本中文导读</title>
-  <link rel="stylesheet" href="assets/style.css?v=sample-visual-1">
+  <link rel="stylesheet" href="assets/style.css?v=architecture-2">
 </head>
 <body>
   <div class="app-layout">
-    <aside class="sidebar">
+    <button class="drawer-backdrop" data-backdrop tabindex="-1" aria-label="关闭导航"></button>
+    <aside class="sidebar" aria-label="论文导航">
+      <button class="drawer-close" data-drawer-close aria-label="关闭导航">×</button>
       <div class="brand"><span aria-hidden="true">🎙️</span><div><b>Interspeech 2026</b><small>中文论文导读</small></div></div>
       <div class="side-sample"><b>15篇开发样本</b><span>以下内容均为样本统计</span></div>
       <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索论文、作者、方法…" aria-label="搜索论文"></label>
@@ -18,6 +20,7 @@
     </aside>
     <main class="main">
       <header class="main-header">
+        <button class="menu-button" data-menu aria-label="打开分类导航" aria-expanded="false">☰ 分类</button>
         <div class="eyebrow">ISCA ARCHIVE · SYDNEY 2026</div>
         <div class="title-row"><h1>Interspeech 2026 · 中文论文导读</h1><span class="sample-pill">15篇开发样本</span></div>
         <p>六维论文导读 · 两级分类浏览 · Dataset / Evaluation 专项</p>
@@ -26,6 +29,6 @@
       <footer>15篇开发样本的分析与计数用于网站验收，不代表整届会议统计。论文来源：ISCA Archive。</footer>
     </main>
   </div>
-  <script src="assets/app.js?v=sample-visual-1" defer></script>
+  <script src="assets/app.js?v=architecture-2" defer></script>
 </body>
 </html>

@@ -1,0 +1,174 @@
+{
+  "paper_id": "chen26q_interspeech",
+  "title": "Streaming Open-Vocabulary Keyword Spotting via Role Swapping in Cross-Attention",
+  "authors": [
+    "Chen, Xi",
+    "Bai, Haichuan",
+    "Song, Liming"
+  ],
+  "original_session": "Information Extraction and Retrieval",
+  "normalized_session": "Information Extraction and Retrieval",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/chen26q_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "In recent years, attention-based multi-modal open-vocabulary keyword spotting (KWS) has attracted attention, yet its streaming deployment on device with such a design remains underexplored. We identify a data flow mismatch in traditional frameworks: speech as Key/Value requires global context but, in streaming, provides only local frames; enrollment representation as Query supplies only local information, despite its inherent global semantics. To resolve this mismatch, we propose a role-swapping streaming open-vocabulary KWS approach: streaming speech becomes Query (carrying frame-level local info) and enrollment representation as Key/Value (encoding global semantics), enabling streaming processing. Without loss of generality, we instantiate this framework with a text-registered model (~0.8M parameters) and evaluate it on LibriPhrase, achieving an EER/AUC of 6.82%/97.95% on easy negative subset and 28.21%/79.19% on hard negative subset.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/chen26q_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-1676",
+  "pages": "16-20",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/chen26q_interspeech.html",
+  "tldr_cn": "该文交换流式语音与关键词的跨注意力角色，在困难负例上改善开放词表关键词检测。",
+  "analysis": {
+    "研究动机": "开放词表关键词检测依赖跨模态注意力，但传统数据流在流式场景下让语音缺少全局上下文，限制了实时部署。",
+    "解决问题": "论文解决流式语音帧与注册关键词表示在Query、Key、Value角色分配上的不匹配。",
+    "现象分析": "简单负例上模型效果与基线接近；在更难的负例子集上，基线性能下降，而该方法取得更好的AUC和EER。",
+    "主要方法": "交换跨注意力角色：流式语音帧作为Query，注册文本作为Key/Value；再通过两阶段训练和在线难负例生成学习检测器。",
+    "数据与实验": "在LibriPhrase的容易与困难负例子集上评估，模型约0.8M参数；两子集EER/AUC分别为6.82%/97.95%和28.21%/79.19%。",
+    "主要贡献": "提出适用于流式推理的开放词表关键词检测数据流设计，并用LibriPhrase实验验证其对困难负例的鲁棒性。"
+  },
+  "structured": {
+    "topics": [
+      "流式关键词检测",
+      "开放词表关键词检测",
+      "跨模态注意力"
+    ],
+    "tasks": [
+      "流式开放词表关键词检测",
+      "文本注册关键词检测"
+    ],
+    "method_families": [
+      "跨模态注意力",
+      "多任务学习",
+      "流式语音建模"
+    ],
+    "specific_methods": [
+      "跨注意力角色交换",
+      "两阶段训练",
+      "在线难负例生成",
+      "帧级分类、音素匹配与音频—文本对比损失"
+    ],
+    "models": [
+      "角色交换流式KWS模型",
+      "CMCD框架"
+    ],
+    "representations": [
+      "因果卷积与GRU语音帧表示",
+      "注册文本/音素表示",
+      "帧级跨模态表示"
+    ],
+    "datasets": [
+      "LibriPhrase",
+      "LibriSpeech",
+      "MS-SNSD"
+    ],
+    "metrics": [
+      "EER",
+      "AUC",
+      "参数量"
+    ],
+    "languages": [
+      "英语"
+    ],
+    "modalities": [
+      "语音",
+      "文本"
+    ],
+    "application_domains": [
+      "端侧语音交互",
+      "实时关键词检测"
+    ],
+    "contribution_types": [
+      "流式跨注意力架构",
+      "训练策略",
+      "困难负例鲁棒性分析"
+    ],
+    "language_details": [
+      "英语"
+    ]
+  },
+  "dataset_entities": [
+    {
+      "name": "LibriPhrase",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [
+        "英语"
+      ],
+      "domain": "朗读语音与开放词表关键词检测",
+      "modality": [
+        "语音",
+        "文本"
+      ],
+      "scale_text": "论文未报告样本数量",
+      "availability": "not_stated",
+      "collection_method": "训练集取自LibriSpeech train-clean-100与train-clean-360；测试集取自train-other-500",
+      "annotation_method": "使用50 Hz帧级标签；关键词最后5帧标为正，其余帧标为负",
+      "language_status": []
+    },
+    {
+      "name": "MS-SNSD babble noise subset",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [],
+      "domain": "噪声语音增强",
+      "modality": [
+        "噪声音频"
+      ],
+      "scale_text": "使用babble noise子集；样本数量未报告",
+      "availability": "not_stated",
+      "collection_method": "从MS-SNSD取babble noise子集",
+      "annotation_method": "",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "LibriPhrase Easy (LPE)与Hard (LPH)测试子集",
+      "type": "benchmark",
+      "task": "比较容易与困难负例条件下的关键词检测性能",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "论文使用LibriPhrase和MS-SNSD开展方法实验，没有提出新的数据集或语料贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "论文提出流式关键词检测方法并在既有测试子集上评估，没有提出新的Evaluation或Benchmark本身。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M11",
+  "macro_name": "口语理解、信息检索与对话",
+  "macro": "口语理解、信息检索与对话",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; evaluation_entities",
+      "page_or_section": "3.1. Datasets",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "dataset_entities; evaluation_entities",
+      "page_or_section": "3.1. Datasets",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "method",
+      "field": "analysis.主要方法; structured.specific_methods",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验; analysis.现象分析; structured.metrics",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    }
+  ]
+}

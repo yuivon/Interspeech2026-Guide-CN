@@ -1,0 +1,180 @@
+{
+  "paper_id": "loweimi26_interspeech",
+  "title": "To Be Multimodal or Not to Be: Query-Adaptive Audio-Visual Person Retrieval via Active Modality Detection",
+  "authors": [
+    "Loweimi, Erfan",
+    "Qian, Mengjie",
+    "Knill, Kate",
+    "Wu, Guanfeng",
+    "Chan, Chi-Ho",
+    "Haider, Abbas",
+    "Awan, Muhammad",
+    "Kittler, Josef",
+    "Wang, Hui",
+    "Gales, Mark"
+  ],
+  "original_session": "Information Extraction and Retrieval",
+  "normalized_session": "Information Extraction and Retrieval",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/loweimi26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "When retrieving a person from a video archive by voice and face, should the system be multimodal or not? In real-world broadcast archives, unlike curated benchmarks, a target may be heard but unseen, seen but unheard, or both. Fusing scores from an absent modality injects noise, degrading precision below the best unimodal system. We propose a query-adaptive framework that detects active modalities via cross-modal score consistency: when both modalities are active, files retrieved by one also score highly on the other; this agreement breaks down when a modality is absent. Classifiers driven by these cross-modal features achieve 89% detection accuracy. On the BBC Rewind corpus (with over 12,000 broadcast videos) the adaptive system attains 94.2% P@1, outperforming speaker-only (82.9%), face-only (93.4%), and fixed fusion (90.0%), recovering 64% of the gap to an oracle with ground-truth modality labels (96.6%).",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/loweimi26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-790",
+  "pages": "32-36",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/loweimi26_interspeech.html",
+  "tldr_cn": "该文按查询判断语音和人脸是否可用，再自适应融合，减少缺失模态拖累人物检索的情况。",
+  "analysis": {
+    "研究动机": "在广播视频中，目标人物可能只被听见、只被看见，或同时出现于声音和画面。固定融合缺失模态的分数会引入噪声，使检索效果低于最佳单模态系统。",
+    "解决问题": "论文研究如何针对每个查询判断哪些模态实际存在，并据此决定使用语音检索、人脸检索还是两者融合。",
+    "现象分析": "两种模态的检索分数相互一致时，往往表示两者都有效；这种一致性在某个模态缺失时会减弱。在 BBC Rewind 上，模态检测准确率为 89%，自适应系统 P@1 为 94.2%，高于 speaker-only 的 82.9%、face-only 的 93.4% 和固定融合的 90.0%。",
+    "主要方法": "系统从语音和人脸检索结果提取跨模态分数一致性特征，用分类器判断语音、画面或两者是否有效，再设置相应的晚期分数融合权重。",
+    "数据与实验": "实验使用 BBC Rewind 广播档案，包含 12,594 段视频、共 409 小时，时间跨度为 1948—1979 年。系统在该数据上的模态检测准确率为 89%，检索 P@1 为 94.2%；有真实模态标签的 oracle P@1 为 96.6%。",
+    "主要贡献": "提出按查询主动检测有效模态的音视频人物检索方法，说明缺失模态会拖累固定融合，并以跨模态分数一致性来缓解这一问题。"
+  },
+  "structured": {
+    "topics": [
+      "音视频人物检索",
+      "主动模态检测",
+      "多模态融合"
+    ],
+    "tasks": [
+      "查询式人物检索",
+      "有效模态分类"
+    ],
+    "method_families": [
+      "查询自适应融合",
+      "跨模态一致性检测",
+      "分类"
+    ],
+    "specific_methods": [
+      "跨模态检索分数一致性特征",
+      "按查询调整的分数级晚期融合"
+    ],
+    "models": [
+      "ECAPA-TDNN",
+      "ResNet-400"
+    ],
+    "representations": [
+      "说话人嵌入",
+      "人脸嵌入",
+      "跨模态相似度分数"
+    ],
+    "datasets": [
+      "BBC Rewind"
+    ],
+    "metrics": [
+      "模态检测准确率",
+      "P@1"
+    ],
+    "languages": [],
+    "modalities": [
+      "语音",
+      "视频",
+      "人脸"
+    ],
+    "application_domains": [
+      "广播视频档案",
+      "人物检索"
+    ],
+    "contribution_types": [
+      "查询自适应多模态检索方法",
+      "主动模态检测方法"
+    ],
+    "language_details": []
+  },
+  "dataset_entities": [
+    {
+      "name": "BBC Rewind",
+      "role": "benchmark",
+      "new_or_existing": "existing",
+      "language": [],
+      "domain": "广播视频人物检索",
+      "modality": [
+        "语音",
+        "视频画面"
+      ],
+      "scale_text": "12,594 段视频，共 409 小时，覆盖 1948—1979 年。",
+      "availability": "public",
+      "collection_method": "",
+      "annotation_method": "",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "有效模态检测准确率",
+      "type": "metric",
+      "task": "判断语音、画面或音视频模态是否有效",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "P@1",
+      "type": "metric",
+      "task": "音视频人物检索",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "BBC Rewind 是系统使用的既有广播视频档案，论文未提出该档案的新建、扩充、标注或治理贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "论文提出的是查询自适应模态检测与融合方法；准确率和 P@1 用于验证方法，没有提出新的评测基准或评测协议。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M11",
+  "macro_name": "口语理解、信息检索与对话",
+  "macro": "口语理解、信息检索与对话",
+  "evidence_locations": [
+    {
+      "claim_type": "method",
+      "field": "analysis.主要方法; structured.method_families",
+      "page_or_section": "Abstract",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; analysis.数据与实验",
+      "page_or_section": "4. Experimental Setup",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "analysis.数据与实验; structured.metrics",
+      "page_or_section": "4. Experimental Setup",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "structured.specific_methods",
+      "page_or_section": "4. Experimental Setup",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析; structured.metrics",
+      "page_or_section": "Abstract",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析; structured.metrics",
+      "page_or_section": "Abstract",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "key_finding",
+      "field": "analysis.现象分析",
+      "page_or_section": "5.2 Retrieval performance",
+      "source": "full_text"
+    }
+  ]
+}

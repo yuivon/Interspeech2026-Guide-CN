@@ -1,0 +1,188 @@
+{
+  "paper_id": "zhang26fa_interspeech",
+  "title": "MPA-KWS: Multi-Modal Phoneme-Level Alignment for Streaming Open-Vocabulary Keyword Spotting",
+  "authors": [
+    "Zhang, Jue",
+    "Zheng, Guibin",
+    "Zhang, Jiarui",
+    "Han, Jiqing",
+    "Jing, Chenhao"
+  ],
+  "original_session": "Information Extraction and Retrieval",
+  "normalized_session": "Information Extraction and Retrieval",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/zhang26fa_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "For open-vocabulary keyword spotting, phoneme-level alignment has been introduced to improve the performance on acoustically confusable words. However, most existing studies utilize non-streaming methods, which are unsuitable for streaming scenarios. Recent methods achieve streaming phoneme alignment via connectionist temporal classification (CTC) algorithms, but they are limited to text-only enrollment. To address these issues, we propose a novel streaming multimodal open-vocabulary keyword spotting method based on phoneme-level alignment. This method achieves fine-grained modeling with training-inference consistency through the W-CTC forced alignment algorithm and multimodal phoneme-level contrastive learning. Additionally, we propose a data augmentation method based on CTC beam-search to dynamically mine hard negative samples. Experiments on the LibriPhrase dataset demonstrate that the proposed method achieves the best results.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/zhang26fa_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-2485",
+  "pages": "21-25",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/zhang26fa_interspeech.html",
+  "tldr_cn": "该文将音素级对齐和跨模态学习用于流式关键词检测，并支持文本与音频注册。",
+  "analysis": {
+    "研究动机": "音素级对齐有助于区分发音相近的关键词，但不少方案依赖完整序列，难以用于流式场景；现有流式 CTC 对齐方法又主要支持文本注册。",
+    "解决问题": "论文尝试在流式开放词汇关键词检测中同时支持文本与音频注册，并让训练和推理阶段采用一致的音素对齐方式。",
+    "现象分析": "在 LibriPhrase-Hard 上，文本加音频注册的 AUC 为 97.30%、EER 为 8.21%，优于仅文本注册的 96.04% 和 9.53%。去掉困难负例增强后，Hard 集 EER 升至 12.52%；去掉音素级损失后升至 11.87%。",
+    "主要方法": "采用 W-CTC 强制对齐汇聚音素级音频表示，以非对称代理损失对齐音频与文本，并用对称 InfoNCE 学习模态内关系。另用 CTC beam search 动态挖掘困难负例，并通过交叉注意力偏置模块注入关键词信息。",
+    "数据与实验": "实验使用 LibriPhrase，短语长度为 1—4 个词；训练数据来自 LibriSpeech 的 train-clean-360 和 train-clean-100，测试数据来自 train-other-500，并分为 Hard 与 Easy。模型约 4.03M 参数，使用 AUC 和 EER 评估。",
+    "主要贡献": "提出支持流式处理和文本/音频注册的多模态开放词汇关键词检测方法，并将统一的音素对齐、跨模态对比学习和动态困难负例生成结合起来。"
+  },
+  "structured": {
+    "topics": [
+      "开放词汇关键词检测",
+      "流式语音处理",
+      "音素级多模态对齐"
+    ],
+    "tasks": [
+      "流式开放词汇关键词检测",
+      "文本注册关键词检测",
+      "音频-文本关键词匹配"
+    ],
+    "method_families": [
+      "流式关键词检测",
+      "音频-文本度量学习",
+      "音素级对齐"
+    ],
+    "specific_methods": [
+      "W-CTC 强制对齐",
+      "音素级多模态对比学习",
+      "非对称代理损失（AsyP）",
+      "对称 InfoNCE 损失",
+      "CTC beam-search 困难负例挖掘",
+      "交叉注意力偏置模块"
+    ],
+    "models": [
+      "Conv1dNet",
+      "BiLSTM",
+      "GRU"
+    ],
+    "representations": [
+      "80 维 log-Mel filterbank 特征",
+      "音素级音频嵌入",
+      "音素级文本嵌入"
+    ],
+    "datasets": [
+      "LibriPhrase",
+      "LibriSpeech"
+    ],
+    "metrics": [
+      "AUC",
+      "EER"
+    ],
+    "languages": [],
+    "modalities": [
+      "语音",
+      "文本"
+    ],
+    "application_domains": [
+      "语音关键词检测",
+      "人机交互"
+    ],
+    "contribution_types": [
+      "流式多模态关键词检测方法",
+      "音素级对比学习方法",
+      "困难负例生成策略"
+    ],
+    "language_details": []
+  },
+  "dataset_entities": [
+    {
+      "name": "LibriPhrase",
+      "role": "benchmark",
+      "new_or_existing": "existing",
+      "language": [],
+      "domain": "开放词汇关键词检测",
+      "modality": [
+        "语音",
+        "文本"
+      ],
+      "scale_text": "包含 1—4 词短语；训练集来自 train-clean-360 与 train-clean-100，测试集来自 train-other-500，并划分为 Hard 与 Easy；论文未报告样本总数。",
+      "availability": "not_stated",
+      "collection_method": "由 LibriSpeech 短语构成。",
+      "annotation_method": "",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "AUC",
+      "type": "metric",
+      "task": "LibriPhrase 关键词检测",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "EER",
+      "type": "metric",
+      "task": "LibriPhrase 关键词检测",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "LibriPhrase 是方法实验中使用的既有数据集；论文未把数据集建设、标注、扩充或治理作为贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "AUC 和 EER 用于比较所提模型与基线；论文没有提出新的 benchmark、评测指标或评测协议。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M11",
+  "macro_name": "口语理解、信息检索与对话",
+  "macro": "口语理解、信息检索与对话",
+  "evidence_locations": [
+    {
+      "claim_type": "method",
+      "field": "analysis.主要方法; structured.specific_methods",
+      "page_or_section": "Abstract",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; analysis.数据与实验",
+      "page_or_section": "3.1 Dataset",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "analysis.数据与实验",
+      "page_or_section": "3.1 Dataset",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "metric",
+      "field": "structured.metrics",
+      "page_or_section": "3.3 Performance of MPA",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "structured.models; analysis.数据与实验",
+      "page_or_section": "3.2 Implementation Details",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析; analysis.数据与实验",
+      "page_or_section": "3.3 Performance of MPA",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析",
+      "page_or_section": "3.4 Ablation Study",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析",
+      "page_or_section": "3.4 Ablation Study",
+      "source": "full_text"
+    }
+  ]
+}

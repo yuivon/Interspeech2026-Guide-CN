@@ -1,0 +1,189 @@
+{
+  "paper_id": "kothare26_interspeech",
+  "title": "Speech-based Digital Biomarkers can Accelerate ALS Clinical Trials: Insights from Time-to-Event and Hazard Rate Analysis",
+  "authors": [
+    "Kothare, Hardik",
+    "Neumann, Michael",
+    "Ramanarayanan, Vikram"
+  ],
+  "original_session": "Clinically Useful Speech Representations 1",
+  "normalized_session": "Clinically Useful Speech Representations",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/kothare26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "Early detection of functional decline in amyotrophic lateral sclerosis (ALS) is critical for timely intervention and efficient clinical trial design. We evaluated speech-derived biomarkers to detect ALS-related functional decline events earlier than traditional clinical measures. Using longitudinal patient data, we applied Kaplan-Meier analysis to estimate time-to-event and derived hazard rates for each measure. Our results demonstrate that speech-based biomarkers identify functional decline faster than conventional ALS Functional Rating Scale - Revised (ALSFRS-R) subscores. Hazard rate modelling enabled the estimation of sample sizes and trial durations required to detect treatment effects. These findings suggest that speech-based measures can accelerate ALS clinical trials by providing sensitive and objective endpoints, supporting more efficient study design and patient stratification.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/kothare26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-2847",
+  "pages": "66-71",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/kothare26_interspeech.html",
+  "tldr_cn": "该文用时间到事件分析比较ALS语音和面部指标的变化速度，并估算临床试验设计需求。",
+  "analysis": {
+    "研究动机": "ALSFRS-R 等临床量表可能较晚才显示早期功能变化，而临床试验需要敏感、可量化的疾病进展终点。",
+    "解决问题": "研究语音及面部数字生物标志物能否比 ALSFRS-R 更早检测临床有意义的功能变化，并估算试验所需样本量和时长。",
+    "现象分析": "生存曲线显示多项数字指标的变化早于临床量表：最大唇宽达到有意义变化的时间约 14 天，而 ALSFRS-R 球部子分量表和言语分数分别约 660 天、208 天。样本量和试验时长是基于观察数据与指数 hazard 近似的估算，并非实际药物试验验证。",
+    "主要方法": "为各指标定义最小临床重要差异，使用 Kaplan–Meier 曲线和 log-rank 检验比较到事件时间，再以指数近似从 hazard rate 推算不同 hazard ratio 下的试验样本量与时长。",
+    "数据与实验": "EverythingALS 参与者通过 Modality 平台远程纵向评估，约每两周一次；数据覆盖 2020-11-03 至 2024-04-12，共 144 名参与者、3,463 次 session。",
+    "主要贡献": "将时间到事件分析用于比较 ALS 语音/面部指标与 ALSFRS-R 的变化敏感度，并估算临床试验设计所需资源。研究依赖观察队列，作者指出指数 hazard 近似、参与者异质性和随访删失可能影响估计。"
+  },
+  "structured": {
+    "topics": [
+      "ALS 语音数字生物标志物",
+      "纵向疾病进展",
+      "临床试验设计",
+      "时间到事件分析"
+    ],
+    "tasks": [
+      "功能下降事件检测",
+      "数字生物标志物敏感度比较",
+      "临床试验样本量估算",
+      "临床试验时长估算"
+    ],
+    "method_families": [
+      "生存分析",
+      "时间到事件分析",
+      "hazard rate 建模",
+      "临床终点比较"
+    ],
+    "specific_methods": [
+      "Kaplan–Meier 分析",
+      "pairwise log-rank 检验",
+      "指数近似 hazard rate",
+      "基于 log-rank 的样本量与时长估算",
+      "以最保守 MCID 定义事件"
+    ],
+    "models": [],
+    "representations": [
+      "F0、HNR、CPP、时长/停顿、speaking rate、CTA 等语音指标",
+      "面部运动与唇部几何指标",
+      "图像描述任务自动转录文本特征"
+    ],
+    "datasets": [
+      "EverythingALS 纵向 ALS 评估队列"
+    ],
+    "metrics": [
+      "time-to-event",
+      "hazard rate",
+      "hazard ratio",
+      "log-rank p-value",
+      "样本量/试验时长估计"
+    ],
+    "languages": [],
+    "modalities": [
+      "语音",
+      "面部视频/关键点",
+      "转写文本",
+      "临床量表"
+    ],
+    "application_domains": [
+      "肌萎缩侧索硬化症监测",
+      "数字临床终点",
+      "临床试验规划"
+    ],
+    "contribution_types": [
+      "纵向评估方法应用",
+      "临床终点比较",
+      "临床试验设计分析"
+    ],
+    "language_details": []
+  },
+  "dataset_entities": [
+    {
+      "name": "EverythingALS 经 Modality 平台采集的纵向 ALS 队列",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [],
+      "domain": "肌萎缩侧索硬化症远程健康评估",
+      "modality": [
+        "语音",
+        "面部视频/运动指标",
+        "转写文本",
+        "ALSFRS-R 临床评分"
+      ],
+      "scale_text": "144 人；3,463 次 session，其中非球部起病 110 人/2,884 次，球部起病 34 人/579 次；数据日期为 2020-11-03 至 2024-04-12。",
+      "availability": "not_stated",
+      "collection_method": "EverythingALS 招募参与者，通过 Modality 云端多模态对话平台远程重复评估，频率约每两周一次。",
+      "annotation_method": "临床量表提供 ALSFRS-R 分数；语音、面部和转录指标由自动分析模块提取。事件阈值按各指标的 MCID 定义。",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "Kaplan–Meier time-to-event 与 log-rank 检验",
+      "type": "protocol",
+      "task": "比较各语音/面部指标与 ALSFRS-R 达到临床有意义变化的时间",
+      "automatic_or_human": "automatic",
+      "attributes": [
+        "objective"
+      ]
+    },
+    {
+      "name": "指数近似 hazard rate 与试验样本量/时长估计",
+      "type": "protocol",
+      "task": "在假设 HR=0.5 或 0.8 时估算两组试验设计需求",
+      "automatic_or_human": "automatic",
+      "attributes": [
+        "objective"
+      ]
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "论文使用既有 EverythingALS 纵向队列，研究重点是分析数字指标的事件敏感度和试验设计估算，没有提出新队列作为主要贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": true,
+      "reason": "论文的核心研究贡献是以时间到事件和 hazard 分析比较数字生物标志物与临床量表，并据此估算临床试验设计需求；评估分析本身构成研究主线，虽未提出新的 benchmark 数据集。",
+      "confidence": "medium"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M07",
+  "macro_name": "医疗健康、临床语音与辅助技术",
+  "macro": "医疗健康、临床语音与辅助技术",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; analysis.数据与实验",
+      "page_or_section": "2. Data",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "analysis.数据与实验",
+      "page_or_section": "2. Data",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "analysis.数据与实验",
+      "page_or_section": "Table 1: Demographics",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "structured.specific_methods; structured.metrics",
+      "page_or_section": "3.1 Kaplan-Meier time-to-event analysis",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析",
+      "page_or_section": "4. Results",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析",
+      "page_or_section": "4. Results",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "analysis.主要方法",
+      "page_or_section": "3.2 Hazard rate analysis and sample size estimation",
+      "source": "full_text"
+    }
+  ]
+}

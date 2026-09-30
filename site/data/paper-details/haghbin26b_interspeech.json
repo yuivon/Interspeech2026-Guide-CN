@@ -1,0 +1,180 @@
+{
+  "paper_id": "haghbin26b_interspeech",
+  "title": "Natural Speech Encodes Early Markers of Cognitive Decline: Evidence from Clinical Conversations",
+  "authors": [
+    "Haghbin, Yasaman",
+    "Rashidi, Sina",
+    "Zolnour, Ali",
+    "McDonald, Margaret",
+    "Zolnoori, Maryam"
+  ],
+  "original_session": "Clinically Useful Speech Representations 1",
+  "normalized_session": "Clinically Useful Speech Representations",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/haghbin26b_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "Alzheimer's disease and related dementia (ADRD) remain largely undiagnosed, as early cognitive symptoms are rarely captured by structured clinical data. Natural speech offers a sensitive, non-invasive window into cognitive decline that structured clinical data cannot provide. This study validates conversational speech from phone calls and participant verbal communication as a biomarker for early cognitive impairment detection. Using an attention-based fusion model across 175 participants, structured clinical data alone achieved AUC = 0.74; adding phone calls improved performance (AUC = 0.76), and participant verbal communication yielded the largest gains (AUC = 0.90). The best configuration achieved AUC = 0.92 and F1 = 83.08, establishing naturalistic speech as a scalable, non-invasive biomarker in clinical settings.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/haghbin26b_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-1860",
+  "pages": "60-65",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/haghbin26b_interspeech.html",
+  "tldr_cn": "该文融合病历、电话和患者—护士对话，显示自然交流语音能补充早期认知下降检测。",
+  "analysis": {
+    "研究动机": "早期认知变化常未被结构化病历及时记录，实验室中的短时语音任务也可能错过真实交流里的细微信号。",
+    "解决问题": "研究自然临床语音能否补足电子病历以识别早期认知障碍，并比较电话随访和患者—护士交谈的增益。",
+    "现象分析": "结构化病历的 AUC 为 0.74，加入电话随访为 0.76，加入患者—护士交谈后为 0.90；最佳组合达到 AUC 0.92±0.03、F1 83.08±3.59。",
+    "主要方法": "用注意力瓶颈融合模型整合病历、护理记录、电话和患者—护士交谈特征；语音侧结合 SpeechDETECT 声学特征与文本表示，并以 Gradient×Input 分析模态贡献。",
+    "数据与实验": "样本为 175 人，其中 47 人有认知下降、128 人认知健康；电话平均约 9 分钟，患者—护士交谈平均约 29 分钟。实验使用 55/20/25 的训练、验证、测试划分，并以 5 个随机种子重复运行。",
+    "主要贡献": "提供自然临床交流语音用于早期认知障碍检测的实证结果，并显示患者—护士交谈能补充病历信息。归因结果显示语音贡献高于结构化病历，但结论来自该临床队列。"
+  },
+  "structured": {
+    "topics": [
+      "自然临床语音",
+      "认知下降",
+      "阿尔茨海默病及相关痴呆",
+      "多模态临床预测"
+    ],
+    "tasks": [
+      "认知障碍检测",
+      "自然语音与电子病历融合",
+      "模态增益分析"
+    ],
+    "method_families": [
+      "多模态融合",
+      "注意力模型",
+      "临床语音特征分析",
+      "模型归因分析"
+    ],
+    "specific_methods": [
+      "注意力瓶颈融合模型",
+      "8 个可训练融合 token",
+      "SpeechDETECT 特征提取",
+      "BERT/ClinicalBERT 文本嵌入",
+      "BioMedBERT 护理记录嵌入",
+      "Gradient×Input 归因"
+    ],
+    "models": [
+      "注意力瓶颈融合模型",
+      "BERT",
+      "ClinicalBERT",
+      "BioMedBERT"
+    ],
+    "representations": [
+      "F0、共振峰、MFCC、语音流利度等声学特征",
+      "语音转录文本嵌入",
+      "护理记录文本嵌入",
+      "结构化 EHR 特征"
+    ],
+    "datasets": [
+      "自然临床患者—护士交谈、电话随访与 EHR 关联队列"
+    ],
+    "metrics": [
+      "AUC-ROC",
+      "F1",
+      "Macro F1"
+    ],
+    "languages": [],
+    "modalities": [
+      "语音",
+      "转写文本",
+      "护理记录文本",
+      "结构化临床数据"
+    ],
+    "application_domains": [
+      "认知障碍筛查",
+      "老年医学",
+      "阿尔茨海默病及相关痴呆临床照护"
+    ],
+    "contribution_types": [
+      "临床语音实证研究",
+      "多模态预测",
+      "模态贡献分析"
+    ],
+    "language_details": []
+  },
+  "dataset_entities": [
+    {
+      "name": "自然临床语音–EHR 多模态队列",
+      "role": "used",
+      "new_or_existing": "unknown",
+      "language": [],
+      "domain": "认知障碍与老年临床照护",
+      "modality": [
+        "电话随访语音",
+        "患者—护士交谈语音",
+        "结构化 EHR",
+        "护理记录文本"
+      ],
+      "scale_text": "175 人；47 人认知下降、128 人认知健康；部分参与者有重复通话或交谈录音。",
+      "availability": "not_stated",
+      "collection_method": "标准化电话随访与真实临床患者—护士交谈录音，并关联 EHR。",
+      "annotation_method": "认知状态标签的具体判定流程未报告；语音由 AWS Transcribe 转录并 diarize，研究者用 GPT-4o 映射患者与临床人员角色。",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "AUC-ROC",
+      "type": "metric",
+      "task": "认知障碍检测",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "F1 与 Macro F1",
+      "type": "metric",
+      "task": "认知障碍检测",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "55/20/25 训练、验证、测试划分及五随机种子重复",
+      "type": "protocol",
+      "task": "比较不同语音来源和 EHR 模态组合",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "语料的来源组合有研究价值，但论文核心贡献是验证语音对认知检测的预测增益；没有把数据集构建或公开作为主要成果。",
+      "confidence": "medium"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "论文使用 AUC、F1 和常规留出评估比较模态组合，没有提出新的评测基准或评测方法。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M07",
+  "macro_name": "医疗健康、临床语音与辅助技术",
+  "macro": "医疗健康、临床语音与辅助技术",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "analysis.数据与实验; dataset_entities",
+      "page_or_section": "2.1. Dataset",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析; structured.metrics",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验; structured.metrics",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "analysis.数据与实验; evaluation_entities",
+      "page_or_section": "2.5. Model training and hyperparameter tuning",
+      "source": "full_text"
+    }
+  ]
+}

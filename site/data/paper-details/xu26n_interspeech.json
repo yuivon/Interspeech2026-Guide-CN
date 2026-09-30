@@ -1,0 +1,233 @@
+{
+  "paper_id": "xu26n_interspeech",
+  "title": "Automatic Graphical Representations of Language for Dementia Detection",
+  "authors": [
+    "Xu, Lingfeng",
+    "Ng, Si-Ioi",
+    "Ambadi, Pranav S.",
+    "Lei, Fan",
+    "Mueller, Kimberly D.",
+    "Liss, Julie",
+    "Berisha, Visar"
+  ],
+  "original_session": "Clinically Useful Speech Representations 1",
+  "normalized_session": "Clinically Useful Speech Representations",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/xu26n_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "The Cookie Theft picture description task is widely used to assess cognitive–linguistic abilities. Analyzing how speakers progress through the 23 content information units (CIUs) in the picture provides insight into the informational relevance and efficiency of their descriptions. Although prior CIU-based studies have shown effectiveness in distinguishing cognitively impaired speakers, they largely rely on manual annotation and focus on spatial CIU distributions, leaving temporal narrative dynamics underexplored. We propose an automated framework for identifying CIUs from picture descriptions and modeling transitions between CIUs as a temporal graph. Graph-based features are extracted to characterize narrative organization and temporal dynamics, and a visualization is designed to illustrate how speakers traverse picture content over time. The framework extends CIU-based analysis beyond spatio-semantic representations and offers a scalable approach for assessing cognitive abilities.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/xu26n_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-1233",
+  "pages": "54-59",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/xu26n_interspeech.html",
+  "tldr_cn": "该文自动识别图像描述中的内容单元并构建时间图，揭示临床组叙述内容与组织差异。",
+  "analysis": {
+    "研究动机": "Cookie Theft 图像描述任务中的内容信息单元（CIU）能反映叙述的信息量，但传统识别依赖人工标注，且已有研究多关注空间分布，较少刻画 CIU 随时间的变化。",
+    "解决问题": "论文自动识别描述中的 23 类 CIU，并把 CIU 转换过程表示为时间图，以分析认知正常与临床组的叙述组织差异。",
+    "现象分析": "W-ADRC 临床组提及的独特 CIU 较少：平均 12.33 个，对照组为 14.89 个，效应量 Hedge's g 为 0.80。临床组还呈现更长的图行走长度和更高的未填充停顿率。",
+    "主要方法": "先用 WhisperX 生成转写与词级时间戳，再以 BERT-base-uncased 识别 CIU，并用基于 Layer-wise Relevance Propagation 的方法定位 CIU 时间位置，最后构建时间转移图并提取图特征。",
+    "数据与实验": "Pitt Corpus 与 WRAP 合计 2,783 份转写、1,352 名说话人，用于 CIU 模型训练；W-ADRC 用于测试和组间分析，包含 568 份样本、370 名说话人。ASR 转写上的 CIU 识别 F1 为 0.865 ± 0.098，CIU 时间定位准确率为 0.910 ± 0.067。",
+    "主要贡献": "提出从自动 CIU 识别到时间图分析的框架，补充了以往偏重空间组织的 CIU 分析，并展示了图特征与认知状态差异之间的联系。"
+  },
+  "structured": {
+    "topics": [
+      "失智症语音分析",
+      "内容信息单元（CIU）",
+      "叙事时间结构"
+    ],
+    "tasks": [
+      "CIU 自动识别",
+      "CIU 时间定位",
+      "基于图特征的认知状态分析",
+      "Cookie Theft 图像描述分析"
+    ],
+    "method_families": [
+      "语音文本分析",
+      "多标签分类",
+      "时间图建模",
+      "图特征分析"
+    ],
+    "specific_methods": [
+      "WhisperX 转写与词级时间戳",
+      "BERT-base-uncased 23 类多标签 CIU 识别",
+      "Layer-wise Relevance Propagation 时间定位",
+      "CIU 转移时间图",
+      "图统计特征"
+    ],
+    "models": [
+      "WhisperX",
+      "BERT-base-uncased"
+    ],
+    "representations": [
+      "23 类 CIU 序列",
+      "CIU 时间转移图",
+      "图结构特征"
+    ],
+    "datasets": [
+      "Pitt Corpus",
+      "Wisconsin Registry for Alzheimer’s Prevention（WRAP）",
+      "Wisconsin Alzheimer’s Disease Research Center（W-ADRC）"
+    ],
+    "metrics": [
+      "Precision",
+      "Recall",
+      "F1",
+      "准确率",
+      "Hedge's g"
+    ],
+    "languages": [],
+    "modalities": [
+      "语音",
+      "转写文本"
+    ],
+    "application_domains": [
+      "认知障碍评估",
+      "临床语音分析"
+    ],
+    "contribution_types": [
+      "自动化 CIU 分析框架",
+      "时间图表示",
+      "临床可解释分析"
+    ],
+    "language_details": []
+  },
+  "dataset_entities": [
+    {
+      "name": "Pitt Corpus",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [],
+      "domain": "认知障碍语音研究",
+      "modality": [
+        "语音",
+        "转写文本"
+      ],
+      "scale_text": "与 WRAP 合并后共 2,783 份转写、1,352 名说话人；论文未单列 Pitt Corpus 的数量。",
+      "availability": "not_stated",
+      "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
+      "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
+      "language_status": []
+    },
+    {
+      "name": "Wisconsin Registry for Alzheimer’s Prevention（WRAP）",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [],
+      "domain": "阿尔茨海默病风险与认知障碍研究",
+      "modality": [
+        "语音",
+        "转写文本"
+      ],
+      "scale_text": "与 Pitt Corpus 合并后共 2,783 份转写、1,352 名说话人；论文未单列 WRAP 的数量。",
+      "availability": "not_stated",
+      "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
+      "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
+      "language_status": []
+    },
+    {
+      "name": "Wisconsin Alzheimer’s Disease Research Center（W-ADRC）",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [],
+      "domain": "阿尔茨海默病与认知障碍研究",
+      "modality": [
+        "语音",
+        "转写文本"
+      ],
+      "scale_text": "568 份样本：488 份正常组、80 份临床组；共 370 名说话人：306 名正常组、64 名临床组。",
+      "availability": "not_stated",
+      "collection_method": "论文说明语音来自 Cookie Theft 图像描述任务。",
+      "annotation_method": "人工转写以 CHAT 格式保存，并标注 CIU。",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "Precision、Recall 与 F1",
+      "type": "metric",
+      "task": "CIU 自动识别",
+      "automatic_or_human": "both",
+      "attributes": []
+    },
+    {
+      "name": "CIU 时间定位准确率",
+      "type": "metric",
+      "task": "CIU 片段时间位置定位",
+      "automatic_or_human": "both",
+      "attributes": []
+    },
+    {
+      "name": "Hedge's g",
+      "type": "metric",
+      "task": "比较正常组与临床组的图特征",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "论文使用既有语料训练和测试自动分析方法，没有把语料建设、发布、扩充或治理作为主要贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "CIU 识别指标和组间比较用于验证新框架；论文没有提出新的评测基准、指标或评测协议。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M07",
+  "macro_name": "医疗健康、临床语音与辅助技术",
+  "macro": "医疗健康、临床语音与辅助技术",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets",
+      "page_or_section": "2.1 Datasets",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "analysis.数据与实验; structured.datasets",
+      "page_or_section": "2.1 Datasets",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "analysis.数据与实验",
+      "page_or_section": "Table 2: The demographic information of W-ADRC dataset",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "method",
+      "field": "analysis.主要方法; structured.specific_methods; structured.models",
+      "page_or_section": "2. Methods",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验; structured.metrics",
+      "page_or_section": "3. Results and Discussion",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验; structured.metrics",
+      "page_or_section": "Table 4: Test performance of CIU identification using manual and ASR transcripts",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "key_finding",
+      "field": "analysis.现象分析",
+      "page_or_section": "3. Results and Discussion",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析",
+      "page_or_section": "Table 5: Comparison of features across groups",
+      "source": "full_text"
+    }
+  ]
+}

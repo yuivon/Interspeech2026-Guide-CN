@@ -1,0 +1,241 @@
+{
+  "paper_id": "barreiros26_interspeech",
+  "title": "Massive Open-Vocabulary Keyword Spotting",
+  "authors": [
+    "Barreiros, Leonor",
+    "Monteiro, Raul",
+    "Mendes, Afonso",
+    "Correia, Gonçalo M."
+  ],
+  "original_session": "Information Extraction and Retrieval",
+  "normalized_session": "Information Extraction and Retrieval",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/barreiros26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "Automatic speech recognition systems have been shown to under-perform when it comes to transcribing words rarely seen in the training data, namely specialized terminology. Open-vocabulary keyword spotting, combined with contextual biasing, has been shown to mitigate this issue. However, existing systems can only handle glossaries of a few hundred terms without becoming an infeasible bottleneck. We propose a system that stores features with a memory footprint up to 128 times smaller than a comparable baseline and allows users to process massive databases while remaining open-vocabulary. Without fine-tuning the speech recognition model, our system achieves a comparable entity recall as uncompressed solutions, even in languages not seen during training.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/barreiros26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-1444",
+  "pages": "1-5",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/barreiros26_interspeech.html",
+  "tldr_cn": "该文分层压缩Whisper特征支持大词表关键词检测，并比较多语种检索效果及上下文偏置的得失。",
+  "analysis": {
+    "研究动机": "自动语音识别容易漏掉训练中少见的专业词，开放词表关键词检测可提供补充，但现有方案难以承载数百个以上词条。",
+    "解决问题": "论文研究如何压缩关键词与语音的特征存储，使大词表关键词检测可用，而无需微调语音识别模型。",
+    "现象分析": "压缩特征在多个测试语料上仍能保持有竞争力的检测效果；但在葡萄牙语内部语料的未清理大词表场景，加入上下文偏置反而降低了转写表现。",
+    "主要方法": "方法依次压缩Whisper特征的层数、隐藏维度和帧率，再将关键词检测结果用于Whisper上下文偏置。",
+    "数据与实验": "实验覆盖中文AISHELL、英文ACL6060和葡萄牙语内部问诊语料；最压缩配置的特征存储空间最多缩小128倍，三个语料上的KWS F1/F1@5分别为69±4、86±4和28±2。",
+    "主要贡献": "提出面向大规模开放词表关键词检测的分层特征压缩方案，并检验其在跨语言、跨领域语料和上下文偏置ASR中的效果。"
+  },
+  "structured": {
+    "topics": [
+      "开放词表关键词检测",
+      "上下文偏置",
+      "语音特征压缩",
+      "大规模词表"
+    ],
+    "tasks": [
+      "开放词表关键词检测",
+      "关键词引导语音识别"
+    ],
+    "method_families": [
+      "特征压缩",
+      "关键词检测",
+      "上下文偏置"
+    ],
+    "specific_methods": [
+      "L-comp层选择压缩",
+      "LH-comp隐藏维度压缩",
+      "LHF-comp帧率压缩",
+      "Whisper上下文偏置"
+    ],
+    "models": [
+      "Whisper-large-v2",
+      "ResNet-50",
+      "Whisper-medium基线"
+    ],
+    "representations": [
+      "Whisper多层音频嵌入",
+      "关键词—语音余弦相似度矩阵",
+      "压缩后的嵌入"
+    ],
+    "datasets": [
+      "Multilingual LibriSpeech",
+      "AISHELL",
+      "ACL6060",
+      "葡萄牙语内部家庭医学问诊语料"
+    ],
+    "metrics": [
+      "F1",
+      "F1@5",
+      "归一化MER",
+      "实体召回率",
+      "实时因子",
+      "词条特征存储空间"
+    ],
+    "languages": [
+      "英语",
+      "法语",
+      "德语",
+      "波兰语",
+      "葡萄牙语",
+      "西班牙语",
+      "中文"
+    ],
+    "modalities": [
+      "语音",
+      "文本"
+    ],
+    "application_domains": [
+      "专业术语识别",
+      "临床语音识别",
+      "大词表语音检索"
+    ],
+    "contribution_types": [
+      "特征压缩方法",
+      "开放词表关键词检测系统",
+      "跨语种实验分析"
+    ],
+    "language_details": [
+      "英语",
+      "法语",
+      "德语",
+      "波兰语",
+      "葡萄牙语",
+      "西班牙语",
+      "中文"
+    ]
+  },
+  "dataset_entities": [
+    {
+      "name": "Multilingual LibriSpeech (MLS)",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [
+        "英语",
+        "法语",
+        "德语",
+        "波兰语",
+        "葡萄牙语",
+        "西班牙语"
+      ],
+      "domain": "朗读有声书",
+      "modality": [
+        "语音",
+        "文本"
+      ],
+      "scale_text": "训练数据共25小时，覆盖6种语言；每种语言选取12,000个关键词；验证集每种语言使用200个关键词",
+      "availability": "not_stated",
+      "collection_method": "从MLS语料提取；关键词由转写文本中的名词和专有名词抽取",
+      "annotation_method": "使用MLS转写文本抽取关键词；关键词音频混合自然语音与TTS语音",
+      "language_status": []
+    },
+    {
+      "name": "AISHELL",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [
+        "中文"
+      ],
+      "domain": "普通话语音",
+      "modality": [
+        "语音"
+      ],
+      "scale_text": "76分钟、808条话语、400个实体",
+      "availability": "public",
+      "collection_method": "在隔离环境中使用高保真麦克风录制",
+      "annotation_method": "人工标注热词",
+      "language_status": []
+    },
+    {
+      "name": "ACL6060",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [
+        "英语"
+      ],
+      "domain": "研究论文现场演讲与技术术语",
+      "modality": [
+        "语音"
+      ],
+      "scale_text": "51分钟、123条话语、200个实体",
+      "availability": "public",
+      "collection_method": "录制现场研究演讲",
+      "annotation_method": "人工标注热词",
+      "language_status": []
+    },
+    {
+      "name": "内部家庭医学问诊语料",
+      "role": "used",
+      "new_or_existing": "unknown",
+      "language": [
+        "葡萄牙语"
+      ],
+      "domain": "家庭医学问诊",
+      "modality": [
+        "语音"
+      ],
+      "scale_text": "103分钟、210条话语；关键词表含16,062个词条",
+      "availability": "not_stated",
+      "collection_method": "家庭医学问诊录音",
+      "annotation_method": "关键词表从葡萄牙临床术语目录抽取，去除停用词和数字；语音标注方式未报告",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "AISHELL、ACL6060与内部问诊语料测试",
+      "type": "benchmark",
+      "task": "测量检测准确率、转写质量、实体召回与特征存储效率",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "研究使用现有多语种与领域语料评估压缩方法，没有把新语料构建或数据集发布作为主要贡献。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "论文比较压缩方案在多个测试集上的表现，但没有提出新的Evaluation或Benchmark本身。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M11",
+  "macro_name": "口语理解、信息检索与对话",
+  "macro": "口语理解、信息检索与对话",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "structured.datasets; structured.languages",
+      "page_or_section": "3.1.1. Training data",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "dataset",
+      "field": "dataset_entities",
+      "page_or_section": "3.1.2. Validation and evaluation data",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "evaluation_entities; structured.metrics",
+      "page_or_section": "3.3.1. Keyword-spotting model evaluation",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.数据与实验; evaluation_entities",
+      "page_or_section": "Table 3: KWS metrics (F1 and F1@5)",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.主要贡献; structured.metrics",
+      "page_or_section": "1. Introduction",
+      "source": "full_text"
+    }
+  ]
+}

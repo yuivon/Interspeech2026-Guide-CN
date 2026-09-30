@@ -1,0 +1,202 @@
+{
+  "paper_id": "khaymonenko26_interspeech",
+  "title": "Scalable Keyword Spotting via Modular Network Expansion",
+  "authors": [
+    "Khaymonenko, Viktor",
+    "Saladukha, Dzmitry",
+    "Rak, Aliaksei",
+    "Rostov, Alexander"
+  ],
+  "original_session": "Information Extraction and Retrieval",
+  "normalized_session": "Information Extraction and Retrieval",
+  "isca_page_url": "https://www.isca-archive.org/interspeech_2026/khaymonenko26_interspeech.html",
+  "conference": "Interspeech 2026",
+  "year": 2026,
+  "abstract": "Keyword spotting (KWS) models on embedded devices often need to add new keywords after deployment, but updates are difficult when original training data are unavailable and regressions on existing triggers are unacceptable. At a fixed operating point, our method reduces average new-keyword false reject rate (FRR) from 6.46% to 4.37% versus a parameter-matched separate-model baseline and outperforms parameter-efficient tuning baselines (adapters, LoRA), while using fewer multiply-accumulate operations (MACs) under the same added-parameter budget (≤10k): 16.34M vs 18.45M/20.52M. We achieve this via parameter-capped modular expansion: the base network, including batch-normalization statistics and the core classifier, is frozen, and only a lightweight expansion branch with a separate new-keyword head is trained, preserving core logits, shipped outputs, and thresholds for existing keywords.",
+  "pdf_url": "https://www.isca-archive.org/interspeech_2026/khaymonenko26_interspeech.pdf",
+  "doi": "10.21437/Interspeech.2026-987",
+  "pages": "11-15",
+  "source_isca_page": "https://www.isca-archive.org/interspeech_2026/khaymonenko26_interspeech.html",
+  "tldr_cn": "该文冻结原关键词检测路径并增加轻量分支，让设备可扩展新词且保持旧词输出不变。",
+  "analysis": {
+    "研究动机": "嵌入式关键词检测器部署后常需增加触发词，但原训练数据可能无法再用；直接微调还可能损害已有关键词识别。",
+    "解决问题": "如何在不访问旧训练数据、新增参数不超过 10k 的条件下增加关键词，同时严格保持旧关键词输出不变。",
+    "现象分析": "冻结原网络并增加轻量分支可在结构上保持旧关键词 logits 不变。五组关键词扩展实验中，新词平均 FRR 为 4.37%，低于参数匹配的独立模型基线 6.46%；新增分支 MACs 为 16.34M，低于 Adapter 的 18.45M 和 LoRA 的 20.52M。",
+    "主要方法": "冻结 SVDF 风格基础网络及其归一化统计量，通过扩展块读取冻结层激活，再接独立新词分类头；推理时先运行原关键词检测器，只有其拒识时才评估新词头。",
+    "数据与实验": "使用 Google Speech Commands v2 的十个关键词和五组留出词对；Mozilla Common Voice v17 仅用作负样本以校准 1% FAR 阈值。各配置运行八个随机种子。",
+    "主要贡献": "提出参数受限的模块化关键词扩展方法，并以冻结原路径的设计提供旧词行为不变保证。新词识别相较独立小模型、Adapter 和 LoRA 基线更有效率；实验仍基于指定数据集和关键词任务。"
+  },
+  "structured": {
+    "topics": [
+      "关键词检测",
+      "持续学习",
+      "灾难性遗忘",
+      "嵌入式语音模型"
+    ],
+    "tasks": [
+      "部署后关键词扩展",
+      "增量关键词检测",
+      "保持旧关键词性能"
+    ],
+    "method_families": [
+      "模块化网络扩展",
+      "增量学习",
+      "参数高效适配"
+    ],
+    "specific_methods": [
+      "冻结 SVDF 风格基础网络",
+      "参数上限 10k 的扩展块",
+      "独立新词分类头",
+      "core-first 决策规则",
+      "五组留出关键词对"
+    ],
+    "models": [
+      "SVDF 风格关键词检测网络",
+      "模块化扩展网络"
+    ],
+    "representations": [
+      "40-bin log-mel filterbanks"
+    ],
+    "datasets": [
+      "Google Speech Commands v2",
+      "Mozilla Common Voice v17"
+    ],
+    "metrics": [
+      "Macro FRR",
+      "FAR",
+      "MACs",
+      "参数量"
+    ],
+    "languages": [
+      "英语"
+    ],
+    "modalities": [
+      "语音"
+    ],
+    "application_domains": [
+      "嵌入式语音助手",
+      "设备端关键词检测"
+    ],
+    "contribution_types": [
+      "模型架构",
+      "增量学习方法",
+      "旧类无回归保证"
+    ],
+    "language_details": [
+      "英语"
+    ]
+  },
+  "dataset_entities": [
+    {
+      "name": "Google Speech Commands v2",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [
+        "英语"
+      ],
+      "domain": "关键词检测",
+      "modality": [
+        "语音"
+      ],
+      "scale_text": "使用标准十个命令词；论文未报告本实验实际使用的音频条数。",
+      "availability": "not_stated",
+      "collection_method": "使用官方训练、验证和测试划分；论文未报告原始采集细节。",
+      "annotation_method": "按十个目标命令词分类，其余词语和静音映射为背景类。",
+      "language_status": []
+    },
+    {
+      "name": "Mozilla Common Voice v17",
+      "role": "used",
+      "new_or_existing": "existing",
+      "language": [
+        "英语"
+      ],
+      "domain": "通用语音与关键词误报校准",
+      "modality": [
+        "语音"
+      ],
+      "scale_text": "只使用测试划分作为负样本；论文未报告样本数。",
+      "availability": "not_stated",
+      "collection_method": "使用 Common Voice v17 测试划分作为负样本来源。",
+      "annotation_method": "在 FAR 校准中作为 negative-only corpus；未报告其他标签处理细节。",
+      "language_status": []
+    }
+  ],
+  "evaluation_entities": [
+    {
+      "name": "Macro FRR",
+      "type": "metric",
+      "task": "固定 FAR 工作点下的关键词扩展识别",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "FAR@1%",
+      "type": "metric",
+      "task": "关键词检测阈值校准",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    },
+    {
+      "name": "五组关键词对、八随机种子",
+      "type": "protocol",
+      "task": "增量关键词扩展比较",
+      "automatic_or_human": "automatic",
+      "attributes": []
+    }
+  ],
+  "special_tags": {
+    "dataset": {
+      "relevant": false,
+      "reason": "实验使用既有 GSC v2 和 Common Voice v17；论文的贡献是模型扩展方法，没有提出新的数据集或语料。",
+      "confidence": "high"
+    },
+    "evaluation": {
+      "relevant": false,
+      "reason": "论文在标准数据集上设置关键词扩展实验，但没有提出新的评测基准或独立评测方法。",
+      "confidence": "high"
+    }
+  },
+  "analysis_source": "full_text",
+  "macro_id": "M11",
+  "macro_name": "口语理解、信息检索与对话",
+  "macro": "口语理解、信息检索与对话",
+  "evidence_locations": [
+    {
+      "claim_type": "dataset",
+      "field": "dataset_entities; structured.datasets",
+      "page_or_section": "4.1. Datasets and expansion tasks",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "structured.tasks; dataset_entities",
+      "page_or_section": "4.1. Datasets and expansion tasks",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "metric",
+      "field": "structured.metrics; evaluation_entities",
+      "page_or_section": "4.3. Metric, thresholds, and confidence intervals",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "experiment_setup",
+      "field": "analysis.数据与实验; evaluation_entities",
+      "page_or_section": "4.3. Metric, thresholds, and confidence intervals",
+      "source": "full_text"
+    },
+    {
+      "claim_type": "numerical_result",
+      "field": "analysis.现象分析; analysis.数据与实验; structured.metrics",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    },
+    {
+      "claim_type": "method",
+      "field": "analysis.主要方法; structured.specific_methods",
+      "page_or_section": "Abstract",
+      "source": "abstract"
+    }
+  ]
+}
